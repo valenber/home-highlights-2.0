@@ -1,0 +1,23 @@
+{
+  "name": "home-highlights-two",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Valentin Berlin <valentin.berlin@protonmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "start": "next start",
+    "build": "next build"
+  },
+  "dependencies": {
+    "next": "^9.3.4",
+    "primeicons": "^2.0.0",
+    "primereact": "^4.1.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-transition-group": "^4.3.0"
+  },
+  "devDependencies": {
+    "classnames": "^2.2.6"
+  }
+}
