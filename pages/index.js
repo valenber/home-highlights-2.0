@@ -2,8 +2,9 @@ import { Calendar } from 'primereact/calendar';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
-import { OverlayPanel } from 'primereact/overlaypanel';
 import { Dialog } from 'primereact/dialog';
+import { Card } from 'primereact/card';
+import { Growl } from 'primereact/growl';
 
 export default () => {
   const opts = [
@@ -13,6 +14,15 @@ export default () => {
 
   const [modalVisible, setModalVisible] = React.useState(false);
   const [dates, setDates] = React.useState();
+  const note = React.useRef();
+  React.useEffect(() => {
+    note.current.show({
+      severity: 'success',
+      summary: 'New Event',
+      detail: 'Saved to the Database',
+    });
+  });
+
   const footer = (
     <div>
       <Button
@@ -35,6 +45,16 @@ export default () => {
   return (
     <>
       <h1>Home Highlights 2.0</h1>
+      <div className="events-wrapper">
+        <Card title="The Queen">Some event description here</Card>
+        <Card title="The King">Some event description here</Card>
+        <Card title="The Prince">Some event description here</Card>
+        <Card title="The Jester">Some event description here</Card>
+        <Card title="The Queen">Some event description here</Card>
+        <Card title="The King">Some event description here</Card>
+        <Card title="The Prince">Some event description here</Card>
+        <Card title="The Jester">Some event description here</Card>
+      </div>
       <Calendar
         selectionMode="range"
         showButtonBar={true}
@@ -68,6 +88,7 @@ export default () => {
       >
         <h1>Modal</h1>
       </Dialog>
+      <Growl ref={note} />)
     </>
   );
 };

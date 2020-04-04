@@ -6,13 +6,13 @@ A rewrite of event management system.
 The app fetches a list of events from a DB and displays them in a tabbed list by categories and status. User can manage events list with following stories:
 
 ### User stories
-* [] view events by category
-* [] add event
-* [] remove event
-* [] edit event properties
-* [] promote event
-* [] demote event
-* [] add category to an event (copy to another category)
+* [ ] view events by category
+* [ ] add event
+* [ ] remove event
+* [ ] edit event properties
+* [ ] promote event
+* [ ] demote event
+* [ ] add category to an event (copy to another category)
 
 ## Views 
 * EVENTS LIST - main view where we can see all elements and trigger events
@@ -25,6 +25,7 @@ The app fetches a list of events from a DB and displays them in a tabbed list by
 * CandidateEventCard
 * EventControlPanel (Promote, Edit, Copy, Delete)
 * EditEventModal (TextInput, DateInput, SelectIput, RadioButton)
+* Notifications (inform user about DB operations)
 
 ## Data
 App communicates with DB to handle the following actions:
