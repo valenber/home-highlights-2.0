@@ -4,10 +4,23 @@
 // delete event
 // edit event
 
-export default (_req, res) => {
-  setTimeout(() => {
-    // res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
+import { NextApiRequest, NextApiResponse } from 'next';
+
+export const eventsEndpointHandler = (
+  req: NextApiRequest,
+  res: NextApiResponse,
+) => {
+  const { method } = req;
+
+  switch (method) {
+  case 'GET':
     res.status(200).end(JSON.stringify({ moto: 'Akuna Matata' }));
-  }, 1500);
+    break;
+
+  default:
+    res.status(400);
+    break;
+  }
 };
+
+export default eventsEndpointHandler;
