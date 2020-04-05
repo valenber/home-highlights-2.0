@@ -1,3 +1,6 @@
+import React from 'react';
+import useSwr from 'swr';
+
 import { Calendar } from 'primereact/calendar';
 import { Button } from 'primereact/button';
 import { InputText } from 'primereact/inputtext';
@@ -6,9 +9,7 @@ import { Dialog } from 'primereact/dialog';
 import { Card } from 'primereact/card';
 import { Growl } from 'primereact/growl';
 
-import useSwr from 'swr';
-
-const dataFetcher = (url) => fetch(url).then((res) => res.json());
+const dataFetcher = (url: RequestInfo) => fetch(url).then((res) => res.json());
 
 export default () => {
   const { data, error } = useSwr('/api/events', dataFetcher);
@@ -19,8 +20,18 @@ export default () => {
   ];
 
   const [modalVisible, setModalVisible] = React.useState(false);
-  const [dates, setDates] = React.useState();
-  const note = React.useRef();
+  const [dates, setDates] = React.useState<Date[] | Date>([]);
+  const note = React.useRef(null);
+
+  type PrimeCalendarChangeEvent = {
+    originalEvent: Event;
+    value: Date | Date[];
+    target: any;
+  };
+
+  const handleDateInput = (e: PrimeCalendarChangeEvent) => {
+    setDates(e.value);
+  };
 
   const footer = (
     <div>
@@ -38,13 +49,15 @@ export default () => {
         icon="pi pi-check"
         onClick={() => {
           setModalVisible(false);
-          setTimeout(() => {
-            note.current.show({
-              severity: 'success',
-              summary: growlSummary,
-              detail: 'Saved to the Database',
-            });
-          }, 500);
+          if (note) {
+            setTimeout(() => {
+              note.current.show({
+                severity: 'success',
+                summary: growlSummary,
+                detail: 'Saved to the Database',
+              });
+            }, 500);
+          }
         }}
       />
     </div>
@@ -72,22 +85,21 @@ export default () => {
         <Card title="The Prince">Some event description here</Card>
         <Card title="The Jester">Some event description here</Card>
       </div>
-      <Button
-        label="Create Event"
-        icon="pi pi-calendar-plus"
-        iconPos="right"
-        className="p-button-warning"
-      />
       <span className="p-float-label">
         <InputText id="in" />
         <label htmlFor="in">Username</label>
       </span>
       <Dropdown placeholder="Select Category" options={opts} />
+
       <Button
         type="button"
-        label="Modal"
+        label="Create Event"
+        icon="pi pi-calendar-plus"
+        iconPos="right"
+        className="p-button-warning"
         onClick={() => setModalVisible(true)}
       />
+
       <Dialog
         header="Selected Event"
         modal={true}
@@ -102,7 +114,7 @@ export default () => {
           placeholder="Select Date"
           inline={true}
           value={dates}
-          onChange={(e) => setDates(e.value)}
+          onChange={handleDateInput}
         />
         <Calendar
           selectionMode="range"
@@ -110,7 +122,7 @@ export default () => {
           placeholder="Select Date"
           inline={true}
           value={dates}
-          onChange={(e) => setDates(e.value)}
+          onChange={handleDateInput}
         />
       </Dialog>
       <Growl ref={note} />

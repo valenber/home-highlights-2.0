@@ -4,10 +4,10 @@
 // delete event
 // edit event
 
-export default async (_req, res) => {
+export default (_req, res) => {
   setTimeout(() => {
-    res.statusCode = 200;
+    // res.statusCode = 200;
     res.setHeader('Content-Type', 'application/json');
-    res.end(JSON.stringify({ moto: 'Akuna Matata' }));
-  }, 3000);
+    res.status(200).end(JSON.stringify({ moto: 'Akuna Matata' }));
+  }, 1500);
 };
