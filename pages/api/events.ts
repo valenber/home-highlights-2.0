@@ -13,7 +13,7 @@ export const eventsEndpointHandler = (
   const { method } = req;
 
   switch (method) {
-  case 'GET':
+  case 'GET': // fetch all events
     res.status(200).end(JSON.stringify({ moto: 'Akuna Matata' }));
     break;
 
