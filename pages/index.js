@@ -6,7 +6,13 @@ import { Dialog } from 'primereact/dialog';
 import { Card } from 'primereact/card';
 import { Growl } from 'primereact/growl';
 
+import useSwr from 'swr';
+
+const dataFetcher = (url) => fetch(url).then((res) => res.json());
+
 export default () => {
+  const { data, error } = useSwr('/api/events', dataFetcher);
+
   const opts = [
     { label: 'Concert', value: 'C' },
     { label: 'Home', value: 'H' },
@@ -15,36 +21,47 @@ export default () => {
   const [modalVisible, setModalVisible] = React.useState(false);
   const [dates, setDates] = React.useState();
   const note = React.useRef();
-  React.useEffect(() => {
-    note.current.show({
-      severity: 'success',
-      summary: 'New Event',
-      detail: 'Saved to the Database',
-    });
-  });
 
   const footer = (
     <div>
       <Button
-        className="p-button-success"
-        label="Yes"
-        icon="pi pi-check"
-        onClick={() => {}}
-      />
-      <Button
-        label="No"
+        label="Cancel"
         className="p-button-warning"
         icon="pi pi-times"
         onClick={() => {
           setModalVisible(false);
         }}
       />
+      <Button
+        className="p-button-success"
+        label="Save"
+        icon="pi pi-check"
+        onClick={() => {
+          setModalVisible(false);
+          setTimeout(() => {
+            note.current.show({
+              severity: 'success',
+              summary: growlSummary,
+              detail: 'Saved to the Database',
+            });
+          }, 500);
+        }}
+      />
     </div>
+  );
+  const growlSummary = (
+    <span>
+      <i className="pi pi-save" style={{ fontSize: '3em' }} />
+      <h3>New Event</h3>
+    </span>
   );
 
   return (
     <>
       <h1>Home Highlights 2.0</h1>
+      {error && <h3>Missing data</h3>}
+      {!data && <h3>Loading...</h3>}
+      {data && <pre>{JSON.stringify(data)}</pre>}
       <div className="events-wrapper">
         <Card title="The Queen">Some event description here</Card>
         <Card title="The King">Some event description here</Card>
@@ -55,14 +72,6 @@ export default () => {
         <Card title="The Prince">Some event description here</Card>
         <Card title="The Jester">Some event description here</Card>
       </div>
-      <Calendar
-        selectionMode="range"
-        showButtonBar={true}
-        placeholder="Select Date"
-        inline={true}
-        value={dates}
-        onChange={(e) => setDates(e.value)}
-      />
       <Button
         label="Create Event"
         icon="pi pi-calendar-plus"
@@ -87,8 +96,24 @@ export default () => {
         footer={footer}
       >
         <h1>Modal</h1>
+        <Calendar
+          selectionMode="range"
+          showButtonBar={true}
+          placeholder="Select Date"
+          inline={true}
+          value={dates}
+          onChange={(e) => setDates(e.value)}
+        />
+        <Calendar
+          selectionMode="range"
+          showButtonBar={true}
+          placeholder="Select Date"
+          inline={true}
+          value={dates}
+          onChange={(e) => setDates(e.value)}
+        />
       </Dialog>
-      <Growl ref={note} />)
+      <Growl ref={note} />
     </>
   );
 };
