@@ -1,8 +1,8 @@
 import { createMocks } from 'node-mocks-http';
-import { eventsEndpointHandler } from '../pages/api/events.ts';
+import { eventsEndpointHandler } from '../pages/api/events';
 
 describe('GET', () => {
-  let response;
+  let response: { _getStatusCode: () => any; _getData: () => any };
 
   beforeEach(() => {
     const { req, res } = createMocks({
