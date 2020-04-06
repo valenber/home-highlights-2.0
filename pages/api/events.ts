@@ -14,11 +14,23 @@ export const eventsEndpointHandler = (
 
   switch (method) {
   case 'GET': // fetch all events
-    res.status(200).end(JSON.stringify({ moto: 'Akuna Matata' }));
+    res.status(200).end(JSON.stringify([{ _id: 'deletedRecordID' }]));
+    break;
+
+  case 'POST': // create new event
+    res.status(200).end('newRecordID');
+    break;
+
+  case 'DELETE': // remove existing event
+    res.status(200).end(JSON.stringify({ _id: 'deletedRecordID' }));
+    break;
+
+  case 'PUT': // update existing event
+    res.status(200).end(JSON.stringify({ _id: 'updatedRecordID' }));
     break;
 
   default:
-    res.status(400);
+    res.status(405).end('');
     break;
   }
 };
