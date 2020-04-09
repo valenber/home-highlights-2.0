@@ -1,17 +1,34 @@
+import mongoose from 'mongoose';
 import { createMocks } from 'node-mocks-http';
-import { eventsEndpointHandler } from '../pages/api/events';
+import eventsEndpointHandler from '../pages/api/events';
+import Events from '../data/db_model.events';
 
 type APIresponse = { _getStatusCode: () => any; _getData: () => any };
 
-describe('GET', () => {
+// setup connection to mongo db running in docker container
+// that was launched in pretest script
+beforeAll(async () => {
+  const mongoURL = 'mongodb://127.0.0.1:27017/testDB';
+  await mongoose.connect(mongoURL, {
+    // mongoose has deprecated some characteristics and needs those options
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  });
+});
+// close connection to mongo db
+afterAll(async () => {
+  await mongoose.connection.close();
+});
+
+describe.skip('GET', () => {
   let response: APIresponse;
 
-  beforeEach(() => {
+  beforeEach(async () => {
     const { req, res } = createMocks({
       method: 'GET',
     });
     response = res;
-    eventsEndpointHandler(req, res);
+    await eventsEndpointHandler(req, res);
   });
 
   test('method allowed by API', () => {
@@ -27,29 +44,49 @@ describe('GET', () => {
   });
 });
 
+async function mockRequest(method: any, body = {}) {
+  const { req, res } = createMocks({
+    method,
+    body,
+  });
+  eventsEndpointHandler(req, res);
+  return { req, res };
+}
+
 describe('POST', () => {
-  let response: APIresponse;
+  const testEvent = {
+    name: 'PhotoEspana 2019',
+    start: '1/1/2019',
+  };
 
-  beforeEach(() => {
-    const { req, res } = createMocks({
-      method: 'POST',
-    });
-    response = res;
-    eventsEndpointHandler(req, res);
+  afterEach(() => {
+    // clear up the collection
+    Events.remove({});
   });
 
-  test('method allowed by API', () => {
-    expect(response._getStatusCode()).not.toBe(405);
+  test.only('method allowed by API', async (done) => {
+    const { res } = await mockRequest('POST');
+    expect(res._getStatusCode()).not.toBe(405);
+    done();
   });
 
-  test('returns non-empty string', () => {
-    const APIres = response._getData();
+  test('returns non-empty string', async (done) => {
+    const { res } = await mockRequest('POST');
+    const APIres = res._getData();
+    console.log(res._getData());
     expect(typeof APIres).toBe('string');
     expect(APIres.length).toBeGreaterThanOrEqual(1);
+    done();
+  });
+
+  test('posted event is saved in the DB', async (done) => {
+    const [firstDocument] = await Events.find();
+    expect(firstDocument).toEqual(testEvent);
+    done();
   });
 });
 
-describe('DELETE', () => {
+describe.skip('DELETE', () => {
   let response: APIresponse;
 
   beforeEach(() => {
@@ -60,8 +97,10 @@ describe('DELETE', () => {
     eventsEndpointHandler(req, res);
   });
 
-  test('method allowed by API', () => {
-    expect(response._getStatusCode()).not.toBe(405);
+  test('method allowed by API', (done) => {
+    const result = response._getStatusCode();
+    expect(result).not.toBe(405);
+    done();
   });
 
   test('returns deleted event Object', () => {
@@ -71,7 +110,7 @@ describe('DELETE', () => {
   });
 });
 
-describe('PUT', () => {
+describe.skip('PUT', () => {
   let response: APIresponse;
 
   beforeEach(() => {
