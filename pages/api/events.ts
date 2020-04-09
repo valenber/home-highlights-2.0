@@ -1,24 +1,20 @@
-// here we handle all DB requests
-// all events
-// add event
-// delete event
-// edit event
+// here we define endpoints and use handlers to process API calls into DB requests
 
 import { NextApiRequest, NextApiResponse } from 'next';
+import { createNewEvent } from '../../data/api.hadlers';
 
-export const eventsEndpointHandler = (
-  req: NextApiRequest,
-  res: NextApiResponse,
-) => {
-  const { method } = req;
+export default async function(req: NextApiRequest, res: NextApiResponse) {
+  const { method, body } = req;
 
   switch (method) {
   case 'GET': // fetch all events
-    res.status(200).end(JSON.stringify([{ _id: 'deletedRecordID' }]));
+    res.status(200).end(JSON.stringify([{ _id: 'someRecordID' }]));
     break;
 
   case 'POST': // create new event
-    res.status(200).end('newRecordID');
+    const dbResponse = await createNewEvent(body);
+    const { status, message } = dbResponse;
+    res.status(status).end(JSON.stringify(message));
     break;
 
   case 'DELETE': // remove existing event
@@ -33,6 +29,4 @@ export const eventsEndpointHandler = (
     res.status(405).end('');
     break;
   }
-};
-
-export default eventsEndpointHandler;
+}

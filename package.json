@@ -8,7 +8,9 @@
     "dev": "next",
     "start": "next start",
     "build": "next build",
-    "test": "jest"
+    "pretest": "docker container run --rm -d -p 27017:27017 --name mongo_tester mongo",
+    "test": "jest",
+    "posttest": "docker container rm mongo_tester -f"
   },
   "husky": {
     "hooks": {
@@ -16,6 +18,8 @@
     }
   },
   "dependencies": {
+    "@types/mongoose": "^5.7.8",
+    "mongoose": "^5.9.7",
     "next": "^9.3.4",
     "primeicons": "^2.0.0",
     "primereact": "^4.1.2",
