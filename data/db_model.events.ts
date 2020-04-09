@@ -1,4 +1,4 @@
-import { Schema, model } from 'mongoose';
+import mongoose, { Schema, model } from 'mongoose';
 
 const EventSchema = new Schema({
   name: String,
@@ -11,12 +11,12 @@ const EventSchema = new Schema({
   last_update: { type: Date, default: Date.now },
 });
 
-export default model('Event', EventSchema);
-
-export type AgendaEvent = {
+export interface AgendaEvent extends mongoose.Document {
   name: string;
   start: string;
-};
+}
+
+export default model<AgendaEvent>('Event', EventSchema);
 
 // this is an example of event that can be added to DB
 // it is used in tests
