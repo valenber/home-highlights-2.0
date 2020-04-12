@@ -1,7 +1,7 @@
 // here we define endpoints and use handlers to process API calls into DB requests
 
 import { NextApiResponse, NextApiRequest } from 'next';
-import { getAllEvents, createNewEvent } from '../../data/api.hadlers';
+import databaseService from '../../services/databaseService';
 
 type FixMeLater = any;
 
@@ -13,19 +13,16 @@ export default async function(
 
   switch (method) {
   case 'GET': // fetch all events
-    const dbGetResponse = await getAllEvents();
-    const payload = dbGetResponse.documents.length
-      ? dbGetResponse.documents
-      : dbGetResponse.message;
-
-    res.status(dbGetResponse.status).end(JSON.stringify(payload));
+    try {
+      const { status, list } = await databaseService.getAllAgendaEvents();
+      res.status(status).end(JSON.stringify([...list]));
+    } catch (err) {
+      res.status(500).end(err.message || 'something is wrong with the DB');
+    }
     break;
 
   case 'POST': // create new event
-    const dbPostResponse = await createNewEvent(body);
-    res
-      .status(dbPostResponse.status)
-      .end(JSON.stringify({ _id: dbPostResponse.message }));
+    res.status(200).end(JSON.stringify({ _id: 'createdRecordID' }));
     break;
 
   case 'DELETE': // remove existing event
