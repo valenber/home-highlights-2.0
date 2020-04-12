@@ -9,32 +9,38 @@ export default async function(
   req: NextApiRequest | { method: any; body: any },
   res: NextApiResponse | FixMeLater,
 ) {
-  const { method, body } = req;
+  try {
+    const { method, body } = req;
 
-  switch (method) {
-  case 'GET': // fetch all events
-    try {
-      const { status, list } = await databaseService.getAllAgendaEvents();
-      res.status(status).end(JSON.stringify([...list]));
-    } catch (err) {
-      res.status(500).end(err.message || 'something is wrong with the DB');
+    switch (method) {
+    case 'GET': // fetch all events
+      const getRes = await databaseService.getAllAgendaEvents();
+      res.status(getRes.status).end(JSON.stringify([...getRes.list]));
+      break;
+
+    case 'POST': // create new event
+      const postRes = await databaseService.createNewAgendaEvent(body);
+      res.status(postRes.status).end(JSON.stringify({ id: postRes.id }));
+      break;
+
+    case 'DELETE': // remove existing event
+      const delRes = await databaseService.deleteAgendaEvent(body);
+      res.status(delRes.status).end(JSON.stringify({ id: delRes.id }));
+      break;
+
+    case 'PUT': // update existing event
+      const putRes = await databaseService.updateAgendaEvent(
+        body.id,
+        body.payload,
+      );
+      res.status(putRes.status).end(JSON.stringify({ id: putRes.id }));
+      break;
+
+    default:
+      res.status(405).end('');
+      break;
     }
-    break;
-
-  case 'POST': // create new event
-    res.status(200).end(JSON.stringify({ _id: 'createdRecordID' }));
-    break;
-
-  case 'DELETE': // remove existing event
-    res.status(200).end(JSON.stringify({ _id: 'deletedRecordID' }));
-    break;
-
-  case 'PUT': // update existing event
-    res.status(200).end(JSON.stringify({ _id: 'updatedRecordID' }));
-    break;
-
-  default:
-    res.status(405).end('');
-    break;
+  } catch (err) {
+    res.status(500).end(err.message || 'Something went wrong with the DB');
   }
 }
