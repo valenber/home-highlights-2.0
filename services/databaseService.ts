@@ -1,9 +1,13 @@
 type FixMeLater = any;
 
 export default {
-  getAllAgendaEvents: async function(db: FixMeLater) {
-    const list = await db.collection('agendaEvents').findOne();
-    return { status: 200, list };
+  getAllAgendaEvents: async function(client: FixMeLater) {
+    // const getRes = await client
+    //   .database('sample')
+    //   .query()
+    //   .match({})
+    //   .send();
+    return { status: 200, list: [] };
   },
 
   createNewAgendaEvent: function(eventObject) {

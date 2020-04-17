@@ -18,16 +18,11 @@ export default async function(
       process.env.UNBOUNDED_DB_PASS,
     );
 
-    let db = client.database('sample');
-
     switch (method) {
     case 'GET': // fetch all events
-      // const getRes = await databaseService.getAllAgendaEvents(database);
-      const getRes = await db
-        .query()
-        .match({})
-        .send();
-      res.status(200).json({ envents: [...getRes] });
+      const getRes = await databaseService.getAllAgendaEvents(client);
+
+      res.status(getRes.status).json({ envents: [...getRes.list] });
       break;
 
     case 'POST': // create new event
