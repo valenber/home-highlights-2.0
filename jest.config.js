@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  transform: { '\\.(js|jsx|ts|tsx)': ['babel-jest'] },
+  transform: { '\\.(js|jsx|ts|tsx)': ['ts-jest'] },
   testMatch: ['**/*.(test|spec).(js|jsx|ts)'],
   testEnvironment: 'node',
   coveragePathIgnorePatterns: ['/node_modules/'],

@@ -1,7 +1,6 @@
 # Home Highlights 2.0
 A rewrite of event management system.
 
-
 ## Functionality
 The app fetches a list of events from a DB and displays them in a tabbed list by categories and status. User can manage events list with following stories:
 
@@ -38,3 +37,6 @@ App communicates with DB to handle the following actions:
 * NextJS app
 * PrimeReact component library
 * Zeit Now deployment
+
+## API
+The `events` lambda in `pages/api` handles all the requests from UI. It then makes calls to the methods exposed by databaseService that handles requests validation and communication with the database.

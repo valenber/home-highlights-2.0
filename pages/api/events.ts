@@ -1,7 +1,8 @@
 // here we define endpoints and use handlers to process API calls into DB requests
-
+import Unbounded from '@unbounded/unbounded';
 import { NextApiResponse, NextApiRequest } from 'next';
-import { getAllEvents, createNewEvent } from '../../data/api.hadlers';
+import databaseService from '../../services/databaseService';
+
 
 type FixMeLater = any;
 
@@ -9,35 +10,53 @@ export default async function(
   req: NextApiRequest | { method: any; body: any },
   res: NextApiResponse | FixMeLater,
 ) {
-  const { method, body } = req;
+  try {
+    const { method, body } = req;
 
-  switch (method) {
-  case 'GET': // fetch all events
-    const dbGetResponse = await getAllEvents();
-    const payload = dbGetResponse.documents.length
-      ? dbGetResponse.documents
-      : dbGetResponse.message;
+    const client = new Unbounded(
+      'aws-us-east-2',
+      process.env.UNBOUNDED_DB_USER,
+      process.env.UNBOUNDED_DB_PASS,
+    );
 
-    res.status(dbGetResponse.status).end(JSON.stringify(payload));
-    break;
+    switch (method) {
+    case 'GET': // fetch all events
+      const getRes = await databaseService.getAllAgendaEvents(client);
 
-  case 'POST': // create new event
-    const dbPostResponse = await createNewEvent(body);
-    res
-      .status(dbPostResponse.status)
-      .end(JSON.stringify({ _id: dbPostResponse.message }));
-    break;
+      res.status(getRes.status).json({ envents: [...getRes.list] });
+      break;
 
-  case 'DELETE': // remove existing event
-    res.status(200).end(JSON.stringify({ _id: 'deletedRecordID' }));
-    break;
+    case 'POST': // create new event
+      // await db.add({
+      //   name: 'PhotoEspaña 2020',
+      //   starts: '1/7/2020',
+      // });
+      const postRes = await databaseService.createNewAgendaEvent(
+        client,
+        body,
+      );
+      res.status(postRes.status).end(JSON.stringify({ id: postRes.id }));
+      break;
 
-  case 'PUT': // update existing event
-    res.status(200).end(JSON.stringify({ _id: 'updatedRecordID' }));
-    break;
+    case 'DELETE': // remove existing event
+      const delRes = await databaseService.deleteAgendaEvent(client, body);
+      res.status(delRes.status).end(JSON.stringify({ id: delRes.id }));
+      break;
 
-  default:
-    res.status(405).end('');
-    break;
+    case 'PUT': // update existing event
+      const putRes = await databaseService.updateAgendaEvent(
+        client,
+        body.id,
+        body.payload,
+      );
+      res.status(putRes.status).end(JSON.stringify({ id: putRes.id }));
+      break;
+
+    default:
+      res.status(405).end('Unsupported method');
+      break;
+    }
+  } catch (err) {
+    res.status(500).end(err.message || 'Something went wrong with the DB');
   }
 }
