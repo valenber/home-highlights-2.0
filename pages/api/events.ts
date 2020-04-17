@@ -30,17 +30,21 @@ export default async function(
       //   name: 'PhotoEspaña 2020',
       //   starts: '1/7/2020',
       // });
-      const postRes = await databaseService.createNewAgendaEvent(body);
+      const postRes = await databaseService.createNewAgendaEvent(
+        client,
+        body,
+      );
       res.status(postRes.status).end(JSON.stringify({ id: postRes.id }));
       break;
 
     case 'DELETE': // remove existing event
-      const delRes = await databaseService.deleteAgendaEvent(body);
+      const delRes = await databaseService.deleteAgendaEvent(client, body);
       res.status(delRes.status).end(JSON.stringify({ id: delRes.id }));
       break;
 
     case 'PUT': // update existing event
       const putRes = await databaseService.updateAgendaEvent(
+        client,
         body.id,
         body.payload,
       );
@@ -48,7 +52,7 @@ export default async function(
       break;
 
     default:
-      res.status(405).end('');
+      res.status(405).end('Unsupported method');
       break;
     }
   } catch (err) {
