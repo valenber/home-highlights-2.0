@@ -8,9 +8,7 @@
     "dev": "next",
     "start": "next start",
     "build": "next build",
-    "pretest": "docker container run --rm -d -p 27017:27017 --name mongo_tester mongo",
-    "test": "jest",
-    "posttest": "docker container rm mongo_tester -f"
+    "test": "jest"
   },
   "husky": {
     "hooks": {
@@ -24,7 +22,8 @@
     "primereact": "^4.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-transition-group": "^4.3.0"
+    "react-transition-group": "^4.3.0",
+    "swr": "^0.2.0"
   },
   "devDependencies": {
     "@types/express": "^4.17.5",
