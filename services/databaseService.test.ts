@@ -2,21 +2,20 @@ import dbs from './databaseService';
 
 // mock of the Unbounded DB client
 // NOTE: these tests are specific to Unbounded DB API
-const mockMethod_database = jest.fn();
-const mockMethod_query = jest.fn();
-const mockMethod_match = jest.fn();
 const mockMethod_send = jest.fn();
 
 const mockUnboundedDBclient = {
-  database: mockMethod_database,
-  query: mockMethod_query,
-  match: mockMethod_match,
+  database: jest.fn(),
+  query: jest.fn(),
+  match: jest.fn(),
+  add: jest.fn(),
   send: mockMethod_send,
 };
 
 mockUnboundedDBclient.database.mockImplementation(() => mockUnboundedDBclient);
 mockUnboundedDBclient.query.mockImplementation(() => mockUnboundedDBclient);
 mockUnboundedDBclient.match.mockImplementation(() => mockUnboundedDBclient);
+mockUnboundedDBclient.add.mockImplementation(() => mockUnboundedDBclient);
 mockUnboundedDBclient.send.mockImplementation(() => Promise.resolve([]));
 
 beforeEach(() => {
@@ -24,25 +23,6 @@ beforeEach(() => {
 });
 
 describe('getAllAgendaEvents', () => {
-  test('connects to DB', async () => {
-    await dbs.getAllAgendaEvents(mockUnboundedDBclient);
-    expect(mockMethod_database).toHaveBeenCalledTimes(1);
-  });
-
-  test('forms a query that matches any record', async () => {
-    await dbs.getAllAgendaEvents(mockUnboundedDBclient);
-
-    expect(mockMethod_query).toHaveBeenCalledTimes(1);
-    expect(mockMethod_match).toHaveBeenCalledTimes(1);
-    expect(mockMethod_match).toHaveBeenCalledWith({});
-  });
-
-  test('sends the query', async () => {
-    await dbs.getAllAgendaEvents(mockUnboundedDBclient);
-
-    expect(mockMethod_send).toHaveBeenCalledTimes(1);
-  });
-
   test('returns 200 and list when DB returns items', async () => {
     const mockDBresult = [{ name: 'Event1' }, { name: 'Event2' }];
     mockUnboundedDBclient.send.mockImplementation(() =>
@@ -64,6 +44,37 @@ describe('getAllAgendaEvents', () => {
   });
 });
 
+describe('new event validation method', () => {
+  const eventObjectVariants = [
+    {},
+    {
+      name: ' ',
+    },
+    { name: 'Event' },
+    {
+      name: 'Event',
+      end: '1/2/2019',
+    },
+    {
+      name: 'Event',
+      end: new Date('1/2/2019'),
+    },
+  ];
+
+  test.each(eventObjectVariants)(
+    'returns error when receives %o',
+    (newEventObject) => {
+      // @ts-ignore
+      // we ignore type here to be able to pass invalid objects
+      // as we want this validation to occur at runtime inside API lambda
+      const result = dbs.validNewEvent(newEventObject);
+      expect(result).toBeFalsy();
+    },
+  );
+});
+
 describe('createNewAgendaEvent', () => {
-  test('', () => {});
+  test.todo('does not call database with invalid event object');
+  test.todo('returns database error if DB returns error');
+  test.todo('returns 200 when record is added');
 });

@@ -1,6 +1,6 @@
 export interface AgendaEvent {
   name: string;
-  start: Date;
+  start?: Date;
   end: Date;
   state: AgendaEventState;
 }
