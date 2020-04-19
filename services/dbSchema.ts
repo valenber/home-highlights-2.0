@@ -1,9 +1,9 @@
-export interface AgendaEvent {
+export type AgendaEvent = {
   name: string;
   start?: Date;
   end: Date;
   state: AgendaEventState;
-}
+};
 
 type AgendaEventState = {
   [category in AgendaEventCategory]?: AgendaEventStatus;

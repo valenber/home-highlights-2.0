@@ -1,4 +1,5 @@
 import { AgendaEvent } from './dbSchema';
+import { validNewEvent } from './dbValidaton';
 
 type dbClient = any;
 
@@ -10,7 +11,9 @@ type getAllEventsRes = {
   message?: string;
 };
 
-async function getAllAgendaEvents(client: dbClient): Promise<getAllEventsRes> {
+export async function getAllAgendaEvents(
+  client: dbClient,
+): Promise<getAllEventsRes> {
   const getRes = await client
     .database(_db_name)
     .query()
@@ -24,54 +27,22 @@ async function getAllAgendaEvents(client: dbClient): Promise<getAllEventsRes> {
   return { status: 200, list: [...getRes] };
 }
 
-async function createNewAgendaEvent(
+export async function createNewAgendaEvent(
   client: dbClient,
-  newEventObject: AgendaEvent,
+  newEventObject: Partial<AgendaEvent>,
 ) {
   if (!validNewEvent(newEventObject)) {
     return { status: 400, message: 'Invalid new AgendaEvent' };
   }
   // const postRes = await client.database(_db_name).add(newEventObject);
 
-  return null;
-}
-// createNewAgendaEvent validation
-function validNewEvent(eventObject: Partial<AgendaEvent>) {
-  // event must have:
-  // a NAME,
-  if (
-    // typeof eventObject.name === 'undefined' ||
-    !eventObject.hasOwnProperty('name') ||
-    eventObject.name.trim().length <= 0
-  ) {
-    return false;
-  }
-
-  // END DATE
-  if (!(eventObject.end instanceof Date)) {
-    return false;
-  }
-
-  // non-empty STATE
-  if (!eventObject.hasOwnProperty('state')) {
-    return false;
-  }
-
-  return true;
+  return { status: 200, message: 'OK', id: 'newRecordId' };
 }
 
-async function deleteAgendaEvent(client, eventId: string) {
+export async function deleteAgendaEvent(client, eventId: string) {
   return null;
 }
 
-async function updateAgendaEvent(client, eventId: string, payload: {}) {
+export async function updateAgendaEvent(client, eventId: string, payload: {}) {
   return null;
 }
-
-export default {
-  getAllAgendaEvents,
-  createNewAgendaEvent,
-  validNewEvent,
-  deleteAgendaEvent,
-  updateAgendaEvent,
-};

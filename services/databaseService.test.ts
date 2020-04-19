@@ -1,4 +1,6 @@
-import dbs from './databaseService';
+import { getAllAgendaEvents, createNewAgendaEvent } from './databaseService';
+import { validNewEvent } from './dbValidaton';
+jest.mock('./dbValidaton');
 
 // mock of the Unbounded DB client
 // NOTE: these tests are specific to Unbounded DB API
@@ -28,14 +30,14 @@ describe('getAllAgendaEvents', () => {
     mockUnboundedDBclient.send.mockImplementation(() =>
       Promise.resolve(mockDBresult),
     );
-    const result = await dbs.getAllAgendaEvents(mockUnboundedDBclient);
+    const result = await getAllAgendaEvents(mockUnboundedDBclient);
 
     expect(result).toEqual({ status: 200, list: mockDBresult });
   });
 
   test('returns 404 and error message when DB returns nothing', async () => {
     mockUnboundedDBclient.send.mockImplementation(() => Promise.resolve([]));
-    const result = await dbs.getAllAgendaEvents(mockUnboundedDBclient);
+    const result = await getAllAgendaEvents(mockUnboundedDBclient);
 
     expect(result).toEqual({
       status: 404,
@@ -44,37 +46,20 @@ describe('getAllAgendaEvents', () => {
   });
 });
 
-describe('new event validation method', () => {
-  const eventObjectVariants = [
-    {},
-    {
-      name: ' ',
-    },
-    { name: 'Event' },
-    {
-      name: 'Event',
-      end: '1/2/2019',
-    },
-    {
-      name: 'Event',
-      end: new Date('1/2/2019'),
-    },
-  ];
-
-  test.each(eventObjectVariants)(
-    'returns error when receives %o',
-    (newEventObject) => {
-      // @ts-ignore
-      // we ignore type here to be able to pass invalid objects
-      // as we want this validation to occur at runtime inside API lambda
-      const result = dbs.validNewEvent(newEventObject);
-      expect(result).toBeFalsy();
-    },
-  );
-});
-
 describe('createNewAgendaEvent', () => {
+  test('validation check is called once with passed object', () => {
+    const newEventObject = {
+      name: 'Event',
+      end: new Date('1/12/1981'),
+    };
+
+    createNewAgendaEvent(mockUnboundedDBclient, newEventObject);
+
+    expect(validNewEvent).toHaveBeenCalledWith(newEventObject);
+    expect(validNewEvent).toHaveBeenCalledTimes(1);
+  });
+  test.todo('returns 400 and an error message with invalid event object');
   test.todo('does not call database with invalid event object');
-  test.todo('returns database error if DB returns error');
-  test.todo('returns 200 when record is added');
+  test.todo('returns 500 and error if DB returns error');
+  test.todo('returns 200 and recordId when record is added');
 });

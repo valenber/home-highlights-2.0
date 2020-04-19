@@ -1,10 +1,12 @@
 import { mockRequest } from '../utils';
-import dbs from '../../services/databaseService';
 
-dbs.getAllAgendaEvents = jest.fn();
-dbs.createNewAgendaEvent = jest.fn();
-dbs.deleteAgendaEvent = jest.fn();
-dbs.updateAgendaEvent = jest.fn();
+jest.mock('../../services/databaseService');
+import {
+  getAllAgendaEvents,
+  createNewAgendaEvent,
+  deleteAgendaEvent,
+  updateAgendaEvent,
+} from '../../services/databaseService';
 
 afterEach(() => {
   jest.clearAllMocks();
@@ -20,7 +22,7 @@ describe('GET method', () => {
     const { res } = mockRequest('GET');
 
     res.on('end', () => {
-      expect(dbs.getAllAgendaEvents).toHaveBeenCalledTimes(1);
+      expect(getAllAgendaEvents).toHaveBeenCalledTimes(1);
       done();
     });
   });
@@ -36,7 +38,7 @@ describe('POST method', () => {
     const { res } = mockRequest('POST');
 
     res.on('end', () => {
-      expect(dbs.createNewAgendaEvent).toHaveBeenCalledTimes(1);
+      expect(createNewAgendaEvent).toHaveBeenCalledTimes(1);
       done();
     });
   });
@@ -52,7 +54,7 @@ describe('DELETE method', () => {
     const { res } = mockRequest('DELETE');
 
     res.on('end', () => {
-      expect(dbs.deleteAgendaEvent).toHaveBeenCalledTimes(1);
+      expect(deleteAgendaEvent).toHaveBeenCalledTimes(1);
       done();
     });
   });
@@ -68,7 +70,7 @@ describe('PUT method', () => {
     const { res } = mockRequest('PUT');
 
     res.on('end', () => {
-      expect(dbs.updateAgendaEvent).toHaveBeenCalledTimes(1);
+      expect(updateAgendaEvent).toHaveBeenCalledTimes(1);
       done();
     });
   });
