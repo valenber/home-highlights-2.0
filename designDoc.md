@@ -26,6 +26,12 @@ The app fetches a list of events from a DB and displays them in a tabbed list by
 * EditEventModal (TextInput, DateInput, SelectIput, RadioButton)
 * Notifications (inform user about DB operations)
 
+## Tech
+* NextJS app
+* PrimeReact component library
+* Zeit Now deployment
+* [Unbounded DB](https://www.unbounded.cloud)
+
 ## Data
 App communicates with DB to handle the following actions:
 * Get events list
@@ -33,10 +39,9 @@ App communicates with DB to handle the following actions:
 * Delete existing event
 * Edit existing event
 
-## Tech
-* NextJS app
-* PrimeReact component library
-* Zeit Now deployment
-
 ## API
 The `events` lambda in `pages/api` handles all the requests from UI. It then makes calls to the methods exposed by databaseService that handles requests validation and communication with the database.
+
+## Database
+The data is stored in Unbounded DB, a simple unstructured noSQL database. The credentials are passed as environment variables (see [example file](./.env.example)). Those variables are stored in Zeit Now project and can be downloaded into local file with `now env pull`. 
+Each environment uses it's own database.

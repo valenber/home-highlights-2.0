@@ -1,6 +1,7 @@
 import dbs from './databaseService';
 
 // mock of the Unbounded DB client
+// NOTE: these tests are specific to Unbounded DB API
 const mockMethod_database = jest.fn();
 const mockMethod_query = jest.fn();
 const mockMethod_match = jest.fn();
@@ -52,10 +53,17 @@ describe('getAllAgendaEvents', () => {
     expect(result).toEqual({ status: 200, list: mockDBresult });
   });
 
-  test('returns 204 and empty list when DB returns nothing', async () => {
+  test('returns 404 and error message when DB returns nothing', async () => {
     mockUnboundedDBclient.send.mockImplementation(() => Promise.resolve([]));
     const result = await dbs.getAllAgendaEvents(mockUnboundedDBclient);
 
-    expect(result).toEqual({ status: 204, list: [] });
+    expect(result).toEqual({
+      status: 404,
+      message: 'Database has no records',
+    });
   });
+});
+
+describe('createNewAgendaEvent', () => {
+  test('', () => {});
 });

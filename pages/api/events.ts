@@ -3,7 +3,6 @@ import Unbounded from '@unbounded/unbounded';
 import { NextApiResponse, NextApiRequest } from 'next';
 import databaseService from '../../services/databaseService';
 
-
 type FixMeLater = any;
 
 export default async function(
@@ -27,10 +26,6 @@ export default async function(
       break;
 
     case 'POST': // create new event
-      // await db.add({
-      //   name: 'PhotoEspaña 2020',
-      //   starts: '1/7/2020',
-      // });
       const postRes = await databaseService.createNewAgendaEvent(
         client,
         body,
