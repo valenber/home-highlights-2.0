@@ -9,11 +9,10 @@ The app fetches a list of events from a DB and displays them in a tabbed list by
 * [ ] add event
 * [ ] remove event
 * [ ] edit event properties
-* [ ] promote event
-* [ ] demote event
+* [ ] change event status
 * [ ] add category to an event (copy to another category)
 * [ ] see that an event has expired
-* [ ] see that an event is expiting soon
+* [ ] see that an event is expiring soon
 
 ## Views 
 * EVENTS LIST - main view where we can see all elements and trigger events

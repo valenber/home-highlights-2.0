@@ -22,7 +22,7 @@ type AgendaEventCategory =
 
 type AgendaEventStatus = 'candidate' | 'highlight' | 'mainfocus';
 
-// this is an examle of agenda event object
+// this is an examle of a valid agenda event object
 export const exampleAgendaEvent: AgendaEvent = {
   name: 'PhotoEspaña 2020',
   start: new Date('1/4/2020'),

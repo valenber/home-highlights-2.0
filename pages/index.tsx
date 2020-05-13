@@ -1,9 +1,13 @@
-import React from 'react';
+/* NextJS page */
+/* eslint-disable react/react-in-jsx-scope */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 
-export default () => {
+const IndexPage = () => {
   return (
     <>
       <h1>Home Highlights 2.0</h1>
     </>
   );
 };
+
+export default IndexPage;

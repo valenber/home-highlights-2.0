@@ -1,3 +1,5 @@
+/* Test page */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import React from 'react';
 import useSwr from 'swr';
 
@@ -26,12 +28,20 @@ export default () => {
   type PrimeCalendarChangeEvent = {
     originalEvent: Event;
     value: Date | Date[];
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     target: any;
   };
 
   const handleDateInput = (e: PrimeCalendarChangeEvent) => {
     setDates(e.value);
   };
+
+  const growlSummary = (
+    <span>
+      <i className="pi pi-save" style={{ fontSize: '3em' }} />
+      <h3>New Event</h3>
+    </span>
+  );
 
   const footer = (
     <div>
@@ -61,12 +71,6 @@ export default () => {
         }}
       />
     </div>
-  );
-  const growlSummary = (
-    <span>
-      <i className="pi pi-save" style={{ fontSize: '3em' }} />
-      <h3>New Event</h3>
-    </span>
   );
 
   return (
