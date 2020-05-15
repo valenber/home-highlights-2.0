@@ -9,11 +9,12 @@
     "start": "next start",
     "build": "next build",
     "test": "jest",
-    "lint": "eslint . '*/**/*.{js,ts,tsx}' --fix"
+    "lint": "eslint . '*/**/*.{js,ts,tsx}' --fix",
+    "typecheck": "tsc --noEmit"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test && yarn lint"
+      "pre-commit": "yarn test && yarn typecheck && yarn lint"
     }
   },
   "dependencies": {
