@@ -27,7 +27,11 @@ export function newEvent(newEventObject: NewEvent): boolean {
   )
     return false;
   // END DATE
-  if (typeof newEventObject.end.getMonth !== 'function') return false;
+  if (
+    typeof newEventObject.end === 'undefined' ||
+    typeof newEventObject.end.getMonth !== 'function'
+  )
+    return false;
 
   // STATE
   // is not declared

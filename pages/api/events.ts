@@ -1,9 +1,10 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import { AgendaEvent } from '../../data/dbSchema';
 import { databaseService as db } from '../../data/databaseService';
 
 export interface ApiRequest {
   method: string;
-  body?: {};
+  body?: Partial<AgendaEvent>;
 }
 
 export interface ApiResponse {
@@ -23,17 +24,17 @@ export async function eventsEndpointHandler(
   }
 
   case 'POST': {
-    const { status, message, data } = db.createNewAgendaEvent();
+    const { status, message, data } = db.createNewAgendaEvent(request.body);
     return { status, message, data };
   }
 
   case 'DELETE': {
-    const { status, message, data } = db.deleteAgendaEvent();
+    const { status, message, data } = db.deleteAgendaEvent(request.body.id);
     return { status, message, data };
   }
 
   case 'PUT': {
-    const { status, message, data } = db.updateAgendaEvent();
+    const { status, message, data } = db.updateAgendaEvent(request.body);
     return { status, message, data };
   }
 

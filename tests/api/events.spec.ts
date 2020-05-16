@@ -40,7 +40,10 @@ test('calls deleteEvent on DELETE request', async () => {
       data: { id: 'deleted_event_record_id' },
     };
   });
-  await eventsEndpointHandler({ method: 'DELETE' });
+  await eventsEndpointHandler({
+    method: 'DELETE',
+    body: { id: 'event_to_delete' },
+  });
 
   expect(db.deleteAgendaEvent).toHaveBeenCalledTimes(1);
 });

@@ -14,7 +14,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn test && yarn typecheck && yarn lint"
+      "pre-commit": "echo 'RUNNING PRE-COMMIT VALIDATION:' && yarn test --verbose && yarn typecheck && yarn lint"
     }
   },
   "dependencies": {
