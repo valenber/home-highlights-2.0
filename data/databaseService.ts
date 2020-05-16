@@ -1,19 +1,12 @@
+import { MongoClient } from 'mongodb';
 import { validationService } from './validationService';
 
 import { ApiResponse } from '../pages/api/events';
 import { AgendaEvent } from './dbSchema';
 
-import { MongoClient } from 'mongodb';
-
-interface AllAgendaEventsResponse extends ApiResponse {
-  data: {
-    events: AgendaEvent[];
-  };
-}
-
 const { MONGO_USER, MONGO_PASS, MONGO_URL_SUFFIX } = process.env;
 
-const client = new MongoClient(
+const dbClient = new MongoClient(
   `mongodb://${MONGO_USER}:${MONGO_PASS}@${MONGO_URL_SUFFIX}`,
   {
     useNewUrlParser: true,
@@ -21,7 +14,15 @@ const client = new MongoClient(
   },
 );
 
-async function getAllAgendaEvents(): Promise<AllAgendaEventsResponse> {
+interface AllAgendaEventsResponse extends ApiResponse {
+  data: {
+    events: AgendaEvent[];
+  };
+}
+
+async function getAllAgendaEvents(
+  client: MongoClient = dbClient,
+): Promise<AllAgendaEventsResponse> {
   if (!client.isConnected()) await client.connect();
 
   const events = await client
@@ -30,9 +31,7 @@ async function getAllAgendaEvents(): Promise<AllAgendaEventsResponse> {
     .find({})
     .toArray();
 
-  console.log(events.length);
-
-  return { status: 200, message: 'OK', data: { events: [] } };
+  return { status: 200, message: 'OK', data: { events: [...events] } };
 }
 
 interface CreateNewAgendaEventResponse extends ApiResponse {
