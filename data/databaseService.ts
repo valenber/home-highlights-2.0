@@ -3,13 +3,35 @@ import { validationService } from './validationService';
 import { ApiResponse } from '../pages/api/events';
 import { AgendaEvent } from './dbSchema';
 
+import { MongoClient } from 'mongodb';
+
 interface AllAgendaEventsResponse extends ApiResponse {
   data: {
     events: AgendaEvent[];
   };
 }
 
+const { MONGO_USER, MONGO_PASS, MONGO_URL_SUFFIX } = process.env;
+
+const client = new MongoClient(
+  `mongodb://${MONGO_USER}:${MONGO_PASS}@${MONGO_URL_SUFFIX}`,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+);
+
 async function getAllAgendaEvents(): Promise<AllAgendaEventsResponse> {
+  if (!client.isConnected()) await client.connect();
+
+  const events = await client
+    .db('demo-home-highlights')
+    .collection('events')
+    .find({})
+    .toArray();
+
+  console.log(events.length);
+
   return { status: 200, message: 'OK', data: { events: [] } };
 }
 
