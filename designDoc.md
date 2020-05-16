@@ -31,7 +31,7 @@ The app fetches a list of events from a DB and displays them in a tabbed list by
 * NextJS app
 * PrimeReact component library
 * Zeit Now deployment
-* [Unbounded DB](https://www.unbounded.cloud)
+* MongoDB
 
 ## Data
 App communicates with DB to handle the following actions:
@@ -44,5 +44,5 @@ App communicates with DB to handle the following actions:
 The `events` lambda in `pages/api` handles all the requests from UI. It then makes calls to the methods exposed by databaseService that handles requests validation and communication with the database.
 
 ## Database
-The data is stored in Unbounded DB, a simple unstructured noSQL database. The credentials are passed as environment variables (see [example file](./.env.example)). Those variables are stored in Zeit Now project and can be downloaded into local file with `now env pull`. 
+The app used MongoDB hosted on mLab service. The credentials are passed as environment variables (see [example file](./.env.example)). Those variables are stored in Zeit Now project and can be downloaded into local file with `now env pull`. 
 Each environment uses it's own database.

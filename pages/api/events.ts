@@ -19,7 +19,7 @@ export async function eventsEndpointHandler(
 ): Promise<ApiResponse> {
   switch (request.method) {
   case 'GET': {
-    const { status, message, data } = db.getAllAgendaEvents();
+    const { status, message, data } = await db.getAllAgendaEvents();
     return { status, message, data };
   }
 

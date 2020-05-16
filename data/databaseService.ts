@@ -9,7 +9,7 @@ interface AllAgendaEventsResponse extends ApiResponse {
   };
 }
 
-function getAllAgendaEvents(): AllAgendaEventsResponse {
+async function getAllAgendaEvents(): Promise<AllAgendaEventsResponse> {
   return { status: 200, message: 'OK', data: { events: [] } };
 }
 
