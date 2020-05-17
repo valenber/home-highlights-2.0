@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { AgendaEvent } from '../../data/dbSchema';
 import { databaseService as db } from '../../data/databaseService';
+import { validationService } from '../../data/validationService';
 
 export interface ApiRequest {
   method: string;
@@ -19,23 +20,70 @@ export async function eventsEndpointHandler(
 ): Promise<ApiResponse> {
   switch (request.method) {
   case 'GET': {
-    const { status, message, data } = await db.getAllAgendaEvents();
-    return { status, message, data };
+    try {
+      const events = await db.getAllAgendaEvents();
+      return { status: 200, message: 'OK', data: events };
+    } catch (error) {
+      return {
+        status: 500,
+        message: `Error on getAllAgendaEvents: ${error.message}`,
+      };
+    }
   }
 
   case 'POST': {
-    const { status, message, data } = db.createNewAgendaEvent(request.body);
-    return { status, message, data };
+    if (!validationService.newEvent(request.body)) {
+      return {
+        status: 422,
+        message: 'Invalid new event object',
+        data: { providedObject: request.body },
+      };
+    }
+
+    try {
+      const dbResponse = await db.createNewAgendaEvent(request.body);
+      return { status: 200, message: 'OK', data: dbResponse };
+    } catch (error) {
+      return {
+        status: 500,
+        message: `Error on createNewAgendaEvent: ${error.message}.`,
+      };
+    }
   }
 
   case 'DELETE': {
-    const { status, message, data } = db.deleteAgendaEvent(request.body.id);
-    return { status, message, data };
+    if (!request?.body?.id) {
+      return {
+        status: 422,
+        message: 'Can not delete an event. Missing ID.',
+      };
+    }
+
+    try {
+      const dbResponse = await db.deleteAgendaEvent(request.body.id);
+      return { status: 200, message: 'OK', data: dbResponse };
+    } catch (error) {
+      return {
+        status: 500,
+        message: `Error on deleteAgendaEvent: ${error.message}.`,
+      };
+    }
   }
 
   case 'PUT': {
-    const { status, message, data } = db.updateAgendaEvent(request.body);
-    return { status, message, data };
+    if (!request?.body?.id) {
+      return { status: 422, message: 'Can not update event. Missing ID.' };
+    }
+
+    try {
+      const dbResponse = await db.updateAgendaEvent(request.body);
+      return { status: 200, message: 'OK', data: dbResponse };
+    } catch (error) {
+      return {
+        status: 500,
+        message: `Error on updateAgendaEvent: ${error.message}.`,
+      };
+    }
   }
 
   default:

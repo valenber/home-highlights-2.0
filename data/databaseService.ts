@@ -1,5 +1,4 @@
 import { MongoClient } from 'mongodb';
-import { validationService } from './validationService';
 
 import { ApiResponse } from '../pages/api/events';
 import { AgendaEvent } from './dbSchema';
@@ -14,24 +13,16 @@ const dbClient = new MongoClient(
   },
 );
 
-interface AllAgendaEventsResponse extends ApiResponse {
-  data: {
-    events: AgendaEvent[];
-  };
-}
+async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
+  if (!dbClient.isConnected()) await dbClient.connect();
 
-async function getAllAgendaEvents(
-  client: MongoClient = dbClient,
-): Promise<AllAgendaEventsResponse> {
-  if (!client.isConnected()) await client.connect();
-
-  const events = await client
+  const events: AgendaEvent[] = await dbClient
     .db('demo-home-highlights')
     .collection('events')
     .find({})
     .toArray();
 
-  return { status: 200, message: 'OK', data: { events: [...events] } };
+  return events;
 }
 
 interface CreateNewAgendaEventResponse extends ApiResponse {
@@ -41,35 +32,25 @@ interface CreateNewAgendaEventResponse extends ApiResponse {
   };
 }
 
-function createNewAgendaEvent(
+async function createNewAgendaEvent(
   newEventObject: Partial<AgendaEvent>,
-): CreateNewAgendaEventResponse {
-  if (!validationService.newEvent(newEventObject)) {
-    return {
-      status: 422,
-      message: 'Invalid new event object',
-      data: { providedObject: newEventObject },
-    };
-  }
+): Promise<CreateNewAgendaEventResponse> {
+  console.log(newEventObject);
   // TODO: talk to the database
   return { status: 200, message: 'OK', data: { id: 'new_event_record_id' } };
 }
 
-function deleteAgendaEvent(id: string): ApiResponse {
-  if (typeof id === 'undefined' || !id.trim().length)
-    return {
-      status: 422,
-      message: 'Missing event ID',
-    };
-
+async function deleteAgendaEvent(id: string): Promise<ApiResponse> {
   return {
     status: 200,
     message: 'OK',
-    data: { id: 'deleted_event_record_id' },
+    data: id,
   };
 }
 
-function updateAgendaEvent(eventObject: Partial<AgendaEvent>): ApiResponse {
+async function updateAgendaEvent(
+  eventObject: Partial<AgendaEvent>,
+): Promise<ApiResponse> {
   const { id } = eventObject;
 
   // no ID is provided

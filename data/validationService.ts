@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-// since the database we use has no schema and accepts any object
+// since we usa a database without a schema it can accept any object
 // this method checks if the provided object has properties required for the agenda event
 
 const _allValuesAreValid = (
