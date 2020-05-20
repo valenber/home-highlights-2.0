@@ -1,62 +1,109 @@
-// here we define endpoints and use handlers to process API calls into DB requests
-import Unbounded from '@unbounded/unbounded';
-import { NextApiResponse, NextApiRequest } from 'next';
-import databaseService from '../../services/databaseService';
+import { NextApiRequest, NextApiResponse } from 'next';
+import { AgendaEvent } from '../../data/dbSchema';
+import { databaseService as db } from '../../data/databaseService';
+import { validationService } from '../../data/validationService';
 
+export interface ApiRequest {
+  method: string;
+  body?: Partial<AgendaEvent>;
+}
 
-type FixMeLater = any;
+export interface ApiResponse {
+  status: number;
+  message: string;
+  data?: {};
+}
 
-export default async function(
-  req: NextApiRequest | { method: any; body: any },
-  res: NextApiResponse | FixMeLater,
-) {
-  try {
-    const { method, body } = req;
-
-    const client = new Unbounded(
-      'aws-us-east-2',
-      process.env.UNBOUNDED_DB_USER,
-      process.env.UNBOUNDED_DB_PASS,
-    );
-
-    switch (method) {
-    case 'GET': // fetch all events
-      const getRes = await databaseService.getAllAgendaEvents(client);
-
-      res.status(getRes.status).json({ envents: [...getRes.list] });
-      break;
-
-    case 'POST': // create new event
-      // await db.add({
-      //   name: 'PhotoEspaña 2020',
-      //   starts: '1/7/2020',
-      // });
-      const postRes = await databaseService.createNewAgendaEvent(
-        client,
-        body,
-      );
-      res.status(postRes.status).end(JSON.stringify({ id: postRes.id }));
-      break;
-
-    case 'DELETE': // remove existing event
-      const delRes = await databaseService.deleteAgendaEvent(client, body);
-      res.status(delRes.status).end(JSON.stringify({ id: delRes.id }));
-      break;
-
-    case 'PUT': // update existing event
-      const putRes = await databaseService.updateAgendaEvent(
-        client,
-        body.id,
-        body.payload,
-      );
-      res.status(putRes.status).end(JSON.stringify({ id: putRes.id }));
-      break;
-
-    default:
-      res.status(405).end('Unsupported method');
-      break;
+// this is exported to simplify testing
+export async function eventsEndpointHandler(
+  request: ApiRequest,
+): Promise<ApiResponse> {
+  switch (request.method) {
+  case 'GET': {
+    try {
+      const events = await db.getAllAgendaEvents();
+      return { status: 200, message: 'OK', data: events };
+    } catch (error) {
+      return {
+        status: 500,
+        message: `Error on getAllAgendaEvents: ${error.message}`,
+      };
     }
-  } catch (err) {
-    res.status(500).end(err.message || 'Something went wrong with the DB');
   }
+
+  case 'POST': {
+    if (!validationService.newEvent(request.body)) {
+      return {
+        status: 422,
+        message: 'Invalid new event object',
+        data: { providedObject: request.body },
+      };
+    }
+
+    try {
+      const dbResponse = await db.createNewAgendaEvent(request.body);
+      return { status: 200, message: 'OK', data: dbResponse };
+    } catch (error) {
+      return {
+        status: 500,
+        message: `Error on createNewAgendaEvent: ${error.message}.`,
+      };
+    }
+  }
+
+  case 'DELETE': {
+    if (!request?.body?.id) {
+      return {
+        status: 422,
+        message: 'Can not delete an event. Missing ID.',
+      };
+    }
+
+    try {
+      const dbResponse = await db.deleteAgendaEvent(request.body.id);
+      return { status: 200, message: 'OK', data: dbResponse };
+    } catch (error) {
+      return {
+        status: 500,
+        message: `Error on deleteAgendaEvent: ${error.message}.`,
+      };
+    }
+  }
+
+  case 'PUT': {
+    if (!request?.body?.id) {
+      return { status: 422, message: 'Can not update event. Missing ID.' };
+    }
+
+    try {
+      const dbResponse = await db.updateAgendaEvent(request.body);
+      return { status: 200, message: 'OK', data: dbResponse };
+    } catch (error) {
+      return {
+        status: 500,
+        message: `Error on updateAgendaEvent: ${error.message}.`,
+      };
+    }
+  }
+
+  default:
+    return {
+      status: 422,
+      message: 'Unsupported request method',
+    };
+  }
+}
+
+// NextJS API lambda
+export default async function(
+  req: NextApiRequest,
+  res: NextApiResponse,
+): Promise<void> {
+  const { method, body } = req;
+  const { status, message, data }: ApiResponse = await eventsEndpointHandler({
+    method,
+    body,
+  });
+
+  res.status(status).json({ message, data });
 }
