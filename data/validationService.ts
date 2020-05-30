@@ -8,11 +8,11 @@ const _allValuesAreValid = (
   whiteList: string[],
 ): boolean => {
   const intersection = valuesToCheck.filter((value) => {
-    if (!whiteList.includes(value)) return false;
+    if (!whiteList.includes(value.toString())) return false;
     return true;
   });
 
-  if (intersection.length !== valuesToCheck.length) return false;
+  return intersection.length !== valuesToCheck.length ? false : true;
 };
 
 interface NewEvent {
@@ -28,8 +28,9 @@ export function newEvent(newEventObject: NewEvent): boolean {
     return false;
   // END DATE
   if (
-    typeof newEventObject.end === 'undefined' ||
-    typeof newEventObject.end.getMonth !== 'function'
+    typeof newEventObject.end === 'undefined' 
+  // ||
+  //   typeof newEventObject.end.getMonth !== 'function'
   )
     return false;
 
@@ -56,7 +57,9 @@ export function newEvent(newEventObject: NewEvent): boolean {
 
   const stateCategories = Object.keys(newEventObject.state);
 
-  if (!_allValuesAreValid(stateCategories, validCategories)) return false;
+  if (!_allValuesAreValid(stateCategories, validCategories)) {
+    return false;
+  }
 
   // category value is not valid
   const statePropsValues = Object.keys(newEventObject.state).map(

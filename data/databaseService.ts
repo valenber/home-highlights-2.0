@@ -40,7 +40,7 @@ interface CreateNewAgendaEventResponse extends ApiResponse {
 async function createNewAgendaEvent(
   newEventObject: Partial<AgendaEvent>,
 ): Promise<CreateNewAgendaEventResponse> {
-  console.log(newEventObject);
+  console.log('got new object', newEventObject);
   // TODO: talk to the database
   return { status: 200, message: 'OK', data: { id: 'new_event_record_id' } };
 }

@@ -35,7 +35,7 @@ The app fetches a list of events from a DB and displays them in a tabbed list by
 
 ## Data
 App communicates with DB to handle the following actions:
-[ ] Get events list
+[x] Get events list
 [ ] Add new event
 [ ] Delete existing event
 [ ] Edit existing event
