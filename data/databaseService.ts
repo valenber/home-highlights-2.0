@@ -1,29 +1,34 @@
-import { MongoClient } from 'mongodb';
-
 import { ApiResponse } from '../pages/api/events';
 import { AgendaEvent } from './dbSchema';
+import faunadb, { Client } from 'faunadb';
 
-const { MONGO_USER, MONGO_PASS, MONGO_URL_SUFFIX } = process.env;
+let dbClient: Client | null = null;
 
-const dbClient = new MongoClient(
-  `mongodb://${MONGO_USER}:${MONGO_PASS}@${MONGO_URL_SUFFIX}`,
-  {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-);
+function getDB(): [Client, typeof faunadb.query] {
+  if(!dbClient) {
+    dbClient = new faunadb.Client({secret: process.env.FAUNA_DB_KEY});
+  }
+
+  const query = faunadb.query;
+
+  return [ dbClient, query ];
+}
 
 async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
-  if (!dbClient.isConnected()) await dbClient.connect();
 
-  const events: AgendaEvent[] = await dbClient
-    .db('demo-home-highlights')
-    .collection('events')
-    .find({})
-    .toArray();
+  const [client, q] = getDB();
 
-  return events;
-}
+  const { data } = await client.query(q.Map(
+    q.Paginate(q.Match(q.Index('all_events'))),
+    q.Lambda('X', q.Get(q.Var('X')))
+  ));
+
+  interface FdbEvent {
+    data: AgendaEvent;
+  }
+
+  return data.map((event: FdbEvent) => event.data);
+};
 
 interface CreateNewAgendaEventResponse extends ApiResponse {
   data: {

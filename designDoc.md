@@ -35,10 +35,10 @@ The app fetches a list of events from a DB and displays them in a tabbed list by
 
 ## Data
 App communicates with DB to handle the following actions:
-* Get events list
-* Add new event
-* Delete existing event
-* Edit existing event
+[ ] Get events list
+[ ] Add new event
+[ ] Delete existing event
+[ ] Edit existing event
 
 ## API
 The `events` lambda in `pages/api` handles all the requests from UI. It then makes calls to the methods exposed by databaseService that handles requests validation and communication with the database.
