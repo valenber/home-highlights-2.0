@@ -1,4 +1,3 @@
-import { ApiResponse } from '../pages/api/events';
 import { AgendaEvent } from './dbSchema';
 import faunadb, { Client } from 'faunadb';
 
@@ -35,16 +34,9 @@ async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
   return data.map((event: FdbEvent) => event.data);
 };
 
-interface CreateNewAgendaEventResponse extends ApiResponse {
-  data: {
-    id?: string;
-    providedObject?: Partial<AgendaEvent>;
-  };
-}
-
 async function createNewAgendaEvent(
   newEventObject: Partial<AgendaEvent>,
-): Promise<CreateNewAgendaEventResponse> {
+): Promise<string> {
   const [client, q] = getDB();
   const {name, end, state} = newEventObject;
 
@@ -56,10 +48,10 @@ async function createNewAgendaEvent(
   );
   const newRecordRef: string = extractRefString(ref);
 
-  return { status: 200, message: 'OK', data: { id: newRecordRef } };
+  return newRecordRef;
 }
 
-async function deleteAgendaEvent(id: string): Promise<ApiResponse> {
+async function deleteAgendaEvent(id: string): Promise<string> {
   const [client, q] = getDB();
   const {ref} = await client.query(q.Delete(
     q.Ref(q.Collection(targetCollection), id)
@@ -67,16 +59,12 @@ async function deleteAgendaEvent(id: string): Promise<ApiResponse> {
 
   const deletedRecordRef: string = extractRefString(ref);
 
-  return {
-    status: 200,
-    message: 'OK',
-    data: deletedRecordRef,
-  };
+  return deletedRecordRef;
 }
 
 async function updateAgendaEvent(
   eventObject: Partial<AgendaEvent>,
-): Promise<ApiResponse> {
+): Promise<string> {
   const { id } = eventObject;
   delete eventObject.id;
 
@@ -91,11 +79,7 @@ async function updateAgendaEvent(
 
   const updatedRecordRef: string = extractRefString(ref);
 
-  return {
-    status: 200,
-    message: 'OK',
-    data: { id: updatedRecordRef},
-  };
+  return updatedRecordRef;
 }
 
 export const databaseService = {
