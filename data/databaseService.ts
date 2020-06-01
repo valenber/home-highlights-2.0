@@ -3,6 +3,11 @@ import { AgendaEvent } from './dbSchema';
 import faunadb, { Client } from 'faunadb';
 
 let dbClient: Client | null = null;
+const targetCollection = 'testAgendaEvents';
+
+function extractRefString(ref: string): string {
+  return ref.toString().split('"')[3];
+}
 
 function getDB(): [Client, typeof faunadb.query] {
   if(!dbClient) {
@@ -40,16 +45,32 @@ interface CreateNewAgendaEventResponse extends ApiResponse {
 async function createNewAgendaEvent(
   newEventObject: Partial<AgendaEvent>,
 ): Promise<CreateNewAgendaEventResponse> {
-  console.log('got new object', newEventObject);
-  // TODO: talk to the database
-  return { status: 200, message: 'OK', data: { id: 'new_event_record_id' } };
+  const [client, q] = getDB();
+  const {name, end, state} = newEventObject;
+
+  const {ref} = await client.query(
+    q.Create(
+      q.Collection(targetCollection), {
+        data: { name, end, state },
+      },)
+  );
+  const newRecordRef: string = extractRefString(ref);
+
+  return { status: 200, message: 'OK', data: { id: newRecordRef } };
 }
 
 async function deleteAgendaEvent(id: string): Promise<ApiResponse> {
+  const [client, q] = getDB();
+  const {ref} = await client.query(q.Delete(
+    q.Ref(q.Collection(targetCollection), id)
+  ));
+
+  const deletedRecordRef: string = extractRefString(ref);
+
   return {
     status: 200,
     message: 'OK',
-    data: id,
+    data: deletedRecordRef,
   };
 }
 
@@ -57,25 +78,23 @@ async function updateAgendaEvent(
   eventObject: Partial<AgendaEvent>,
 ): Promise<ApiResponse> {
   const { id } = eventObject;
+  delete eventObject.id;
 
-  // no ID is provided
-  if (typeof id === 'undefined' || !id.trim().length)
-    return {
-      status: 422,
-      message: 'Missing event ID',
-    };
+  const [client, q] = getDB();
 
-  // only ID is provided
-  if (Object.keys(eventObject).length === 1) {
-    return {
-      status: 422,
-      message: 'No properties to update',
-    };
-  }
+  const { ref } = await client.query(
+    q.Update(
+      q.Ref(q.Collection(targetCollection, id)),
+      eventObject
+    )
+  );
+
+  const updatedRecordRef: string = extractRefString(ref);
+
   return {
     status: 200,
     message: 'OK',
-    data: { id: 'updated_event_record_id' },
+    data: { id: updatedRecordRef},
   };
 }
 
