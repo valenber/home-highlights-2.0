@@ -2,7 +2,7 @@ import { AgendaEvent } from './dbSchema';
 import faunadb, { Client } from 'faunadb';
 
 let dbClient: Client | null = null;
-const targetCollection = 'testAgendaEvents';
+const targetCollection = process.env.FAUNA_DB_COLLECTION;
 
 function extractRefString(ref: string): string {
   return ref.toString().split('"')[3];
