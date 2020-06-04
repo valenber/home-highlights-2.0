@@ -189,7 +189,7 @@ describe('DELETE request', () => {
 });
 
 describe('PUT request', () => {
-  test('does not call updateEvent on invalid request', async () => {
+  test('does not call updateAgendaEvent on request without Id', async () => {
     db.updateAgendaEvent = jest.fn();
 
     await eventsEndpointHandler({ method: 'PUT' });
@@ -206,12 +206,21 @@ describe('PUT request', () => {
     });
   });
 
-  test('calls updateEvent on valid request', async () => {
+  test('does not call updateAgendaEvent on request with only If', async () => {
+    db.updateAgendaEvent = jest.fn();
+
+    await eventsEndpointHandler({ method: 'PUT', body: {id: '28973912837012983'} });
+
+    expect(db.updateAgendaEvent).not.toHaveBeenCalled();
+  });
+
+
+  test('calls updateAgendaEvent on valid request', async () => {
     db.updateAgendaEvent = jest.fn().mockImplementation(() => {
       return 'ok';
     });
 
-    await eventsEndpointHandler({ method: 'PUT', body: { id: 'event_id' } });
+    await eventsEndpointHandler({ method: 'PUT', body: { id: 'event_id', name: 'Event' } });
 
     expect(db.updateAgendaEvent).toHaveBeenCalledTimes(1);
   });
@@ -223,7 +232,7 @@ describe('PUT request', () => {
 
     const result = await eventsEndpointHandler({
       method: 'PUT',
-      body: { id: 'existing_event_id' },
+      body: { id: 'existing_event_id', name: 'Event' },
     });
 
     expect(result).toEqual({
@@ -240,7 +249,7 @@ describe('PUT request', () => {
 
     const result = await eventsEndpointHandler({
       method: 'PUT',
-      body: { id: 'event_id' },
+      body: { id: 'event_id', name: 'Event' },
     });
 
     expect(result).toEqual({

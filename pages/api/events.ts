@@ -75,6 +75,13 @@ export async function eventsEndpointHandler(
       return { status: 422, message: 'Can not update event. Missing ID.' };
     }
 
+    if(Object.keys(request?.body).length < 2) {
+      return {
+        status: 422,
+        message: 'Can not update event. Missing values to be updated.',
+      };
+    }
+
     try {
       const dbResponse = await db.updateAgendaEvent(request.body);
       return { status: 200, message: 'OK', data: dbResponse };

@@ -2,7 +2,7 @@ module.exports = {
   preset: 'ts-jest',
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
   transform: { '\\.(js|jsx|ts|tsx)': ['ts-jest'] },
-  testMatch: ['**/*.(test|spec).(js|jsx|ts)'],
+  testMatch: ['**/*.(test|spec).(js|jsx|ts|tsx)'],
   testEnvironment: 'node',
   coveragePathIgnorePatterns: ['/node_modules/'],
   coverageReporters: ['text'],

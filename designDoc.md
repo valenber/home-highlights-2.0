@@ -35,14 +35,14 @@ The app fetches a list of events from a DB and displays them in a tabbed list by
 
 ## Data
 App communicates with DB to handle the following actions:
-* Get events list
-* Add new event
-* Delete existing event
-* Edit existing event
+[x] Get events list
+[x] Add new event
+[x] Delete existing event
+[x] Edit existing event
 
 ## API
-The `events` lambda in `pages/api` handles all the requests from UI. It then makes calls to the methods exposed by databaseService that handles requests validation and communication with the database.
+The `events` lambda in `pages/api` handles all the requests from UI. It then validates the requests and makes calls to the methods exposed by databaseService that handle communication with the database.
 
 ## Database
-The app used MongoDB hosted on mLab service. The credentials are passed as environment variables (see [example file](./.env.example)). Those variables are stored in Zeit Now project and can be downloaded into local file with `now env pull`. 
-Each environment uses it's own database.
+The app uses FaunaDB service. The credentials are passed as environment variables (see [example file](./.env.example)). Those variables are stored in Zeit Now project and can be downloaded into local file with `now env pull`. 
+Each environment uses it's own collection.
