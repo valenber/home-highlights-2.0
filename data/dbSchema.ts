@@ -10,7 +10,7 @@ type AgendaEventState = {
   [category in AgendaEventCategory]?: AgendaEventStatus;
 };
 
-type AgendaEventCategory =
+export type AgendaEventCategory =
   | 'home'
   | 'current'
   | 'exhibitions'

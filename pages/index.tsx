@@ -6,22 +6,29 @@
 import { useEffect } from 'react';
 import { useAppDispatch } from '../store';
 import { addEventsList } from '../store/eventsSlice';
-import { getAllEvents } from '../services/api';
+import { getAllApiEvents } from '../services/api';
+import { useSelector } from 'react-redux';
+import { getAllStoreEvents } from '../store/selectors/getAllStoreEvents';
+import { EventsLoadingProgressSpinner } from '../features/view-highlighted-events/components/EventsLoadingProgressSpinner';
+import { HighlightedEventsView } from '../features/view-highlighted-events/HighlightedEventsView';
 
 const IndexPage = () => {
   const dispatch = useAppDispatch();
+  const storeEvents = useSelector(getAllStoreEvents);
 
   useEffect(() => {
-    async function loadEventsToStore() {
-      const events = await getAllEvents();
+    // load events to store
+    (async function() {
+      const events = await getAllApiEvents();
       dispatch(addEventsList(events));
-    }
-    loadEventsToStore();
+    })();
   }, []);
 
   return (
     <>
-      <h1>Home Highlights 2.0</h1>
+      {!storeEvents.length && <EventsLoadingProgressSpinner />}
+
+      {storeEvents.length > 0 && <HighlightedEventsView />}
     </>
   );
 };

@@ -4,14 +4,17 @@
 /* eslint-disable react/display-name */
 
 import { AppProps } from 'next/app';
+import { StrictMode } from 'react';
 
 // UI framework styles
 import 'primeicons/primeicons.css';
 import 'primereact/resources/primereact.min.css';
-import 'primereact/resources/themes/nova-dark/theme.css';
+import 'primereact/resources/themes/rhea/theme.css';
+
 // custom shared styles
-import '../styles/shared.css';
-import { StrictMode } from 'react';
+import '../styles/app.css';
+import '../styles/components.css';
+
 import { Provider } from 'react-redux';
 import { store } from '../store';
 
@@ -19,7 +22,9 @@ const AppRoot = ({ Component, pageProps }: AppProps) => {
   return (
     <StrictMode>
       <Provider store={store}>
-        <Component {...pageProps} />
+        <div className="appLayout">
+          <Component {...pageProps} />
+        </div>
       </Provider>
     </StrictMode>
   );

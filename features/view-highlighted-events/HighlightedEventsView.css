@@ -1,0 +1,11 @@
+.highlightedEventsView {
+  width: 100vw;
+  max-width: 1080px;
+  height: 100vh;
+}
+
+.highlightedEventsView .p-tabview-panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2em;
+}

@@ -1,0 +1,12 @@
+.eventsLoadingProgressSpinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventsLoadingProgressSpinner p {
+  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 500;
+}
