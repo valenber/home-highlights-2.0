@@ -11,7 +11,18 @@ import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/nova-dark/theme.css';
 // custom shared styles
 import '../styles/shared.css';
+import { StrictMode } from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../store';
 
-export default ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+const AppRoot = ({ Component, pageProps }: AppProps) => {
+  return (
+    <StrictMode>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
+    </StrictMode>
+  );
 };
+
+export default AppRoot;

@@ -1,16 +1,22 @@
+/* stylelint-disable react/jsx-no-undef */
 /* NextJS page */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 
 import { useEffect } from 'react';
-import fetch from 'isomorphic-unfetch';
+import { useAppDispatch } from '../store';
+import { addEventsList } from '../store/eventsSlice';
+import { getAllEvents } from '../services/api';
 
 const IndexPage = () => {
-  useEffect((): void => {
-    console.log('calling db...');
-    fetch('/api/events')
-      .then((res) => res.json())
-      .then((data) => console.log(data));
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    async function loadEventsToStore() {
+      const events = await getAllEvents();
+      dispatch(addEventsList(events));
+    }
+    loadEventsToStore();
   }, []);
 
   return (

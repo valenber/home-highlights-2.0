@@ -1,36 +1,9 @@
-import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
+import fetch from 'isomorphic-unfetch';
+import { AgendaEvent } from '../data/dbSchema';
 
-const http: AxiosInstance = axios.create({
-  baseURL: '/api/',
-});
+export async function getAllEvents(): Promise<AgendaEvent[]> {
+  const res = await fetch('/api/events');
+  const body = await res.json();
 
-http.defaults.headers.post['Content-Type'] = 'application/json';
-
-http.interceptors.response.use(
-  async (response: AxiosResponse): Promise<AxiosResponse> => {
-    if (response.status >= 200 && response.status < 300) {
-      return response.data;
-    }
-  },
-  (error: AxiosError) => {
-    const {
-      response,
-      request,
-    }: {
-      response?: AxiosResponse;
-      request?: XMLHttpRequest;
-    } = error;
-    if (response) {
-      if (response.status >= 400 && response.status < 500) {
-        console.error(response.data?.data?.message);
-        return null;
-      }
-    } else if (request) {
-      console.error('Request failed. Please try again.');
-      return null;
-    }
-    return Promise.reject(error);
-  },
-);
-
-export default http;
+  return body.data;
+}

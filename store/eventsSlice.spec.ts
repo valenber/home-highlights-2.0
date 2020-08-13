@@ -1,5 +1,10 @@
 import { AgendaEvent } from '../data/dbSchema';
-import eventsReducer, { addOne, removeById, addMultiple } from './eventsSlice';
+import {
+  eventsReducer,
+  addEvent,
+  addEventsList,
+  removeEventById,
+} from './eventsSlice';
 
 const firstEvent: AgendaEvent = {
   id: '111',
@@ -21,20 +26,23 @@ const secondEvent: AgendaEvent = {
 
 describe('reducers', () => {
   test('add single event', () => {
-    const newState = eventsReducer([firstEvent], addOne(secondEvent));
+    const newState = eventsReducer([firstEvent], addEvent(secondEvent));
 
     expect(newState).toEqual([firstEvent, secondEvent]);
   });
 
   test('add multiple events', () => {
-    const newState = eventsReducer([], addMultiple([secondEvent, firstEvent]));
+    const newState = eventsReducer(
+      [],
+      addEventsList([secondEvent, firstEvent]),
+    );
     expect(newState).toEqual([secondEvent, firstEvent]);
   });
 
   test('remove single event by Id', () => {
     const newState = eventsReducer(
       [firstEvent, secondEvent],
-      removeById('111'),
+      removeEventById('111'),
     );
 
     expect(newState).toEqual([secondEvent]);
