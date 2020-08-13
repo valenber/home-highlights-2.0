@@ -1,5 +1,5 @@
 import { AgendaEvent } from '../data/dbSchema';
-import eventsReducer, { addOne, removeById, addMultiple } from './eventsSlice';
+import { eventsReducer, addOne, removeById, addMultiple } from './eventsSlice';
 
 const firstEvent: AgendaEvent = {
   id: '111',

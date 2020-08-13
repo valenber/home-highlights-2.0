@@ -1,3 +1,4 @@
+/* stylelint-disable react/jsx-no-undef */
 /* NextJS page */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */

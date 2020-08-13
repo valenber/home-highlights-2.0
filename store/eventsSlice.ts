@@ -19,5 +19,7 @@ const events = createSlice({
   },
 });
 
+const { reducer } = events;
+
+export { reducer as eventsReducer };
 export const { addOne, addMultiple, removeById } = events.actions;
-export default events.reducer;
