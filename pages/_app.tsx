@@ -5,11 +5,6 @@
 
 import { AppProps } from 'next/app';
 
-// UI framework styles
-import 'primeicons/primeicons.css';
-import 'primereact/resources/primereact.min.css';
-import 'primereact/resources/themes/rhea/theme.css';
-
 // custom shared styles
 import '../styles/app.css';
 import '../styles/components.css';
