@@ -18,6 +18,8 @@
     }
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
     "@reduxjs/toolkit": "^1.4.0",
     "axios": "^0.19.2",
     "faunadb": "^2.14.1",

@@ -4,7 +4,6 @@
 /* eslint-disable react/display-name */
 
 import { AppProps } from 'next/app';
-import { StrictMode } from 'react';
 
 // UI framework styles
 import 'primeicons/primeicons.css';
@@ -15,6 +14,7 @@ import 'primereact/resources/themes/rhea/theme.css';
 import '../styles/app.css';
 import '../styles/components.css';
 
+import { StrictMode } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 
