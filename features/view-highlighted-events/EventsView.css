@@ -2,10 +2,22 @@
   /* width: 100vw; */
   /* max-width: 1600px; */
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .highlightedEventsView .p-tabview-panel {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2em;
+  gap: calc(var(--spacing) * 4);
+}
+
+.highlightedEventsView .eventsListsWrapper {
+  padding: calc(var(--spacing) * 3) 0;
+  flex-grow: 1;
+  display:flex;
+}
+
+.highlightsGrid {
+  flex-grow: 1;
 }

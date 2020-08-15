@@ -6,9 +6,9 @@ export interface EventsSlice {
   selectedCategory: AgendaEventCategory;
 }
 
-export const initialState = {
+export const initialState: EventsSlice = {
   list: [],
-  selectedCategory: null,
+  selectedCategory: 'home',
 };
 
 const events = createSlice({

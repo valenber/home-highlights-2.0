@@ -1,5 +1,10 @@
-.events-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 32px;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* variables */
+:root {
+  --spacing: 8px;
 }
