@@ -28,9 +28,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
-    "react-transition-group": "^4.3.0",
-    "redux": "^4.0.5",
-    "swr": "^0.2.0"
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",

@@ -10,7 +10,7 @@ import { getAllApiEvents } from '../services/api';
 import { useSelector } from 'react-redux';
 import { getAllStoreEvents } from '../store/selectors/getAllStoreEvents';
 import { EventsLoadingProgressSpinner } from '../features/view-highlighted-events/components/EventsLoadingProgressSpinner';
-import { HighlightedEventsView } from '../features/view-highlighted-events/HighlightedEventsView';
+import { EventsView } from '../features/view-highlighted-events/EventsView';
 
 const IndexPage = () => {
   const dispatch = useAppDispatch();
@@ -28,7 +28,7 @@ const IndexPage = () => {
     <>
       {!storeEvents.length && <EventsLoadingProgressSpinner />}
 
-      {storeEvents.length > 0 && <HighlightedEventsView />}
+      {storeEvents.length > 0 && <EventsView />}
     </>
   );
 };
