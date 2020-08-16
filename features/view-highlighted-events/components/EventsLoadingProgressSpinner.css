@@ -6,7 +6,5 @@
 }
 
 .eventsLoadingProgressSpinner p {
-  margin-bottom: 0;
-  font-size: 24px;
-  font-weight: 500;
+  margin-top: var(--spacing);
 }
