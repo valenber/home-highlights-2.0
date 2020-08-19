@@ -1,6 +1,4 @@
 .highlightedEventsView {
-  /* width: 100vw; */
-  /* max-width: 1600px; */
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -15,7 +13,7 @@
 .highlightedEventsView .eventsListsWrapper {
   padding: calc(var(--spacing) * 3) 0;
   flex-grow: 1;
-  display:flex;
+  display: flex;
 }
 
 .highlightsGrid {

@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { getAllStoreEvents } from '../store/selectors/getAllStoreEvents';
 import { EventsLoadingProgressSpinner } from '../features/view-highlighted-events/components/EventsLoadingProgressSpinner';
 import { EventsView } from '../features/view-highlighted-events/EventsView';
+/* import { createManyAgendaEvents } from '../data/massUploadService'; */
 
 const IndexPage = () => {
   const dispatch = useAppDispatch();
@@ -22,6 +23,11 @@ const IndexPage = () => {
       const events = await getAllApiEvents();
       dispatch(addEventsList(events));
     })();
+
+    // upload all
+    /* (async function() { */
+    /*   await createManyAgendaEvents(); */
+    /* })(); */
   }, []);
 
   return (

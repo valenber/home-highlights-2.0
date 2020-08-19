@@ -20,6 +20,10 @@ const events = createSlice({
     },
 
     addEventsList(state, action: PayloadAction<AgendaEvent[]>): EventsSlice {
+      if (!action.payload) {
+        return state;
+      }
+
       return { ...state, list: [...state.list, ...action.payload] };
     },
 
