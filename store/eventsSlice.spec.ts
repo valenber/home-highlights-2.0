@@ -23,12 +23,12 @@ describe('reducers', () => {
 
   test('add multiple events', () => {
     const newState = eventsReducer(
-      { ...initialState, list: [firstEvent] },
+      { ...initialState, list: null },
       addEventsList([secondEvent, firstEvent]),
     );
     expect(newState).toEqual({
       ...initialState,
-      list: [firstEvent, secondEvent, firstEvent],
+      list: [secondEvent, firstEvent],
     });
   });
 

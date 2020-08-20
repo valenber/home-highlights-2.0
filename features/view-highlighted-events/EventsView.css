@@ -21,7 +21,8 @@
   padding: calc(var(--spacing) * 2);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--spacing);
+  gap: calc(var(--spacing) * 2);
+  align-content: start;
 }
 
 .highlightsGrid .eventCard {

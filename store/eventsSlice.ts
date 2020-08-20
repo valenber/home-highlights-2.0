@@ -2,12 +2,12 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AgendaEvent, AgendaEventCategory } from '../data/dbSchema';
 
 export interface EventsSlice {
-  list: AgendaEvent[];
+  list: AgendaEvent[] | null;
   selectedCategory: AgendaEventCategory;
 }
 
 export const initialState: EventsSlice = {
-  list: [],
+  list: null,
   selectedCategory: 'home',
 };
 
@@ -24,7 +24,7 @@ const events = createSlice({
         return state;
       }
 
-      return { ...state, list: [...state.list, ...action.payload] };
+      return { ...state, list: [...action.payload] };
     },
 
     removeEventById(state, action: PayloadAction<string>): EventsSlice {

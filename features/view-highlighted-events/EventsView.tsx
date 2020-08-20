@@ -52,7 +52,13 @@ export const EventsView: React.FC = () => {
           value={selectedCategory}
         >
           {eventCategories.map((category) => (
-            <Tab key={category} label={category} value={category} />
+            <Tab
+              key={category}
+              label={category}
+              value={
+                category === 'theatre and dance' ? 'theatreanddance' : category
+              }
+            />
           ))}
         </Tabs>
       </Paper>
@@ -60,14 +66,20 @@ export const EventsView: React.FC = () => {
       <div className="eventsListsWrapper">
         <Paper className="highlightsGrid">
           {categoryHighlights.map((event: AgendaEvent) => {
+            const formattedEndDate = new Intl.DateTimeFormat('en-GB', {
+              day: '2-digit',
+              month: 'short',
+              year: 'numeric',
+            }).format(new Date(event.end));
+
             return (
               <Card className="eventCard" key={event.id} variant="elevation">
                 <CardContent>
                   <Typography color="textSecondary" gutterBottom>
-                    {event.end}
+                    {formattedEndDate}
                   </Typography>
 
-                  <Typography gutterBottom variant="h5" component="h3">
+                  <Typography gutterBottom variant="h6" component="h3">
                     {event.name}
                   </Typography>
 
