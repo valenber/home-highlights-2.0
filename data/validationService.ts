@@ -19,7 +19,11 @@ interface NewEvent {
   [x: string]: any;
 }
 
-export function newEvent(newEventObject: NewEvent): boolean {
+export function newEvent(newEventPayload: NewEvent | string): boolean {
+  const newEventObject =
+    typeof newEventPayload === 'string'
+      ? JSON.parse(newEventPayload)
+      : newEventPayload;
   // NAME
   if (
     typeof newEventObject.name === 'undefined' ||
@@ -28,9 +32,9 @@ export function newEvent(newEventObject: NewEvent): boolean {
     return false;
   // END DATE
   if (
-    typeof newEventObject.end === 'undefined' 
-  // ||
-  //   typeof newEventObject.end.getMonth !== 'function'
+    typeof newEventObject.end === 'undefined'
+    // ||
+    //   typeof newEventObject.end.getMonth !== 'function'
   )
     return false;
 
@@ -39,8 +43,9 @@ export function newEvent(newEventObject: NewEvent): boolean {
   if (
     typeof newEventObject.state === 'undefined' ||
     JSON.stringify(newEventObject.state) === '{}'
-  )
+  ) {
     return false;
+  }
 
   // category is not valid
   const validCategories = [
@@ -72,8 +77,9 @@ export function newEvent(newEventObject: NewEvent): boolean {
       'highlight',
       'mainfocus',
     ])
-  )
+  ) {
     return false;
+  }
 
   // ALL GOOD!!!
   return true;

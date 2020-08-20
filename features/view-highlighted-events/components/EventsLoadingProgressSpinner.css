@@ -1,0 +1,10 @@
+.eventsLoadingProgressSpinner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.eventsLoadingProgressSpinner p {
+  margin-top: var(--spacing);
+}

@@ -5,13 +5,24 @@
 
 import { AppProps } from 'next/app';
 
-// UI framework styles
-import 'primeicons/primeicons.css';
-import 'primereact/resources/primereact.min.css';
-import 'primereact/resources/themes/nova-dark/theme.css';
 // custom shared styles
-import '../styles/shared.css';
+import '../styles/app.css';
+import '../styles/components.css';
 
-export default ({ Component, pageProps }: AppProps) => {
-  return <Component {...pageProps} />;
+import { StrictMode } from 'react';
+import { Provider } from 'react-redux';
+import { store } from '../store';
+
+const AppRoot = ({ Component, pageProps }: AppProps) => {
+  return (
+    <StrictMode>
+      <Provider store={store}>
+        <div className="appLayout">
+          <Component {...pageProps} />
+        </div>
+      </Provider>
+    </StrictMode>
+  );
 };
+
+export default AppRoot;

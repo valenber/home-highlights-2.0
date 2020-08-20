@@ -75,7 +75,7 @@ export async function eventsEndpointHandler(
       return { status: 422, message: 'Can not update event. Missing ID.' };
     }
 
-    if(Object.keys(request?.body).length < 2) {
+    if (Object.keys(request?.body).length < 2) {
       return {
         status: 422,
         message: 'Can not update event. Missing values to be updated.',

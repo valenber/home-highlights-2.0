@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/camelcase */
 import { AgendaEvent } from './dbSchema';
 import faunadb, { Client } from 'faunadb';
 
@@ -9,42 +10,47 @@ function extractRefString(ref: string): string {
 }
 
 function getDB(): [Client, typeof faunadb.query] {
-  if(!dbClient) {
-    dbClient = new faunadb.Client({secret: process.env.FAUNA_DB_KEY});
+  if (!dbClient) {
+    dbClient = new faunadb.Client({ secret: process.env.FAUNA_DB_KEY });
   }
 
   const query = faunadb.query;
 
-  return [ dbClient, query ];
+  return [dbClient, query];
 }
 
 async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
-
   const [client, q] = getDB();
 
-  const { data } = await client.query(q.Map(
-    q.Paginate(q.Match(q.Index('all_events'))),
-    q.Lambda('X', q.Get(q.Var('X')))
-  ));
+  const { data } = await client.query(
+    q.Map(
+      q.Paginate(q.Documents(q.Collection(targetCollection)), { size: 600 }),
+      q.Lambda((x) => q.Get(x)),
+    ),
+  );
 
   interface FdbEvent {
     data: AgendaEvent;
   }
 
   return data.map((event: FdbEvent) => event.data);
-};
+}
 
 async function createNewAgendaEvent(
-  newEventObject: Partial<AgendaEvent>,
+  newEventPayload: Partial<AgendaEvent> | string,
 ): Promise<string> {
-  const [client, q] = getDB();
-  const {name, end, state} = newEventObject;
+  const newEventObject =
+    typeof newEventPayload === 'string'
+      ? JSON.parse(newEventPayload)
+      : newEventPayload;
 
-  const {ref} = await client.query(
-    q.Create(
-      q.Collection(targetCollection), {
-        data: { name, end, state },
-      },)
+  const [client, q] = getDB();
+  const { name, start, end, state, last_update } = newEventObject;
+
+  const { ref } = await client.query(
+    q.Create(q.Collection(targetCollection), {
+      data: { name, start, end, state, last_update },
+    }),
   );
   const newRecordRef: string = extractRefString(ref);
 
@@ -53,9 +59,9 @@ async function createNewAgendaEvent(
 
 async function deleteAgendaEvent(id: string): Promise<string> {
   const [client, q] = getDB();
-  const {ref} = await client.query(q.Delete(
-    q.Ref(q.Collection(targetCollection), id)
-  ));
+  const { ref } = await client.query(
+    q.Delete(q.Ref(q.Collection(targetCollection), id)),
+  );
 
   const deletedRecordRef: string = extractRefString(ref);
 
@@ -71,10 +77,7 @@ async function updateAgendaEvent(
   const [client, q] = getDB();
 
   const { ref } = await client.query(
-    q.Update(
-      q.Ref(q.Collection(targetCollection, id)),
-      eventObject
-    )
+    q.Update(q.Ref(q.Collection(targetCollection, id)), eventObject),
   );
 
   const updatedRecordRef: string = extractRefString(ref);

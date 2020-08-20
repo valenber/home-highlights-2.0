@@ -1,0 +1,3239 @@
+Map(
+[
+  {
+    "name": "Emotions",
+    "start": "1981-08-18T00:00:00.000Z",
+    "end": "2020-12-06T00:00:00.000Z",
+    "state": {
+      "theatreanddance": "candidate",
+      "home": "candidate",
+      "current": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2018-10-02T20:10:28.493Z"
+  },
+  {
+    "name": "San Silvestre",
+    "start": "2020-12-31T00:00:00.000Z",
+    "end": "2020-12-31T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2018-11-05T08:49:49.272Z"
+  },
+  {
+    "name": "World Dog Show",
+    "start": "2020-04-23T00:00:00.000Z",
+    "end": "2020-04-26T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-03-14T10:00:39.776Z"
+  },
+  {
+    "name": "FEST: V Festival Ingenia Jazz & Wine - DTBC",
+    "start": "2021-07-15T00:00:00.000Z",
+    "end": "2021-07-31T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-04-01T10:55:58.735Z"
+  },
+  {
+    "name": "Japan Weekend Madrid - DTBC",
+    "start": "2020-09-19T00:00:00.000Z",
+    "end": "2020-09-20T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-05-21T07:39:21.740Z"
+  },
+  {
+    "name": "* PhotoEspaña",
+    "start": "2020-06-25T00:00:00.000Z",
+    "end": "2020-10-31T00:00:00.000Z",
+    "state": {
+      "exhibitions": "highlight",
+      "current": "candidate",
+      "events": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2018-12-26T11:41:07.986Z"
+  },
+  {
+    "name": "XXVI Ciclo de Lied: Recital VIII - Ian Bostridge & Igor Levit",
+    "start": "2020-04-20T00:00:00.000Z",
+    "end": "2020-04-20T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-02T07:58:38.811Z"
+  },
+  {
+    "name": "Simon & Garfunkel - Through the years",
+    "start": "2020-06-22T00:00:00.000Z",
+    "end": "2020-06-23T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-08T07:47:44.710Z"
+  },
+  {
+    "name": "Gayday - DTBC",
+    "start": "2020-09-19T00:00:00.000Z",
+    "end": "2020-09-19T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-16T09:57:31.625Z"
+  },
+  {
+    "name": "Hassan Khan",
+    "start": "2019-10-17T00:00:00.000Z",
+    "end": "2020-03-01T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-30T08:39:22.203Z"
+  },
+  {
+    "name": "Camara y ciudad [CaixaForum]",
+    "start": "2020-07-08T00:00:00.000Z",
+    "end": "2020-10-12T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-10T07:52:22.320Z"
+  },
+  {
+    "name": "* Goran Bregovic",
+    "start": "2020-02-28T00:00:00.000Z",
+    "end": "2020-02-28T00:00:00.000Z",
+    "state": { "home": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-10T08:36:07.161Z"
+  },
+  {
+    "name": "Alex Katz",
+    "start": "2020-06-23T00:00:00.000Z",
+    "end": "2020-10-04T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-21T08:25:27.645Z"
+  },
+  {
+    "name": "La Máquina Magritte",
+    "start": "2021-09-14T00:00:00.000Z",
+    "end": "2022-01-30T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-21T08:25:46.253Z"
+  },
+  {
+    "name": "Hollywood Sinfónico",
+    "start": "2021-09-04T00:00:00.000Z",
+    "end": "2021-09-04T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-04T09:34:37.910Z"
+  },
+  {
+    "name": "*The 1975",
+    "start": "2021-03-08T00:00:00.000Z",
+    "end": "2021-03-08T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-04T12:47:54.190Z"
+  },
+  {
+    "name": "Maluma",
+    "start": "2021-07-02T00:00:00.000Z",
+    "end": "2021-07-02T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-04T12:48:23.582Z"
+  },
+  {
+    "name": "* Bon Iver",
+    "start": "2020-04-16T00:00:00.000Z",
+    "end": "2020-04-16T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-04T12:48:38.102Z"
+  },
+  {
+    "name": "Carracci. Capilla Herrera [Prado]",
+    "start": "2020-06-16T00:00:00.000Z",
+    "end": "2020-09-20T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:15:19.441Z"
+  },
+  {
+    "name": "*Maria João Pires - Nocturnos de Chopin [T.Real]",
+    "start": "2020-10-12T00:00:00.000Z",
+    "end": "2020-10-12T00:00:00.000Z",
+    "state": { "music": "highlight", "current": "highlight" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:34:01.035Z"
+  },
+  {
+    "name": "Marc Anthony",
+    "start": "2021-06-09T00:00:00.000Z",
+    "end": "2021-06-09T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-03T09:14:44.972Z"
+  },
+  {
+    "name": "Feria del libro",
+    "start": "2020-10-02T00:00:00.000Z",
+    "end": "2020-10-18T00:00:00.000Z",
+    "state": { "events": "highlight" },
+    "lang": "en",
+    "last_update": "2020-01-22T09:12:47.821Z"
+  },
+  {
+    "name": "*Passenger",
+    "start": "2020-10-14T00:00:00.000Z",
+    "end": "2020-10-14T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2020-01-28T08:49:21.116Z"
+  },
+  {
+    "name": "FEST-Festival Arte Sacro",
+    "start": "2020-02-27T00:00:00.000Z",
+    "end": "2020-04-02T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T09:50:45.509Z"
+  },
+  {
+    "name": "Almoneda",
+    "start": "2020-05-23T00:00:00.000Z",
+    "end": "2020-05-31T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-09T09:19:44.594Z"
+  },
+  {
+    "name": "Lee Friedlander [MAPFRE]",
+    "start": "2020-06-03T00:00:00.000Z",
+    "end": "2020-09-06T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-09T09:29:13.701Z"
+  },
+  {
+    "name": "FEST - MIM. Música Ibérica Madrid 2020",
+    "start": "2020-04-14T00:00:00.000Z",
+    "end": "2020-04-26T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-09T12:05:59.535Z"
+  },
+  {
+    "name": "Silvia Perez Cruz",
+    "start": "2020-05-18T00:00:00.000Z",
+    "end": "2020-05-18T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-04-15T05:52:59.917Z"
+  },
+  {
+    "name": "Mario Merz",
+    "start": "2020-06-06T00:00:00.000Z",
+    "end": "2020-08-30T00:00:00.000Z",
+    "state": { "exhibitions": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T10:24:18.589Z"
+  },
+  {
+    "name": "Titerescena - 9-10/19",
+    "start": "2019-10-12T00:00:00.000Z",
+    "end": "2020-06-14T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate", "home": "candidate" },
+    "lang": "en",
+    "last_update": "2018-10-02T20:22:23.225Z"
+  },
+  {
+    "name": "Almoneda navidad ",
+    "start": "2020-12-16T00:00:00.000Z",
+    "end": "2020-12-20T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2018-10-03T14:41:38.874Z"
+  },
+  {
+    "name": "Horse Racing",
+    "start": "2020-06-14T00:00:00.000Z",
+    "end": "2020-11-29T00:00:00.000Z",
+    "state": {
+      "sports": "highlight",
+      "current": "highlight",
+      "home": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2018-10-06T21:15:46.443Z"
+  },
+  {
+    "name": "Mercado Motores",
+    "start": "2020-04-25T00:00:00.000Z",
+    "end": "2020-04-26T00:00:00.000Z",
+    "state": { "current": "candidate", "events": "candidate" },
+    "lang": "en",
+    "last_update": "2018-10-06T21:28:29.079Z"
+  },
+  {
+    "name": "Cambio guardia ",
+    "start": "2020-07-29T00:00:00.000Z",
+    "end": "2020-09-23T00:00:00.000Z",
+    "state": {
+      "events": "highlight",
+      "current": "candidate",
+      "home": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2018-10-24T09:45:07.300Z"
+  },
+  {
+    "name": "Christmas at Circo Price",
+    "start": "2019-11-29T00:00:00.000Z",
+    "end": "2020-01-05T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2018-11-05T08:43:04.996Z"
+  },
+  {
+    "name": "Naviluz",
+    "start": "2019-11-29T00:00:00.000Z",
+    "end": "2020-01-06T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2018-11-05T08:51:53.312Z"
+  },
+  {
+    "name": "Feria Mercado artesanal - DTBC",
+    "start": "2020-12-01T00:00:00.000Z",
+    "end": "2020-12-30T00:00:00.000Z",
+    "state": { "christmas": "candidate", "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2018-11-05T08:54:28.779Z"
+  },
+  {
+    "name": "Cabalgata ",
+    "start": "2020-01-05T00:00:00.000Z",
+    "end": "2020-01-05T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2018-11-05T08:55:20.649Z"
+  },
+  {
+    "name": "Concierto Hollywood En Navidad - Fundación Excelentia",
+    "start": "2020-12-25T00:00:00.000Z",
+    "end": "2020-12-25T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2018-11-12T12:39:55.249Z"
+  },
+  {
+    "name": "Exposición internacional de Belenes. Noche de Paz",
+    "start": "2018-12-05T00:00:00.000Z",
+    "end": "2019-01-05T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2018-11-19T12:19:46.358Z"
+  },
+  {
+    "name": "Belén de Playmobil / Clicks",
+    "start": "2019-12-22T00:00:00.000Z",
+    "end": "2020-01-05T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2018-11-19T12:20:44.703Z"
+  },
+  {
+    "name": "Madrionetas",
+    "start": "2019-12-18T00:00:00.000Z",
+    "end": "2020-01-05T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2018-11-23T10:18:45.833Z"
+  },
+  {
+    "name": "La casa de papá noel",
+    "start": "2019-12-14T00:00:00.000Z",
+    "end": "2020-01-05T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2018-12-05T12:39:43.004Z"
+  },
+  {
+    "name": "South Summit - DTBC",
+    "start": "2020-10-07T00:00:00.000Z",
+    "end": "2020-10-09T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2018-12-10T08:48:44.629Z"
+  },
+  {
+    "name": "ARCO - DTBC",
+    "start": "2021-02-13T00:00:00.000Z",
+    "end": "2021-03-07T00:00:00.000Z",
+    "state": { "fairs": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2018-12-10T08:54:10.357Z"
+  },
+  {
+    "name": "Madrid Open DTBC",
+    "start": "2021-09-17T00:00:00.000Z",
+    "end": "2021-09-26T00:00:00.000Z",
+    "state": {
+      "sports": "candidate",
+      "events": "highlight",
+      "current": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2018-12-26T08:30:30.379Z"
+  },
+  {
+    "name": "Estampa - DTBC",
+    "start": "2020-10-16T00:00:00.000Z",
+    "end": "2020-10-18T00:00:00.000Z",
+    "state": { "fairs": "highlight", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2018-12-28T12:31:08.187Z"
+  },
+  {
+    "name": "* FEST: A Summer Story",
+    "start": "2021-06-18T00:00:00.000Z",
+    "end": "2021-06-19T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-01-03T12:27:19.106Z"
+  },
+  {
+    "name": "Gastrofestival",
+    "start": "2021-02-05T00:00:00.000Z",
+    "end": "2021-02-21T00:00:00.000Z",
+    "state": {
+      "events": "candidate",
+      "fairs": "candidate",
+      "current": "candidate",
+      "home": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2019-01-09T08:01:47.499Z"
+  },
+  {
+    "name": "Gamergy - DTBC",
+    "start": "2020-06-19T00:00:00.000Z",
+    "end": "2020-06-21T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2019-02-04T09:58:26.921Z"
+  },
+  {
+    "name": "Carnival - DTBC",
+    "start": "2021-03-17T00:00:00.000Z",
+    "end": "2021-03-23T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-02-25T08:47:47.049Z"
+  },
+  {
+    "name": "Orquesta Sinfónica Verum - El Escorial",
+    "start": "2020-04-20T00:00:00.000Z",
+    "end": "2020-04-20T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-03-11T09:16:51.315Z"
+  },
+  {
+    "name": "Documenta Madrid - DTBC",
+    "start": "2020-05-07T00:00:00.000Z",
+    "end": "2020-05-17T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-03-14T08:34:52.393Z"
+  },
+  {
+    "name": "World Football Summit - DTBC",
+    "start": "2020-09-26T00:00:00.000Z",
+    "end": "2020-09-27T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2019-03-15T08:36:14.597Z"
+  },
+  {
+    "name": "Bicentenario Prado",
+    "start": "2019-01-01T00:00:00.000Z",
+    "end": "2019-12-31T00:00:00.000Z",
+    "state": { "current": "candidate" },
+    "lang": "en",
+    "last_update": "2019-03-18T09:08:29.914Z"
+  },
+  {
+    "name": "Lear [Teatro Real]",
+    "start": "2020-04-16T00:00:00.000Z",
+    "end": "2020-04-28T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-04-15T08:54:18.401Z"
+  },
+  {
+    "name": "La Traviata",
+    "start": "2020-05-09T00:00:00.000Z",
+    "end": "2020-07-19T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-04-15T08:54:36.281Z"
+  },
+  {
+    "name": "Nederlans Dans Theater - Jubilee ",
+    "start": "2020-06-12T00:00:00.000Z",
+    "end": "2020-06-15T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-04-15T08:54:49.236Z"
+  },
+  {
+    "name": "Fiestas Orgullo",
+    "start": "2021-06-25T00:00:00.000Z",
+    "end": "2021-07-04T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-05-06T09:42:11.623Z"
+  },
+  {
+    "name": "Ibermúsica. Orchestra of the Age of Enlightenment y Jurowski",
+    "start": "2020-05-30T00:00:00.000Z",
+    "end": "2020-05-30T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-05-14T11:34:47.321Z"
+  },
+  {
+    "name": "FEST: Clazz Continental Latin Jazz 2020",
+    "start": "2020-06-18T00:00:00.000Z",
+    "end": "2020-06-20T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-05-21T07:43:04.134Z"
+  },
+  {
+    "name": "La tabernera del puerto",
+    "start": "2020-06-06T00:00:00.000Z",
+    "end": "2020-06-14T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-05-28T11:25:08.591Z"
+  },
+  {
+    "name": "Suma Flamenca - DTBC",
+    "start": "2020-06-03T00:00:00.000Z",
+    "end": "2020-06-21T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-03T07:53:56.185Z"
+  },
+  {
+    "name": "XXVI Ciclo de Lied: Recital VII - Manuel Walser & Alexander Fleischer",
+    "start": "2020-06-08T00:00:00.000Z",
+    "end": "2020-06-08T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-04T10:05:24.965Z"
+  },
+  {
+    "name": "* FEST: Love the Tuentis - DTBC",
+    "start": "2020-06-27T00:00:00.000Z",
+    "end": "2020-06-28T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-18T07:28:14.227Z"
+  },
+  {
+    "name": "Ceija Stojka",
+    "start": "2019-11-22T00:00:00.000Z",
+    "end": "2020-03-23T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-28T11:44:10.806Z"
+  },
+  {
+    "name": "María Bayo - Ecos Barrocos",
+    "start": "2020-05-05T00:00:00.000Z",
+    "end": "2020-05-05T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-02T07:59:15.989Z"
+  },
+  {
+    "name": "Cine Conde Duque - DTBC",
+    "start": "2020-07-03T00:00:00.000Z",
+    "end": "2020-09-05T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-15T06:57:08.304Z"
+  },
+  {
+    "name": "Sorolla. Líneas Maestras",
+    "start": "2019-11-25T00:00:00.000Z",
+    "end": "2020-05-10T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-29T10:01:15.652Z"
+  },
+  {
+    "name": "FEST: DCODE",
+    "start": "2021-09-10T00:00:00.000Z",
+    "end": "2021-09-11T00:00:00.000Z",
+    "state": {
+      "music": "candidate",
+      "current": "candidate",
+      "home": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2019-08-09T07:09:45.919Z"
+  },
+  {
+    "name": "Mercadillo del Gato",
+    "start": "2019-12-13T00:00:00.000Z",
+    "end": "2020-01-05T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-23T10:34:16.085Z"
+  },
+  {
+    "name": "Nocturna",
+    "start": "2020-10-20T00:00:00.000Z",
+    "end": "2020-10-24T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-23T10:42:41.159Z"
+  },
+  {
+    "name": "Lesgaicinema - DTBC",
+    "start": "2020-10-30T00:00:00.000Z",
+    "end": "2020-11-15T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-04T09:30:31.040Z"
+  },
+  {
+    "name": "Antique Book Fair - DTBC",
+    "start": "2019-09-26T00:00:00.000Z",
+    "end": "2020-10-15T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-07T07:04:50.054Z"
+  },
+  {
+    "name": "Mulafest",
+    "start": "2020-04-17T00:00:00.000Z",
+    "end": "2020-04-19T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-08T12:18:48.468Z"
+  },
+  {
+    "name": "* Fat Freddy's Drop",
+    "start": "2020-05-24T00:00:00.000Z",
+    "end": "2020-05-24T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-09T07:55:44.437Z"
+  },
+  {
+    "name": "* Richard Learoyd",
+    "start": "2020-02-19T00:00:00.000Z",
+    "end": "2020-05-24T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-10T07:51:50.599Z"
+  },
+  {
+    "name": "Flamenco Real",
+    "start": "2019-10-25T00:00:00.000Z",
+    "end": "2020-07-17T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-10T07:54:06.346Z"
+  },
+  {
+    "name": "Sara Baras",
+    "start": "2020-05-29T00:00:00.000Z",
+    "end": "2020-06-28T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-10T07:59:03.939Z"
+  },
+  {
+    "name": "Ballet Nacional España - Electra ",
+    "start": "2020-12-28T00:00:00.000Z",
+    "end": "2020-12-30T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-15T08:14:33.555Z"
+  },
+  {
+    "name": "Juvenalia",
+    "start": "2020-12-03T00:00:00.000Z",
+    "end": "2020-12-06T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-15T08:36:30.333Z"
+  },
+  {
+    "name": "* Masaveu",
+    "start": "2019-10-14T00:00:00.000Z",
+    "end": "2020-12-31T00:00:00.000Z",
+    "state": {
+      "current": "candidate",
+      "home": "candidate",
+      "exhibitions": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2019-10-18T11:15:13.113Z"
+  },
+  {
+    "name": "* Nick Cave",
+    "start": "2021-05-23T00:00:00.000Z",
+    "end": "2021-05-23T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-25T06:48:59.436Z"
+  },
+  {
+    "name": "Love the 90s",
+    "start": "2020-06-13T00:00:00.000Z",
+    "end": "2020-06-13T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-28T09:49:31.707Z"
+  },
+  {
+    "name": "Halloween",
+    "start": "2020-10-31T00:00:00.000Z",
+    "end": "2020-11-01T00:00:00.000Z",
+    "state": { "current": "candidate", "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-29T08:37:10.869Z"
+  },
+  {
+    "name": "* Los irascibles: pintores contra el museo [Juan March]",
+    "start": "2020-03-06T00:00:00.000Z",
+    "end": "2020-06-07T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-04T09:13:30.401Z"
+  },
+  {
+    "name": "Grandes del Gospel",
+    "start": "2020-11-30T00:00:00.000Z",
+    "end": "2020-12-13T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-04T09:27:54.804Z"
+  },
+  {
+    "name": "Eleftheria Arvanitaki",
+    "start": "2020-05-04T00:00:00.000Z",
+    "end": "2020-05-04T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-04T12:49:11.915Z"
+  },
+  {
+    "name": "Restaurantes contra el hambre",
+    "start": "2020-09-14T00:00:00.000Z",
+    "end": "2020-11-15T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-11T09:15:09.538Z"
+  },
+  {
+    "name": "A Christmas Carol (F2F) - DTBC",
+    "start": "2020-12-12T00:00:00.000Z",
+    "end": "2020-12-27T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-18T10:19:02.737Z"
+  },
+  {
+    "name": "International Festival of Magic - DTBC",
+    "start": "2021-02-06T00:00:00.000Z",
+    "end": "2021-03-07T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate", "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-28T10:54:56.883Z"
+  },
+  {
+    "name": "WWE",
+    "start": "2020-10-10T00:00:00.000Z",
+    "end": "2020-10-10T00:00:00.000Z",
+    "state": { "sports": "highlight", "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:16:11.908Z"
+  },
+  {
+    "name": "*Tash Sultana [Wizink]",
+    "start": "2020-09-01T00:00:00.000Z",
+    "end": "2020-09-01T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:34:05.476Z"
+  },
+  {
+    "name": "Madrid Fusión",
+    "start": "2021-01-11T00:00:00.000Z",
+    "end": "2021-01-13T00:00:00.000Z",
+    "state": {
+      "events": "candidate",
+      "current": "candidate",
+      "home": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2019-12-10T07:47:40.369Z"
+  },
+  {
+    "name": "Mercedes Benz Fashion Week",
+    "start": "2020-09-10T00:00:00.000Z",
+    "end": "2020-09-13T00:00:00.000Z",
+    "state": { "fairs": "highlight" },
+    "lang": "en",
+    "last_update": "2019-12-10T07:48:28.282Z"
+  },
+  {
+    "name": "Concierto de navidad [Teatro Real] - TTBC",
+    "start": "2020-12-05T00:00:00.000Z",
+    "end": "2020-12-05T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-10T11:53:12.896Z"
+  },
+  {
+    "name": "*Queen and Adam Lambert",
+    "start": "2021-07-06T00:00:00.000Z",
+    "end": "2021-07-07T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-23T09:59:53.786Z"
+  },
+  {
+    "name": "RuPaul's Drag Race",
+    "start": "2020-05-22T00:00:00.000Z",
+    "end": "2020-05-22T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-27T12:51:43.677Z"
+  },
+  {
+    "name": "San Isidro - DTBC",
+    "start": "2021-05-11T00:00:00.000Z",
+    "end": "2021-05-16T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-30T07:29:13.157Z"
+  },
+  {
+    "name": "Vive la Moto",
+    "start": "2020-04-16T00:00:00.000Z",
+    "end": "2020-04-19T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-30T10:41:10.465Z"
+  },
+  {
+    "name": "Inverfest",
+    "start": "2020-01-09T00:00:00.000Z",
+    "end": "2020-02-15T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-02T08:52:27.976Z"
+  },
+  {
+    "name": "Bill Viola [Telefónica]",
+    "start": "2020-06-26T00:00:00.000Z",
+    "end": "2021-01-10T00:00:00.000Z",
+    "state": { "exhibitions": "highlight" },
+    "lang": "en",
+    "last_update": "2020-01-02T10:55:13.189Z"
+  },
+  {
+    "name": "Joan Rabascall [Tabacalera]",
+    "start": "2020-02-07T00:00:00.000Z",
+    "end": "2020-04-12T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-02T11:01:22.273Z"
+  },
+  {
+    "name": "Chayanne",
+    "start": "2020-04-20T00:00:00.000Z",
+    "end": "2020-04-20T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-03T08:38:41.386Z"
+  },
+  {
+    "name": "* Texas",
+    "start": "2020-11-28T00:00:00.000Z",
+    "end": "2020-11-28T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2020-01-03T09:15:48.367Z"
+  },
+  {
+    "name": "David Bisbal",
+    "start": "2020-06-27T00:00:00.000Z",
+    "end": "2020-06-27T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-03T09:16:50.203Z"
+  },
+  {
+    "name": "A Chorus Line - DTBC (Antonio Banderas)",
+    "start": "2020-09-17T00:00:00.000Z",
+    "end": "2020-11-15T00:00:00.000Z",
+    "state": { "theatreanddance": "highlight" },
+    "lang": "en",
+    "last_update": "2020-01-03T12:47:15.313Z"
+  },
+  {
+    "name": "Inverfest",
+    "start": "2020-01-09T00:00:00.000Z",
+    "end": "2020-02-15T00:00:00.000Z",
+    "state": { "home": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-07T07:45:54.180Z"
+  },
+  {
+    "name": "Carmina Burana – La Fura dels Baus",
+    "start": "2020-06-10T00:00:00.000Z",
+    "end": "2020-06-21T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-08T10:44:36.953Z"
+  },
+  {
+    "name": "Real Madrid - Zenit St.P",
+    "start": "2020-04-10T00:00:00.000Z",
+    "end": "2020-04-10T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-30T07:55:32.473Z"
+  },
+  {
+    "name": "Wolfmother",
+    "start": "2020-05-17T00:00:00.000Z",
+    "end": "2020-05-17T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-30T07:56:26.191Z"
+  },
+  {
+    "name": "FEST - Madrid Reggaeton Festival",
+    "start": "2021-06-25T00:00:00.000Z",
+    "end": "2021-06-26T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T09:41:15.507Z"
+  },
+  {
+    "name": "Michael Kiwanuka",
+    "start": "2020-10-15T00:00:00.000Z",
+    "end": "2020-10-15T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T10:22:13.098Z"
+  },
+  {
+    "name": "WASP",
+    "start": "2020-10-30T00:00:00.000Z",
+    "end": "2020-10-30T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T10:25:41.475Z"
+  },
+  {
+    "name": "Callas",
+    "start": "2020-03-03T00:00:00.000Z",
+    "end": "2020-03-21T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-04T13:15:06.407Z"
+  },
+  {
+    "name": "Passagers (Les 7 doigts de la main)",
+    "start": "2020-04-15T00:00:00.000Z",
+    "end": "2020-04-26T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T11:09:26.470Z"
+  },
+  {
+    "name": "Salón Gourmets",
+    "start": "2021-04-12T00:00:00.000Z",
+    "end": "2021-04-15T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T11:27:22.434Z"
+  },
+  {
+    "name": "Ibermúsica. Juan Diego Flórez ",
+    "start": "2020-05-18T00:00:00.000Z",
+    "end": "2020-05-18T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T12:12:22.106Z"
+  },
+  {
+    "name": "The Black Crowes",
+    "start": "2020-11-12T00:00:00.000Z",
+    "end": "2020-11-12T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2020-02-10T09:51:23.281Z"
+  },
+  {
+    "name": "Serrat & Sabina",
+    "start": "2020-05-22T00:00:00.000Z",
+    "end": "2020-05-22T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-13T08:04:40.152Z"
+  },
+  {
+    "name": "War of Titans II",
+    "start": "2020-05-23T00:00:00.000Z",
+    "end": "2020-05-23T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-28T08:22:51.371Z"
+  },
+  {
+    "name": "One Republic",
+    "start": "2020-11-02T00:00:00.000Z",
+    "end": "2020-11-02T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2020-03-04T07:16:27.836Z"
+  },
+  {
+    "name": "Las cosas se mueven pero no dicen nada",
+    "start": "2020-04-28T00:00:00.000Z",
+    "end": "2020-04-30T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-04T12:03:12.869Z"
+  },
+  {
+    "name": "Still Human",
+    "start": "2020-02-19T00:00:00.000Z",
+    "end": "2020-07-31T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-06T10:40:14.530Z"
+  },
+  {
+    "name": "The Primitals",
+    "start": "2020-04-10T00:00:00.000Z",
+    "end": "2020-04-24T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-09T09:04:22.998Z"
+  },
+  {
+    "name": "Lorca y la pasión. Un mar de sueños [CANAL]",
+    "start": "2020-05-22T00:00:00.000Z",
+    "end": "2020-05-24T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-09T09:50:44.885Z"
+  },
+  {
+    "name": "Ibermúsica. Jurowski dirige la London Philharmonic",
+    "start": "2020-04-14T00:00:00.000Z",
+    "end": "2020-04-14T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-09T09:57:26.095Z"
+  },
+  {
+    "name": "El Lago de los Cisnes - Ballet de San Petersburgo",
+    "start": "2020-06-30T00:00:00.000Z",
+    "end": "2020-08-09T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-04-15T05:54:41.254Z"
+  },
+  {
+    "name": "EBMT 2020 - Transplantes",
+    "start": "2020-08-30T00:00:00.000Z",
+    "end": "2020-09-02T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2020-04-15T05:55:28.789Z"
+  },
+  {
+    "name": "*Lila Downs",
+    "start": "2021-02-01T00:00:00.000Z",
+    "end": "2021-02-01T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-12T09:31:02.714Z"
+  },
+  {
+    "name": "MOMAD",
+    "start": "2020-09-03T00:00:00.000Z",
+    "end": "2020-09-05T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-18T06:11:14.988Z"
+  },
+  {
+    "name": "INFARMA",
+    "start": "2020-06-30T00:00:00.000Z",
+    "end": "2020-07-02T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-18T06:13:22.567Z"
+  },
+  {
+    "name": "Salón del Vehículo de Ocasión y Seminuevo 2020",
+    "start": "2020-12-04T00:00:00.000Z",
+    "end": "2020-12-13T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-18T06:14:13.468Z"
+  },
+  {
+    "name": "El Barrio",
+    "start": "2020-10-16T00:00:00.000Z",
+    "end": "2020-10-16T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-18T06:16:49.416Z"
+  },
+  {
+    "name": "Casa Decor - DTBC",
+    "start": "2021-06-09T00:00:00.000Z",
+    "end": "2021-07-04T00:00:00.000Z",
+    "state": { "events": "candidate", "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-26T12:57:58.440Z"
+  },
+  {
+    "name": "Apocalyptica + Epica ",
+    "start": "2020-11-29T00:00:00.000Z",
+    "end": "2020-11-29T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-27T08:08:04.755Z"
+  },
+  {
+    "name": "Michael Shenker Fest [Riviera]",
+    "start": "2020-12-08T00:00:00.000Z",
+    "end": "2020-12-08T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-27T08:09:34.909Z"
+  },
+  {
+    "name": "Un ballo in maschera [Teatro Real]",
+    "start": "2020-09-18T00:00:00.000Z",
+    "end": "2020-10-14T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:14:53.824Z"
+  },
+  {
+    "name": "Giselle - Ballet de Múnich [Teatro Real]",
+    "start": "2020-10-22T00:00:00.000Z",
+    "end": "2020-10-24T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate", "current": "highlight" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:15:48.911Z"
+  },
+  {
+    "name": "Compañía Nacional de Danza [Teatro Real]",
+    "start": "2020-11-19T00:00:00.000Z",
+    "end": "2020-11-21T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:16:41.207Z"
+  },
+  {
+    "name": "Marie [Teatro Real]",
+    "start": "2021-01-09T00:00:00.000Z",
+    "end": "2021-01-17T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:18:49.458Z"
+  },
+  {
+    "name": "Siegfried [Teatro Real]",
+    "start": "2021-02-13T00:00:00.000Z",
+    "end": "2021-03-14T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:20:10.298Z"
+  },
+  {
+    "name": "Lessons in love and violence [Teatro Real]",
+    "start": "2021-04-30T00:00:00.000Z",
+    "end": "2021-05-10T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:21:13.347Z"
+  },
+  {
+    "name": "Don Fernando, el Emplazado [Teatro Real]",
+    "start": "2021-05-15T00:00:00.000Z",
+    "end": "2021-05-17T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:21:36.684Z"
+  },
+  {
+    "name": "Gala Centenario Alicia Alonso",
+    "start": "2021-05-17T00:00:00.000Z",
+    "end": "2021-05-17T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T17:02:09.468Z"
+  },
+  {
+    "name": "Madrid en danza [Canal]",
+    "start": "2020-06-17T00:00:00.000Z",
+    "end": "2020-06-28T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-10T13:58:51.668Z"
+  },
+  {
+    "name": "¿Y si nos enamoramos de Scarpia? [Canal]",
+    "start": "2020-08-05T00:00:00.000Z",
+    "end": "2020-08-29T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-11T20:33:47.270Z"
+  },
+  {
+    "name": "Las artes del metal en Al Andalus [MAN]",
+    "start": "2020-06-16T00:00:00.000Z",
+    "end": "2020-09-06T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-12T13:30:16.334Z"
+  },
+  {
+    "name": "La fragua ONLINE",
+    "start": "2020-06-27T00:00:00.000Z",
+    "end": "2020-06-27T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-15T06:54:12.575Z"
+  },
+  {
+    "name": "Javier Camarena [Teatro Real]",
+    "start": "2021-01-15T00:00:00.000Z",
+    "end": "2021-01-15T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-15T10:03:33.862Z"
+  },
+  {
+    "name": "Campeonato España Atletismo",
+    "start": "2020-09-05T00:00:00.000Z",
+    "end": "2020-09-06T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-18T13:35:39.778Z"
+  },
+  {
+    "name": "Reunited [Prado]",
+    "start": "2020-06-19T00:00:00.000Z",
+    "end": "2020-09-13T00:00:00.000Z",
+    "state": {
+      "exhibitions": "highlight",
+      "current": "highlight",
+      "home": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2020-07-29T08:28:51.665Z"
+  },
+  {
+    "name": "Madrid Film Festival ",
+    "start": "2020-06-19T00:00:00.000Z",
+    "end": "2020-08-29T00:00:00.000Z",
+    "state": { "events": "highlight", "current": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T08:32:21.018Z"
+  },
+  {
+    "name": "Corral Cervantes",
+    "start": "2020-07-29T00:00:00.000Z",
+    "end": "2020-09-20T00:00:00.000Z",
+    "state": { "current": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T10:31:32.437Z"
+  },
+  {
+    "name": "A Villa Voz",
+    "start": "2020-09-05T00:00:00.000Z",
+    "end": "2020-11-14T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-07-29T10:47:55.759Z"
+  },
+  {
+    "name": "Copa Mundo Triatlon",
+    "start": "2020-09-26T00:00:00.000Z",
+    "end": "2020-09-26T00:00:00.000Z",
+    "state": { "sports": "highlight" },
+    "lang": "en",
+    "last_update": "2020-08-04T09:27:02.404Z"
+  },
+  {
+    "name": "Carrusel Cruz ",
+    "start": "2019-11-23T00:00:00.000Z",
+    "end": "2020-01-06T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2018-11-05T08:46:52.368Z"
+  },
+  {
+    "name": "Año nuevo",
+    "start": "2020-12-31T00:00:00.000Z",
+    "end": "2020-12-31T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2018-11-05T08:50:23.378Z"
+  },
+  {
+    "name": "The Lion King",
+    "start": "2020-12-01T00:00:00.000Z",
+    "end": "2021-06-30T00:00:00.000Z",
+    "state": {
+      "theatreanddance": "highlight",
+      "home": "candidate",
+      "christmas": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2018-11-12T08:57:55.654Z"
+  },
+  {
+    "name": "Tren Mágicas Navidades - POR CONFIRMAR",
+    "start": "2018-12-01T00:00:00.000Z",
+    "end": "2018-12-31T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2018-11-12T12:15:48.597Z"
+  },
+  {
+    "name": "Pista de hielo Colón - POR CONFIRMAR",
+    "start": "2019-12-16T00:00:00.000Z",
+    "end": "2020-01-06T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2018-11-14T11:02:19.263Z"
+  },
+  {
+    "name": "Piesta hielo Cibeles",
+    "start": "2019-12-20T00:00:00.000Z",
+    "end": "2020-01-05T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2018-11-30T12:20:52.881Z"
+  },
+  {
+    "name": "Navidad flamenca",
+    "start": "2020-12-22T00:00:00.000Z",
+    "end": "2020-12-22T00:00:00.000Z",
+    "state": { "christmas": "candidate", "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2018-12-05T11:02:46.427Z"
+  },
+  {
+    "name": "Vuelta",
+    "start": "2020-11-08T00:00:00.000Z",
+    "end": "2020-11-08T00:00:00.000Z",
+    "state": {
+      "sports": "highlight",
+      "current": "candidate",
+      "home": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2018-12-26T08:30:58.755Z"
+  },
+  {
+    "name": "Jaume Plensa - JULIA (COLON)",
+    "start": "2019-01-01T00:00:00.000Z",
+    "end": "2020-12-31T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2018-12-26T11:32:18.559Z"
+  },
+  {
+    "name": "ARCO+Semana del arte",
+    "start": "2020-02-26T00:00:00.000Z",
+    "end": "2020-03-01T00:00:00.000Z",
+    "state": { "home": "candidate" },
+    "lang": "en",
+    "last_update": "2018-12-26T11:37:47.905Z"
+  },
+  {
+    "name": "Feriarte",
+    "start": "2020-11-14T00:00:00.000Z",
+    "end": "2020-11-22T00:00:00.000Z",
+    "state": { "fairs": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2018-12-28T12:38:26.954Z"
+  },
+  {
+    "name": "Cápitulo Uno",
+    "start": "2020-03-28T00:00:00.000Z",
+    "end": "2020-04-01T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2018-12-28T13:04:29.295Z"
+  },
+  {
+    "name": "FEST: Tomavista ",
+    "start": "2021-05-27T00:00:00.000Z",
+    "end": "2021-05-29T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-01-03T12:26:08.367Z"
+  },
+  {
+    "name": "* FEST: Rio Babel Festival",
+    "start": "2020-07-02T00:00:00.000Z",
+    "end": "2020-07-04T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-01-03T12:29:01.894Z"
+  },
+  {
+    "name": "* FEST: Mad Cool - DTBC",
+    "start": "2021-07-01T00:00:00.000Z",
+    "end": "2021-07-31T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-01-03T12:29:55.213Z"
+  },
+  {
+    "name": "FINA Diving - DTBC",
+    "start": "2020-06-06T00:00:00.000Z",
+    "end": "2020-06-07T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2019-01-22T09:23:16.251Z"
+  },
+  {
+    "name": "Triatlón larga distancia",
+    "start": "2019-09-22T00:00:00.000Z",
+    "end": "2019-09-22T00:00:00.000Z",
+    "state": { "sports": "candidate", "home": "candidate" },
+    "lang": "en",
+    "last_update": "2019-01-22T09:25:25.966Z"
+  },
+  {
+    "name": "SIMA 2019 (Edición primavera)",
+    "start": "2019-05-30T00:00:00.000Z",
+    "end": "2019-06-02T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2019-02-04T09:58:03.561Z"
+  },
+  {
+    "name": "Painters' Market",
+    "start": "2019-02-01T00:00:00.000Z",
+    "end": "2019-12-31T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-03-07T08:50:51.293Z"
+  },
+  {
+    "name": "FEST: Festival de Fado - DTBC",
+    "start": "2020-06-19T00:00:00.000Z",
+    "end": "2020-06-21T00:00:00.000Z",
+    "state": { "music": "candidate", "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-03-07T10:31:05.922Z"
+  },
+  {
+    "name": "FEST: BlackIsBack! Weekend - DTBC",
+    "start": "2020-06-19T00:00:00.000Z",
+    "end": "2020-06-21T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-03-11T09:18:01.853Z"
+  },
+  {
+    "name": "Los nibelungos Parte I",
+    "start": "2020-03-21T00:00:00.000Z",
+    "end": "2020-03-21T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-04-15T09:03:58.235Z"
+  },
+  {
+    "name": "Los nibelungos Parte II",
+    "start": "2020-03-28T00:00:00.000Z",
+    "end": "2020-03-28T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-04-15T09:04:05.457Z"
+  },
+  {
+    "name": "Philippe Jaroussky",
+    "start": "2020-10-05T00:00:00.000Z",
+    "end": "2020-10-05T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2019-04-15T09:04:27.355Z"
+  },
+  {
+    "name": "Rompiendo el cascarón",
+    "start": "2020-05-12T00:00:00.000Z",
+    "end": "2020-05-17T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-04-22T08:29:35.619Z"
+  },
+  {
+    "name": "Corazón Classic Match - DTBC",
+    "start": "2020-03-29T00:00:00.000Z",
+    "end": "2020-03-29T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2019-05-06T09:44:28.922Z"
+  },
+  {
+    "name": "Mercado productores",
+    "start": "2020-03-21T00:00:00.000Z",
+    "end": "2020-03-22T00:00:00.000Z",
+    "state": { "events": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2019-05-27T07:14:21.028Z"
+  },
+  {
+    "name": "Ballet Nacional de España",
+    "start": "2020-06-27T00:00:00.000Z",
+    "end": "2020-07-12T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-05-28T11:24:52.223Z"
+  },
+  {
+    "name": "Apertura",
+    "start": "2020-09-10T00:00:00.000Z",
+    "end": "2020-09-13T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-05-30T08:31:54.904Z"
+  },
+  {
+    "name": "Concierto de Navidad [T. Zarzuela] - DTBC",
+    "start": "2020-12-27T00:00:00.000Z",
+    "end": "2020-12-27T00:00:00.000Z",
+    "state": { "music": "candidate", "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2019-06-04T10:03:12.331Z"
+  },
+  {
+    "name": "Madrid Games Week - DTBC",
+    "start": "2020-10-08T00:00:00.000Z",
+    "end": "2020-10-11T00:00:00.000Z",
+    "state": { "fairs": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-12T11:20:05.695Z"
+  },
+  {
+    "name": "FEST: Mulafest ",
+    "start": "2020-04-17T00:00:00.000Z",
+    "end": "2020-04-19T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-17T08:08:33.277Z"
+  },
+  {
+    "name": "Festival Paraiso ",
+    "start": "2020-06-12T00:00:00.000Z",
+    "end": "2020-06-13T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-17T08:08:59.282Z"
+  },
+  {
+    "name": "Cibeles de Cine - DTBC",
+    "start": "2020-06-27T00:00:00.000Z",
+    "end": "2020-09-13T00:00:00.000Z",
+    "state": { "events": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-25T07:35:22.372Z"
+  },
+  {
+    "name": "XXVI Ciclo de Lied: Recital IX - Anna Lucia Richter & Gerold Huber",
+    "start": "2020-05-04T00:00:00.000Z",
+    "end": "2020-05-04T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-28T12:04:48.620Z"
+  },
+  {
+    "name": "Dita Von Teese",
+    "start": "2020-05-11T00:00:00.000Z",
+    "end": "2020-05-11T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-02T07:44:12.038Z"
+  },
+  {
+    "name": "XXVI Ciclo de Lied: Recital X - Marlis Petersen & Camillo Radicke",
+    "start": "2020-06-29T00:00:00.000Z",
+    "end": "2020-06-29T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-02T07:59:31.995Z"
+  },
+  {
+    "name": "Fiestas agosto - DTBC",
+    "start": "2020-08-04T00:00:00.000Z",
+    "end": "2020-08-16T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-08T06:34:31.143Z"
+  },
+  {
+    "name": "Japan Weekend",
+    "start": "2020-09-26T00:00:00.000Z",
+    "end": "2020-09-27T00:00:00.000Z",
+    "state": { "fairs": "candidate", "home": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-11T06:48:32.829Z"
+  },
+  {
+    "name": "FEST: Noches del botánico",
+    "start": "2021-06-11T00:00:00.000Z",
+    "end": "2021-06-29T00:00:00.000Z",
+    "state": { "music": "candidate", "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-02-27T10:31:52.039Z"
+  },
+  {
+    "name": "Veranos de la Villa",
+    "start": "2020-06-29T00:00:00.000Z",
+    "end": "2020-08-30T00:00:00.000Z",
+    "state": { "current": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-03T09:10:50.613Z"
+  },
+  {
+    "name": "Brueghel",
+    "start": "2019-10-02T00:00:00.000Z",
+    "end": "2020-04-12T00:00:00.000Z",
+    "state": {
+      "exhibitions": "candidate",
+      "current": "candidate",
+      "home": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2019-07-29T09:50:23.708Z"
+  },
+  {
+    "name": "Iris",
+    "start": "2020-05-18T00:00:00.000Z",
+    "end": "2020-05-22T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-29T10:15:38.509Z"
+  },
+  {
+    "name": "Madrid Horse Week - DTBC",
+    "start": "2020-11-27T00:00:00.000Z",
+    "end": "2020-11-29T00:00:00.000Z",
+    "state": { "events": "candidate", "sports": "highlight" },
+    "lang": "en",
+    "last_update": "2019-07-30T07:20:59.285Z"
+  },
+  {
+    "name": "Apertura - Madrid Gallery Weekend",
+    "start": "2020-09-10T00:00:00.000Z",
+    "end": "2020-09-13T00:00:00.000Z",
+    "state": {
+      "events": "highlight",
+      "home": "candidate",
+      "current": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2019-08-26T07:03:34.111Z"
+  },
+  {
+    "name": "San Silvestre",
+    "start": "2020-12-31T00:00:00.000Z",
+    "end": "2020-12-31T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2019-08-26T07:14:21.939Z"
+  },
+  {
+    "name": "Fiesta Corral de Cervantes - DTBC",
+    "start": "2020-07-23T00:00:00.000Z",
+    "end": "2020-09-20T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-07-08T06:34:04.938Z"
+  },
+  {
+    "name": "* FEST: Brunch in the park - DTBC",
+    "start": "2020-09-19T00:00:00.000Z",
+    "end": "2020-10-18T00:00:00.000Z",
+    "state": {
+      "events": "candidate",
+      "music": "candidate",
+      "current": "candidate",
+      "home": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2019-07-08T07:48:18.306Z"
+  },
+  {
+    "name": "Boldini y la pintura española de fin de siglo",
+    "start": "2019-09-18T00:00:00.000Z",
+    "end": "2020-01-12T00:00:00.000Z",
+    "state": { "current": "candidate" },
+    "lang": "en",
+    "last_update": "2019-06-28T10:18:49.558Z"
+  },
+  {
+    "name": "Vogue Fashion's Night Out - DTBC",
+    "start": "2020-09-10T00:00:00.000Z",
+    "end": "2020-09-10T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-09T10:15:10.876Z"
+  },
+  {
+    "name": "Architecture Week - DTBC",
+    "start": "2020-09-29T00:00:00.000Z",
+    "end": "2020-10-06T00:00:00.000Z",
+    "state": {
+      "events": "candidate",
+      "current": "candidate",
+      "home": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2019-09-09T10:16:18.841Z"
+  },
+  {
+    "name": "Open House - DTBC",
+    "start": "2020-09-26T00:00:00.000Z",
+    "end": "2020-09-27T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-09T10:16:50.850Z"
+  },
+  {
+    "name": "Salón Internacional del Chocolate - DTBC",
+    "start": "2020-09-17T00:00:00.000Z",
+    "end": "2020-09-17T00:00:00.000Z",
+    "state": {
+      "events": "candidate",
+      "home": "candidate",
+      "current": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2018-12-05T09:25:07.380Z"
+  },
+  {
+    "name": "Madrid Otra Mirada - DTBC",
+    "start": "2020-10-16T00:00:00.000Z",
+    "end": "2020-10-18T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-23T10:33:17.811Z"
+  },
+  {
+    "name": "Desfile 12 Oct",
+    "start": "2020-10-12T00:00:00.000Z",
+    "end": "2020-10-12T00:00:00.000Z",
+    "state": { "events": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-23T10:46:30.894Z"
+  },
+  {
+    "name": "Tapapiés",
+    "start": "2020-10-15T00:00:00.000Z",
+    "end": "2020-10-25T00:00:00.000Z",
+    "state": { "events": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-23T10:47:36.968Z"
+  },
+  {
+    "name": "Madrid Oktoberfest",
+    "start": "2020-10-22T00:00:00.000Z",
+    "end": "2020-10-25T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-30T08:16:48.685Z"
+  },
+  {
+    "name": "Juego de Tronos",
+    "start": "2019-10-26T00:00:00.000Z",
+    "end": "2020-04-19T00:00:00.000Z",
+    "state": { "home": "candidate" },
+    "lang": "en",
+    "last_update": "2019-09-30T08:38:15.450Z"
+  },
+  {
+    "name": "Open Golf - DTBC",
+    "start": "2021-10-14T00:00:00.000Z",
+    "end": "2021-10-17T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-07T12:13:21.817Z"
+  },
+  {
+    "name": "Festival de Jazz - DTBC",
+    "start": "2020-10-26T00:00:00.000Z",
+    "end": "2020-11-29T00:00:00.000Z",
+    "state": { "music": "candidate", "current": "highlight" },
+    "lang": "en",
+    "last_update": "2019-10-08T06:51:30.558Z"
+  },
+  {
+    "name": "Circo Hielo 2",
+    "start": "2019-11-15T00:00:00.000Z",
+    "end": "2020-02-02T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2019-10-09T12:09:05.940Z"
+  },
+  {
+    "name": "* Vampiros. La evolución del mito",
+    "start": "2020-06-01T00:00:00.000Z",
+    "end": "2020-09-06T00:00:00.000Z",
+    "state": { "exhibitions": "highlight" },
+    "lang": "en",
+    "last_update": "2019-10-10T07:34:18.932Z"
+  },
+  {
+    "name": "Madrid Hotel Week - DTBC",
+    "start": "2021-11-08T00:00:00.000Z",
+    "end": "2021-11-14T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-10T07:52:48.226Z"
+  },
+  {
+    "name": "Rizoma Festival - DTBC",
+    "start": "2020-11-11T00:00:00.000Z",
+    "end": "2020-11-15T00:00:00.000Z",
+    "state": { "events": "candidate", "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-10T07:52:56.019Z"
+  },
+  {
+    "name": "Madrionetas, el arte del títere ",
+    "start": "2020-12-18T00:00:00.000Z",
+    "end": "2021-01-05T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-10T07:54:42.655Z"
+  },
+  {
+    "name": "Copa Davis - Fase Final 2020",
+    "start": "2021-11-23T00:00:00.000Z",
+    "end": "2021-11-28T00:00:00.000Z",
+    "state": {
+      "sports": "candidate",
+      "home": "candidate",
+      "current": "candidate",
+      "events": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2018-10-11T11:40:40.326Z"
+  },
+  {
+    "name": "Impresionistas y la fotografía",
+    "start": "2019-10-15T00:00:00.000Z",
+    "end": "2020-01-26T00:00:00.000Z",
+    "state": { "home": "candidate" },
+    "lang": "en",
+    "last_update": "2018-10-15T08:15:16.882Z"
+  },
+  {
+    "name": "Retromovil - DTBC",
+    "start": "2020-11-27T00:00:00.000Z",
+    "end": "2020-11-29T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-21T06:40:57.726Z"
+  },
+  {
+    "name": "Festival Otoño - DTBC",
+    "start": "2020-11-12T00:00:00.000Z",
+    "end": "2020-11-29T00:00:00.000Z",
+    "state": {
+      "events": "candidate",
+      "home": "candidate",
+      "current": "candidate",
+      "theatreanddance": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2019-10-17T09:09:59.770Z"
+  },
+  {
+    "name": "Joan Jonas. Moving Off the Land II [Thyssen]",
+    "start": "2020-06-06T00:00:00.000Z",
+    "end": "2020-09-13T00:00:00.000Z",
+    "state": { "exhibitions": "highlight" },
+    "lang": "en",
+    "last_update": "2019-10-21T08:25:00.260Z"
+  },
+  {
+    "name": "Circo Price en Navidad",
+    "start": "2020-11-27T00:00:00.000Z",
+    "end": "2021-01-05T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-04T08:23:33.979Z"
+  },
+  {
+    "name": "Madrid Design Festival",
+    "start": "2020-02-29T00:00:00.000Z",
+    "end": "2020-03-01T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-04T09:14:07.404Z"
+  },
+  {
+    "name": "Luces jardín botánico",
+    "start": "2019-11-19T00:00:00.000Z",
+    "end": "2020-01-06T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2019-11-04T12:39:45.582Z"
+  },
+  {
+    "name": "Malamarket",
+    "start": "2019-09-28T00:00:00.000Z",
+    "end": "2019-11-16T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-11T09:15:58.177Z"
+  },
+  {
+    "name": "Mes de los callos - DTBC",
+    "start": "2021-11-01T00:00:00.000Z",
+    "end": "2021-11-30T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-11T09:16:39.018Z"
+  },
+  {
+    "name": "Salesas Village - DTBC",
+    "start": "2021-02-05T00:00:00.000Z",
+    "end": "2021-02-07T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-11T09:17:00.367Z"
+  },
+  {
+    "name": "Mercado navideño Plaza Mayor - DTBC",
+    "start": "2020-11-21T00:00:00.000Z",
+    "end": "2020-12-31T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-11T09:18:59.301Z"
+  },
+  {
+    "name": "Ad Reinhardt: \"El arte es el arte y todo lo demás es todo lo demás\"",
+    "start": "2020-10-02T00:00:00.000Z",
+    "end": "2021-01-17T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-11T10:08:18.136Z"
+  },
+  {
+    "name": "Fidelio",
+    "start": "2020-04-17T00:00:00.000Z",
+    "end": "2020-04-17T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-11T10:10:24.140Z"
+  },
+  {
+    "name": "Excelentia. Christmas Gala [Auditorio] - DTBC",
+    "start": "2020-12-19T00:00:00.000Z",
+    "end": "2020-12-19T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2019-10-21T08:31:08.861Z"
+  },
+  {
+    "name": "Seong-Jin Cho - DBA",
+    "start": "2020-05-10T00:00:00.000Z",
+    "end": "2020-05-10T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-13T12:01:33.799Z"
+  },
+  {
+    "name": "* Harry Styles",
+    "start": "2021-02-15T00:00:00.000Z",
+    "end": "2021-02-15T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-18T08:38:59.930Z"
+  },
+  {
+    "name": "Héroes Comic Con Madrid ",
+    "start": "2019-12-14T00:00:00.000Z",
+    "end": "2019-12-15T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-18T10:14:25.095Z"
+  },
+  {
+    "name": "Concierto de Góspel Solidario - DTBC",
+    "start": "2020-12-19T00:00:00.000Z",
+    "end": "2020-12-19T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-18T10:23:35.284Z"
+  },
+  {
+    "name": "YES",
+    "start": "2020-04-25T00:00:00.000Z",
+    "end": "2020-04-25T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-18T10:26:47.326Z"
+  },
+  {
+    "name": "* Ozzy Osbourne",
+    "start": "2020-11-22T00:00:00.000Z",
+    "end": "2020-11-22T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2019-11-18T11:51:12.174Z"
+  },
+  {
+    "name": "Esfera luz Metropolis",
+    "start": "2019-11-22T00:00:00.000Z",
+    "end": "2020-01-06T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2019-11-19T09:53:00.663Z"
+  },
+  {
+    "name": "Vienna Philharmonic and Zubin Mehta -DTBC",
+    "start": "2020-04-27T00:00:00.000Z",
+    "end": "2020-04-27T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-19T12:38:06.475Z"
+  },
+  {
+    "name": "Madrid Long Distance Triathlon",
+    "start": "2020-09-27T00:00:00.000Z",
+    "end": "2020-09-27T00:00:00.000Z",
+    "state": { "sports": "highlight" },
+    "lang": "en",
+    "last_update": "2019-11-20T07:58:01.450Z"
+  },
+  {
+    "name": "Actividades Quinta de los Molinos",
+    "start": "2019-12-27T00:00:00.000Z",
+    "end": "2020-01-04T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-20T11:22:33.700Z"
+  },
+  {
+    "name": "Lotería de navidad",
+    "start": "2020-12-22T00:00:00.000Z",
+    "end": "2020-12-22T00:00:00.000Z",
+    "state": { "christmas": "candidate", "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-20T13:07:02.415Z"
+  },
+  {
+    "name": "* Rodin-Giacometti [Mapfre]",
+    "start": "2020-06-02T00:00:00.000Z",
+    "end": "2020-08-23T00:00:00.000Z",
+    "state": {
+      "exhibitions": "highlight",
+      "home": "highlight",
+      "current": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2019-11-21T11:14:14.055Z"
+  },
+  {
+    "name": "* ARCO",
+    "start": "2020-02-26T00:00:00.000Z",
+    "end": "2020-03-01T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-21T11:15:30.562Z"
+  },
+  {
+    "name": "Las invitadas [Prado]",
+    "start": "2020-10-14T00:00:00.000Z",
+    "end": "2021-02-13T00:00:00.000Z",
+    "state": { "exhibitions": "candidate", "current": "highlight" },
+    "lang": "en",
+    "last_update": "2019-11-21T11:33:54.851Z"
+  },
+  {
+    "name": "Pasiones mitológicas [Prado]",
+    "start": "2020-10-23T00:00:00.000Z",
+    "end": "2021-01-10T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-21T11:34:49.849Z"
+  },
+  {
+    "name": "Tornaviaje. Arte iberoamericano [Prado]",
+    "start": "2020-11-17T00:00:00.000Z",
+    "end": "2021-03-28T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-21T11:35:39.818Z"
+  },
+  {
+    "name": "Mondrian and De Stijl [Reina Sofía]",
+    "start": "2020-11-11T00:00:00.000Z",
+    "end": "2021-03-01T00:00:00.000Z",
+    "state": { "exhibitions": "candidate", "current": "highlight" },
+    "lang": "en",
+    "last_update": "2019-11-21T11:41:33.475Z"
+  },
+  {
+    "name": "Objects of Desire [CaixaForum]",
+    "start": "2020-07-10T00:00:00.000Z",
+    "end": "2020-10-25T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-21T11:49:44.612Z"
+  },
+  {
+    "name": "You got to get in to get out [Casa Encendida]",
+    "start": "2020-10-06T00:00:00.000Z",
+    "end": "2021-01-10T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-21T11:50:56.007Z"
+  },
+  {
+    "name": "FEST: YOLO - DTBC",
+    "start": "2020-07-07T00:00:00.000Z",
+    "end": "2020-07-07T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-11-22T09:12:48.680Z"
+  },
+  {
+    "name": "España - All Blacks ",
+    "start": "2020-05-20T00:00:00.000Z",
+    "end": "2020-05-20T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-02T09:56:17.085Z"
+  },
+  {
+    "name": "* Dua Lipa",
+    "start": "2021-02-16T00:00:00.000Z",
+    "end": "2021-02-16T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-02T11:44:58.113Z"
+  },
+  {
+    "name": "\"El otro tesoro\": Los estuches del Tesoro del Delfín [Prado]",
+    "start": "2020-03-09T00:00:00.000Z",
+    "end": "2020-09-13T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:12:55.368Z"
+  },
+  {
+    "name": "Sorolla Femenino Plural",
+    "start": "2020-05-25T00:00:00.000Z",
+    "end": "2020-09-29T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:13:59.446Z"
+  },
+  {
+    "name": "Harlem Globetrotters",
+    "start": "2020-09-13T00:00:00.000Z",
+    "end": "2020-09-13T00:00:00.000Z",
+    "state": { "sports": "highlight" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:15:59.734Z"
+  },
+  {
+    "name": "Johann Strauss: Gran Concierto de Año Nuevo",
+    "start": "2019-12-22T00:00:00.000Z",
+    "end": "2020-01-11T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:26:07.827Z"
+  },
+  {
+    "name": "Lo Mejor de los 3 Tenores [Auditorio]",
+    "start": "2020-01-04T00:00:00.000Z",
+    "end": "2020-01-04T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:33:12.294Z"
+  },
+  {
+    "name": "Revolution On Ice -DTBC",
+    "start": "2020-12-28T00:00:00.000Z",
+    "end": "2020-12-29T00:00:00.000Z",
+    "state": {
+      "theatreanddance": "candidate",
+      "sports": "candidate",
+      "christmas": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2019-04-22T08:26:47.704Z"
+  },
+  {
+    "name": "Jörg Immendorf",
+    "start": "2019-10-30T00:00:00.000Z",
+    "end": "2020-04-13T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-10T10:01:19.587Z"
+  },
+  {
+    "name": "Festival Madrid en danza - DTBC",
+    "start": "2020-12-01T00:00:00.000Z",
+    "end": "2020-12-27T00:00:00.000Z",
+    "state": {
+      "theatreanddance": "candidate",
+      "christmas": "highlight",
+      "current": "candidate"
+    },
+    "lang": "en",
+    "last_update": "2019-11-06T13:15:48.702Z"
+  },
+  {
+    "name": "Concierto navidad [T.Zarzuela] - DTBC",
+    "start": "2020-12-13T00:00:00.000Z",
+    "end": "2020-12-13T00:00:00.000Z",
+    "state": { "christmas": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-11T12:30:36.654Z"
+  },
+  {
+    "name": "Game On. Videojuegos [Fundación Canal Isabel II]",
+    "start": "2019-12-02T00:00:00.000Z",
+    "end": "2020-05-31T00:00:00.000Z",
+    "state": { "exhibitions": "candidate", "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2019-12-03T11:06:10.814Z"
+  },
+  {
+    "name": "España-Portugal amistoso",
+    "start": "2020-06-05T00:00:00.000Z",
+    "end": "2020-06-05T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-16T10:08:31.704Z"
+  },
+  {
+    "name": "Tutankhamón:",
+    "start": "2020-07-16T00:00:00.000Z",
+    "end": "2020-11-02T00:00:00.000Z",
+    "state": {
+      "exhibitions": "highlight",
+      "current": "candidate",
+      "christmas": "highlight",
+      "home": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2019-11-05T08:27:51.385Z"
+  },
+  {
+    "name": "Fitur - DTBC",
+    "start": "2021-01-20T00:00:00.000Z",
+    "end": "2021-01-24T00:00:00.000Z",
+    "state": { "fairs": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-19T10:38:35.300Z"
+  },
+  {
+    "name": "Conciertos iglesias",
+    "start": "2019-12-30T00:00:00.000Z",
+    "end": "2020-01-04T00:00:00.000Z",
+    "state": { "christmas": "highlight" },
+    "lang": "en",
+    "last_update": "2019-12-23T09:42:36.125Z"
+  },
+  {
+    "name": "Aerosmith",
+    "start": "2021-06-05T00:00:00.000Z",
+    "end": "2021-06-05T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-23T09:53:41.896Z"
+  },
+  {
+    "name": "Chinese New Year - DTBC",
+    "start": "2021-01-19T00:00:00.000Z",
+    "end": "2021-02-14T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-27T09:06:53.735Z"
+  },
+  {
+    "name": "Evanescence",
+    "start": "2020-10-01T00:00:00.000Z",
+    "end": "2020-10-01T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-27T13:17:47.242Z"
+  },
+  {
+    "name": "Concha Jerez [Reina Sofía]",
+    "start": "2020-10-20T00:00:00.000Z",
+    "end": "2021-04-19T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-30T10:39:08.825Z"
+  },
+  {
+    "name": "Global Robot Expo - DTBC",
+    "start": "2020-09-23T00:00:00.000Z",
+    "end": "2020-09-27T00:00:00.000Z",
+    "state": { "fairs": "highlight" },
+    "lang": "en",
+    "last_update": "2019-12-30T10:39:59.777Z"
+  },
+  {
+    "name": "TIIF - Transport Infrastructure International Forum",
+    "start": "2020-05-26T00:00:00.000Z",
+    "end": "2020-05-28T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2019-12-30T10:40:21.077Z"
+  },
+  {
+    "name": "Bad Religion",
+    "start": "2020-05-23T00:00:00.000Z",
+    "end": "2020-05-23T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-03T08:40:12.113Z"
+  },
+  {
+    "name": "*Helloween [Wizink]",
+    "start": "2020-10-12T00:00:00.000Z",
+    "end": "2020-10-12T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-03T08:41:25.795Z"
+  },
+  {
+    "name": "El Barrio [Wizink]",
+    "start": "2020-12-29T00:00:00.000Z",
+    "end": "2020-12-29T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-03T08:42:13.871Z"
+  },
+  {
+    "name": "IAAF World Indoor Tour - DTBC",
+    "start": "2021-02-18T00:00:00.000Z",
+    "end": "2021-02-18T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-07T08:11:02.760Z"
+  },
+  {
+    "name": "FINA diving",
+    "start": "2021-02-12T00:00:00.000Z",
+    "end": "2021-02-14T00:00:00.000Z",
+    "state": { "sports": "candidate", "home": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-07T08:25:26.767Z"
+  },
+  {
+    "name": "Easter",
+    "start": "2021-03-28T00:00:00.000Z",
+    "end": "2021-04-05T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-08T08:08:53.775Z"
+  },
+  {
+    "name": "Dulce Pontes",
+    "start": "2020-05-05T00:00:00.000Z",
+    "end": "2020-05-05T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-16T12:50:40.281Z"
+  },
+  {
+    "name": "Fabio Biondi",
+    "start": "2020-05-31T00:00:00.000Z",
+    "end": "2020-05-31T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-16T12:59:13.408Z"
+  },
+  {
+    "name": "Zincalí [Corral]",
+    "start": "2020-01-23T00:00:00.000Z",
+    "end": "2020-07-31T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-17T09:32:17.309Z"
+  },
+  {
+    "name": "Gabinete de descanso [Prado]",
+    "start": "2019-04-09T00:00:00.000Z",
+    "end": "2020-06-30T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-21T08:09:35.764Z"
+  },
+  {
+    "name": "Day6",
+    "start": "2020-01-31T00:00:00.000Z",
+    "end": "2020-01-31T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-22T08:53:15.163Z"
+  },
+  {
+    "name": "ClassicAuto",
+    "start": "2021-02-19T00:00:00.000Z",
+    "end": "2021-02-21T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-27T09:03:01.411Z"
+  },
+  {
+    "name": "Tus muertos [Tribueñe]",
+    "start": "2020-01-30T00:00:00.000Z",
+    "end": "2020-07-31T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-30T08:33:06.303Z"
+  },
+  {
+    "name": "FEST - Rock the Night Festival 2020",
+    "start": "2020-06-25T00:00:00.000Z",
+    "end": "2020-06-27T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-30T09:27:31.088Z"
+  },
+  {
+    "name": "Luisa Fernanda (Plácido) [T.Zarzuela]",
+    "start": "2020-04-30T00:00:00.000Z",
+    "end": "2020-05-17T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-01-30T09:57:05.668Z"
+  },
+  {
+    "name": "Simple Minds",
+    "start": "2021-06-24T00:00:00.000Z",
+    "end": "2021-06-24T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T10:21:44.488Z"
+  },
+  {
+    "name": "Agnes Obel",
+    "start": "2020-03-26T00:00:00.000Z",
+    "end": "2020-03-26T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T10:22:57.937Z"
+  },
+  {
+    "name": "Ara Malikian",
+    "start": "2020-06-28T00:00:00.000Z",
+    "end": "2020-06-28T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T10:29:36.771Z"
+  },
+  {
+    "name": "FEST - Don't Let Daddy Know",
+    "start": "2020-03-14T00:00:00.000Z",
+    "end": "2020-03-14T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T10:30:57.316Z"
+  },
+  {
+    "name": "Eleftheria Arvanitaki [T.Nuevo Apolo]",
+    "start": "2020-05-07T00:00:00.000Z",
+    "end": "2020-05-07T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T10:38:26.449Z"
+  },
+  {
+    "name": "Larkin Poe [Sala But]",
+    "start": "2020-05-16T00:00:00.000Z",
+    "end": "2020-05-16T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T10:38:43.418Z"
+  },
+  {
+    "name": "Brothers in Band [La Riviera]",
+    "start": "2020-10-09T00:00:00.000Z",
+    "end": "2020-10-09T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-03T10:41:35.768Z"
+  },
+  {
+    "name": "Interocio",
+    "start": "2020-03-20T00:00:00.000Z",
+    "end": "2020-03-22T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T11:26:32.490Z"
+  },
+  {
+    "name": "Dibumad",
+    "start": "2020-03-20T00:00:00.000Z",
+    "end": "2020-03-22T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T11:28:32.890Z"
+  },
+  {
+    "name": "Marinus",
+    "start": "2020-06-23T00:00:00.000Z",
+    "end": "2020-09-20T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T11:55:44.664Z"
+  },
+  {
+    "name": "William Blake [Prado]",
+    "start": "2020-10-27T00:00:00.000Z",
+    "end": "2021-01-10T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T11:57:00.856Z"
+  },
+  {
+    "name": "Tornaviaje. Arte Iberoamericano en España",
+    "start": "2020-11-17T00:00:00.000Z",
+    "end": "2021-03-21T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T11:57:22.021Z"
+  },
+  {
+    "name": "III Festival Internacional de Nu-Cabaret - DTBC",
+    "start": "2021-03-04T00:00:00.000Z",
+    "end": "2021-03-07T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T12:02:09.689Z"
+  },
+  {
+    "name": "Rhapsody of Queen",
+    "start": "2020-06-24T00:00:00.000Z",
+    "end": "2020-07-12T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T12:03:17.139Z"
+  },
+  {
+    "name": "FEST - Kristonfest ",
+    "start": "2020-05-09T00:00:00.000Z",
+    "end": "2020-05-09T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T12:11:55.917Z"
+  },
+  {
+    "name": "FEST - Reggaeton Beach Festival ",
+    "start": "2020-07-04T00:00:00.000Z",
+    "end": "2020-07-05T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-05T12:13:07.744Z"
+  },
+  {
+    "name": "Vive la moto",
+    "start": "2020-04-16T00:00:00.000Z",
+    "end": "2020-04-19T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-10T09:12:47.740Z"
+  },
+  {
+    "name": "Suena Conde Duque",
+    "start": "2020-02-08T00:00:00.000Z",
+    "end": "2020-06-17T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-10T09:57:11.786Z"
+  },
+  {
+    "name": "Arte naif europeo",
+    "start": "2020-03-13T00:00:00.000Z",
+    "end": "2020-05-22T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-10T10:44:15.730Z"
+  },
+  {
+    "name": "Rodin-Drawings",
+    "start": "2020-06-16T00:00:00.000Z",
+    "end": "2020-08-16T00:00:00.000Z",
+    "state": { "exhibitions": "highlight" },
+    "lang": "en",
+    "last_update": "2020-02-19T08:16:14.855Z"
+  },
+  {
+    "name": "Burial of the Sardine",
+    "start": "2021-02-24T00:00:00.000Z",
+    "end": "2021-02-24T00:00:00.000Z",
+    "state": { "events": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-24T08:47:15.417Z"
+  },
+  {
+    "name": "Christmas",
+    "start": "2019-11-21T00:00:00.000Z",
+    "end": "2019-12-07T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-24T09:37:03.126Z"
+  },
+  {
+    "name": "Christmas",
+    "start": "2020-11-20T00:00:00.000Z",
+    "end": "2021-01-07T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-24T09:37:46.490Z"
+  },
+  {
+    "name": "Clicks Playmobil",
+    "start": "2019-12-20T00:00:00.000Z",
+    "end": "2020-05-08T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-24T10:48:25.812Z"
+  },
+  {
+    "name": "Decoracción",
+    "start": "2020-06-11T00:00:00.000Z",
+    "end": "2020-06-14T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-24T10:59:17.746Z"
+  },
+  {
+    "name": "Luzia (Cirque du Soleil) - EDTBC",
+    "start": "2021-07-24T00:00:00.000Z",
+    "end": "2021-12-26T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-27T09:09:56.305Z"
+  },
+  {
+    "name": "*Alanis Morrisette [WiZink]",
+    "start": "2021-11-11T00:00:00.000Z",
+    "end": "2021-11-11T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2020-02-27T10:38:24.927Z"
+  },
+  {
+    "name": "Ellas Crean - DTBC",
+    "start": "2021-03-05T00:00:00.000Z",
+    "end": "2021-03-28T00:00:00.000Z",
+    "state": { "events": "highlight", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2020-02-28T08:22:04.205Z"
+  },
+  {
+    "name": "World ATM Congress",
+    "start": "2021-03-09T00:00:00.000Z",
+    "end": "2021-03-11T00:00:00.000Z",
+    "state": { "fairs": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-02T10:06:56.928Z"
+  },
+  {
+    "name": "IAMDDB",
+    "start": "2020-11-02T00:00:00.000Z",
+    "end": "2020-11-02T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-09T10:01:00.554Z"
+  },
+  {
+    "name": "God Save The Queen ",
+    "start": "2020-10-22T00:00:00.000Z",
+    "end": "2020-10-22T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-03-09T10:01:13.153Z"
+  },
+  {
+    "name": "Verbena de la Paloma",
+    "start": "2020-08-11T00:00:00.000Z",
+    "end": "2020-08-16T00:00:00.000Z",
+    "state": { "theatreanddance": "highlight" },
+    "lang": "en",
+    "last_update": "2020-04-05T20:32:46.751Z"
+  },
+  {
+    "name": "Machine Head",
+    "start": "2020-10-18T00:00:00.000Z",
+    "end": "2020-10-18T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-04-08T17:55:19.809Z"
+  },
+  {
+    "name": "Steve Hackett [IFEMA]",
+    "start": "2020-09-15T00:00:00.000Z",
+    "end": "2020-09-15T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-04-15T05:50:37.853Z"
+  },
+  {
+    "name": "Daniel Abreu| Sara Cano - La desnudez / Vengo! [CANAL]",
+    "start": "2020-05-19T00:00:00.000Z",
+    "end": "2020-05-20T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-04-15T05:53:39.444Z"
+  },
+  {
+    "name": "Art Project Bora [T.ESPAÑOL]",
+    "start": "2020-07-17T00:00:00.000Z",
+    "end": "2020-07-19T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-04-15T05:54:21.449Z"
+  },
+  {
+    "name": "Festival Jardin de las Delicias",
+    "start": "2020-09-26T00:00:00.000Z",
+    "end": "2020-09-26T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-04-15T05:59:03.852Z"
+  },
+  {
+    "name": "Larkin Poe",
+    "start": "2021-02-18T00:00:00.000Z",
+    "end": "2021-02-18T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-04-15T10:28:53.291Z"
+  },
+  {
+    "name": "Joe Satriani - Rivera",
+    "start": "2021-05-30T00:00:00.000Z",
+    "end": "2021-05-30T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-12T09:31:40.295Z"
+  },
+  {
+    "name": "Martin Barre [Jethro Tull]",
+    "start": "2020-12-10T00:00:00.000Z",
+    "end": "2020-12-10T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-18T06:10:13.478Z"
+  },
+  {
+    "name": "Stoned Jesus",
+    "start": "2020-10-24T00:00:00.000Z",
+    "end": "2020-10-24T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-18T06:20:59.380Z"
+  },
+  {
+    "name": "The Quireboys ",
+    "start": "2020-10-25T00:00:00.000Z",
+    "end": "2020-10-25T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-18T06:23:04.588Z"
+  },
+  {
+    "name": "Brian Fallon and the Howling Weather",
+    "start": "2021-02-26T00:00:00.000Z",
+    "end": "2021-02-26T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-27T08:06:18.478Z"
+  },
+  {
+    "name": "Mudhoney",
+    "start": "2021-09-19T00:00:00.000Z",
+    "end": "2021-09-19T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-28T08:07:46.731Z"
+  },
+  {
+    "name": "Ezra Furman",
+    "start": "2020-11-23T00:00:00.000Z",
+    "end": "2020-11-23T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-05-28T08:49:18.303Z"
+  },
+  {
+    "name": "El nacimiento del Rey Sol [Teatro Real]",
+    "start": "2020-10-16T00:00:00.000Z",
+    "end": "2020-10-16T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:15:19.389Z"
+  },
+  {
+    "name": "Rusalka [Teatro Real]",
+    "start": "2020-11-12T00:00:00.000Z",
+    "end": "2020-11-27T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:16:17.705Z"
+  },
+  {
+    "name": "Don Giovanni [Teatro Real]",
+    "start": "2020-12-18T00:00:00.000Z",
+    "end": "2021-01-10T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:17:13.011Z"
+  },
+  {
+    "name": "Elektra [Teatro Real]",
+    "start": "2021-01-18T00:00:00.000Z",
+    "end": "2021-01-18T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:19:13.572Z"
+  },
+  {
+    "name": "In Memoriam - Real Ballet de Flandes [Teatro Real]",
+    "start": "2021-01-22T00:00:00.000Z",
+    "end": "2021-01-24T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:19:44.062Z"
+  },
+  {
+    "name": "Norma [Teatro Real]",
+    "start": "2021-03-03T00:00:00.000Z",
+    "end": "2021-03-19T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:20:32.488Z"
+  },
+  {
+    "name": "Peter Grimes [Teatro Real]",
+    "start": "2021-04-08T00:00:00.000Z",
+    "end": "2021-05-11T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:20:56.905Z"
+  },
+  {
+    "name": "Tránsito [Teatro Real]",
+    "start": "2021-05-29T00:00:00.000Z",
+    "end": "2021-06-05T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:21:56.230Z"
+  },
+  {
+    "name": "Viva la mamma [Teatro Real]",
+    "start": "2021-06-02T00:00:00.000Z",
+    "end": "2021-06-13T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:22:24.724Z"
+  },
+  {
+    "name": "Orlando Furioso [Teatro Real]",
+    "start": "2021-06-17T00:00:00.000Z",
+    "end": "2021-06-17T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:22:47.865Z"
+  },
+  {
+    "name": "Tosca [Teatro Real]",
+    "start": "2021-07-04T00:00:00.000Z",
+    "end": "2021-07-24T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:23:10.124Z"
+  },
+  {
+    "name": "Sinfonía Nº9 de Beethoven [Teatro Real]",
+    "start": "2021-09-19T00:00:00.000Z",
+    "end": "2021-09-20T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:24:03.003Z"
+  },
+  {
+    "name": "Joyce DiDonato",
+    "start": "2021-01-13T00:00:00.000Z",
+    "end": "2021-01-13T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:25:49.720Z"
+  },
+  {
+    "name": "Piotr Beczała [Teatro Real]",
+    "start": "2021-05-01T00:00:00.000Z",
+    "end": "2021-05-01T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:27:59.281Z"
+  },
+  {
+    "name": "Audra McDonald [Teatro Real]",
+    "start": "2021-09-13T00:00:00.000Z",
+    "end": "2021-09-13T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-05T16:28:17.775Z"
+  },
+  {
+    "name": "Lehman Trilogy [Canal]",
+    "start": "2020-09-23T00:00:00.000Z",
+    "end": "2020-10-18T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-10T10:10:45.781Z"
+  },
+  {
+    "name": "Grease",
+    "start": "2020-09-26T00:00:00.000Z",
+    "end": "2021-01-10T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-10T10:11:04.536Z"
+  },
+  {
+    "name": "Maestrissimo - Yllana [Canal]",
+    "start": "2020-08-25T00:00:00.000Z",
+    "end": "2020-09-06T00:00:00.000Z",
+    "state": { "theatreanddance": "highlight" },
+    "lang": "en",
+    "last_update": "2020-06-11T20:34:51.613Z"
+  },
+  {
+    "name": "LA RIBOT [Canal]",
+    "start": "2020-07-22T00:00:00.000Z",
+    "end": "2020-07-25T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-12T13:26:34.266Z"
+  },
+  {
+    "name": "Jesús Rubio [Canal]",
+    "start": "2020-07-12T00:00:00.000Z",
+    "end": "2020-07-12T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-12T13:40:18.993Z"
+  },
+  {
+    "name": "Reencuentros [Prado]",
+    "start": "2020-06-06T00:00:00.000Z",
+    "end": "2020-09-13T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-12T16:03:41.776Z"
+  },
+  {
+    "name": "The Gaze of Things: Japanese Photography [Círculo]",
+    "start": "2020-07-23T00:00:00.000Z",
+    "end": "2020-10-25T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-16T10:37:46.352Z"
+  },
+  {
+    "name": "Dokoupil [Casa Encendida]",
+    "start": "2020-07-01T00:00:00.000Z",
+    "end": "2020-09-01T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-16T10:46:55.215Z"
+  },
+  {
+    "name": "Tan sabia como valerosa [Instituto Cervantes]",
+    "start": "2020-06-15T00:00:00.000Z",
+    "end": "2020-09-05T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-16T10:50:54.762Z"
+  },
+  {
+    "name": "Nick Mason’s Saucerful of Secrets (Pink Floyd) [IFEMA]",
+    "start": "2021-07-02T00:00:00.000Z",
+    "end": "2021-07-02T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-17T06:06:25.572Z"
+  },
+  {
+    "name": "Richie Kotzen [Shoko]",
+    "start": "2021-04-18T00:00:00.000Z",
+    "end": "2021-04-18T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-17T06:07:51.837Z"
+  },
+  {
+    "name": "Madrid Film Festival [Gran Teatro Bankia]",
+    "start": "2020-06-19T00:00:00.000Z",
+    "end": "2020-07-16T00:00:00.000Z",
+    "state": { "events": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-17T06:11:11.446Z"
+  },
+  {
+    "name": "Cineplaza de Verano",
+    "start": "2020-07-16T00:00:00.000Z",
+    "end": "2020-08-16T00:00:00.000Z",
+    "state": { "events": "candidate", "current": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-19T14:25:55.001Z"
+  },
+  {
+    "name": "Jazz Palacio Real",
+    "start": "2020-07-03T00:00:00.000Z",
+    "end": "2020-09-12T00:00:00.000Z",
+    "state": { "music": "candidate" },
+    "lang": "en",
+    "last_update": "2020-06-24T07:01:47.829Z"
+  },
+  {
+    "name": "Noches del olivar",
+    "start": "2020-06-17T00:00:00.000Z",
+    "end": "2020-09-12T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2020-06-30T10:51:24.096Z"
+  },
+  {
+    "name": "Fling [Teatro Circo Price]",
+    "start": "2020-09-18T00:00:00.000Z",
+    "end": "2020-09-20T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-07-29T07:15:34.974Z"
+  },
+  {
+    "name": "Suspensión [Teatro Circo Price]",
+    "start": "2020-09-25T00:00:00.000Z",
+    "end": "2020-09-27T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-07-29T07:15:59.716Z"
+  },
+  {
+    "name": "The Hole",
+    "start": "2020-07-10T00:00:00.000Z",
+    "end": "2020-09-06T00:00:00.000Z",
+    "state": { "theatreanddance": "highlight", "current": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T08:32:53.220Z"
+  },
+  {
+    "name": "Meninas Madrid Gallery - DTBC",
+    "start": "2020-10-01T00:00:00.000Z",
+    "end": "2020-11-30T00:00:00.000Z",
+    "state": { "events": "candidate", "current": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T08:34:09.576Z"
+  },
+  {
+    "name": "Rock 'n Roll Marathon",
+    "start": "2020-11-15T00:00:00.000Z",
+    "end": "2020-11-15T00:00:00.000Z",
+    "state": { "sports": "highlight", "current": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T08:36:28.280Z"
+  },
+  {
+    "name": "Half marathon",
+    "start": "2021-04-11T00:00:00.000Z",
+    "end": "2021-04-11T00:00:00.000Z",
+    "state": { "sports": "candidate" },
+    "lang": "en",
+    "last_update": "2020-07-29T08:40:04.359Z"
+  },
+  {
+    "name": "Sorolla. Dibujante sin descanso",
+    "start": "2020-06-01T00:00:00.000Z",
+    "end": "2020-08-30T00:00:00.000Z",
+    "state": { "exhibitions": "candidate" },
+    "lang": "en",
+    "last_update": "2020-07-29T08:50:53.415Z"
+  },
+  {
+    "name": "The Other Court [Royal Palace]",
+    "start": "2020-06-01T00:00:00.000Z",
+    "end": "2020-09-15T00:00:00.000Z",
+    "state": { "exhibitions": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T08:52:10.926Z"
+  },
+  {
+    "name": "Chema Madoz",
+    "start": "1981-08-18T00:00:00.000Z",
+    "end": "2020-08-30T00:00:00.000Z",
+    "state": { "exhibitions": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T08:52:34.677Z"
+  },
+  {
+    "name": "Fura del Bals",
+    "start": "2020-09-03T00:00:00.000Z",
+    "end": "2020-09-04T00:00:00.000Z",
+    "state": { "theatreanddance": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T09:07:56.576Z"
+  },
+  {
+    "name": "We Will Rock You Musical",
+    "start": "2020-08-07T00:00:00.000Z",
+    "end": "2020-10-11T00:00:00.000Z",
+    "state": { "theatreanddance": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T09:08:18.031Z"
+  },
+  {
+    "name": "Think - Tribute to Aretha Franklin",
+    "start": "2020-08-16T00:00:00.000Z",
+    "end": "2020-08-16T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T09:12:46.489Z"
+  },
+  {
+    "name": "Limp Bizkit",
+    "start": "2020-08-26T00:00:00.000Z",
+    "end": "2020-08-26T00:00:00.000Z",
+    "state": { "music": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T09:13:00.940Z"
+  },
+  {
+    "name": "34th Truck Grand Prix",
+    "start": "2020-09-26T00:00:00.000Z",
+    "end": "2020-09-27T00:00:00.000Z",
+    "state": { "sports": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T09:18:17.759Z"
+  },
+  {
+    "name": "Intergift",
+    "start": "2020-09-16T00:00:00.000Z",
+    "end": "2020-09-20T00:00:00.000Z",
+    "state": { "fairs": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T09:28:31.384Z"
+  },
+  {
+    "name": "* Rembrandt y el retrato en Amsterdam 1590-1670",
+    "start": "2020-06-06T00:00:00.000Z",
+    "end": "2020-08-30T00:00:00.000Z",
+    "state": {
+      "exhibitions": "highlight",
+      "current": "highlight",
+      "home": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2019-07-02T07:28:05.052Z"
+  },
+  {
+    "name": "Los paseos musicales del botánico",
+    "start": "2020-07-03T00:00:00.000Z",
+    "end": "2020-09-25T00:00:00.000Z",
+    "state": {
+      "music": "highlight",
+      "current": "highlight",
+      "events": "highlight",
+      "home": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2020-06-18T14:16:59.171Z"
+  },
+  {
+    "name": "Petrit Halilaj [Palacio Cristal]",
+    "start": "2020-06-30T00:00:00.000Z",
+    "end": "2021-02-28T00:00:00.000Z",
+    "state": { "exhibitions": "highlight" },
+    "lang": "en",
+    "last_update": "2020-07-29T10:23:17.237Z"
+  },
+  {
+    "name": "Veranos de la Villa",
+    "start": "2020-07-29T00:00:00.000Z",
+    "end": "2020-08-30T00:00:00.000Z",
+    "state": {
+      "theatreanddance": "highlight",
+      "events": "highlight",
+      "home": "highlight",
+      "current": "highlight"
+    },
+    "lang": "en",
+    "last_update": "2020-07-29T09:07:15.848Z"
+  },
+  {
+    "name": "Siete golpes, María Pagés",
+    "start": "2020-08-14T00:00:00.000Z",
+    "end": "2020-08-16T00:00:00.000Z",
+    "state": { "theatreanddance": "highlight" },
+    "lang": "en",
+    "last_update": "2020-08-03T11:54:07.875Z"
+  },
+  {
+    "name": "Solo con ella ",
+    "start": "2020-08-19T00:00:00.000Z",
+    "end": "2020-08-20T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-08-10T06:37:10.064Z"
+  },
+  {
+    "name": "Atlas",
+    "start": "2020-08-26T00:00:00.000Z",
+    "end": "2020-08-27T00:00:00.000Z",
+    "state": { "theatreanddance": "candidate" },
+    "lang": "en",
+    "last_update": "2020-08-10T06:37:20.082Z"
+  }
+],
+  Lambda("event",
+    Create(Collection("testAgendaEvents"), { data: Var("event")})
+  )
+);
+

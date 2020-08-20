@@ -18,21 +18,25 @@
     }
   },
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
+    "@material-ui/icons": "^4.9.1",
+    "@reduxjs/toolkit": "^1.4.0",
+    "axios": "^0.19.2",
     "faunadb": "^2.14.1",
     "isomorphic-unfetch": "^3.0.0",
     "next": "^9.3.4",
-    "primeicons": "^2.0.0",
-    "primereact": "^4.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-transition-group": "^4.3.0",
-    "swr": "^0.2.0"
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "stylelint-config-standard": "^20.0.0"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
     "@types/mongoose": "^5.7.9",
     "@types/node": "^13.11.0",
     "@types/react": "^16.9.32",
+    "@types/react-redux": "^7.1.9",
     "@typescript-eslint/eslint-plugin": "^2.33.0",
     "@typescript-eslint/parser": "^2.33.0",
     "classnames": "^2.2.6",
