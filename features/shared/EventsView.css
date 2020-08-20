@@ -3,22 +3,25 @@
   max-width: 1450px; /* this is how wide all the category tabs are together */
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: 48px auto;
   gap: calc(var(--spacing) * 2);
+  overflow: hidden;
 }
 
 .eventsView .categoriesTabs {
-  grid-column: 1 / 5;
+  grid-column: 1 / -1;
   grid-row: 1 / 2;
 }
 
 .eventsView .highlightsGrid {
-  grid-column: 1 / 4;
+  grid-column: 1 / 5;
   grid-row: 2 / 3;
+  overflow: auto;
 }
 
 .eventsView .candidatesList {
-  grid-column: 4 / 5;
+  grid-column: 5 / 7;
   grid-row: 2 / 3;
+  overflow: auto;
 }

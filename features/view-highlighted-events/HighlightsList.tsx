@@ -2,7 +2,8 @@ import React from 'react';
 import { Paper, Card, CardContent, Typography } from '@material-ui/core';
 import { AgendaEvent } from '../../data/dbSchema';
 import { useSelector } from 'react-redux';
-import { getHighlightsForSelectedCategory } from '../../store/selectors/getHighlightsForSelectedCategory';
+import { getHighlightsForSelectedCategory } from './getHighlightsForSelectedCategory';
+import { dateFormat } from '../shared/helpers';
 
 export const HighlightsList: React.FC = () => {
   const categoryHighlights = useSelector(getHighlightsForSelectedCategory);
@@ -10,11 +11,7 @@ export const HighlightsList: React.FC = () => {
   return (
     <Paper className="highlightsGrid">
       {categoryHighlights.map((event: AgendaEvent) => {
-        const formattedEndDate = new Intl.DateTimeFormat('en-GB', {
-          day: '2-digit',
-          month: 'short',
-          year: 'numeric',
-        }).format(new Date(event.end));
+        const formattedEndDate = dateFormat.format(new Date(event.end));
 
         return (
           <Card className="eventCard" key={event.id} variant="elevation">
