@@ -21,7 +21,7 @@ const IndexPage = () => {
 
   useEffect(() => {
     // load events to store
-    (async function() {
+    (async function () {
       setLoadingState(true);
       const { events, error } = await getAllApiEvents();
 
