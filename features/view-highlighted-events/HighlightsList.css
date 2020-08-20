@@ -1,0 +1,13 @@
+.highlightsGrid {
+  flex-grow: 1;
+
+  /* padding: calc(var(--spacing) * 2); */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: calc(var(--spacing) * 2);
+  align-content: start;
+}
+
+.highlightsGrid .eventCard {
+  max-height: 140px;
+}

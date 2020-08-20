@@ -1,7 +1,7 @@
-import { AppState } from '../index';
+import { AppState } from '../../store/';
 import { AgendaEvent } from '../../data/dbSchema';
 
-export function getHighlightsForSelectedCategory(
+export function getCandidatesForSelectedCategory(
   state: AppState,
 ): AgendaEvent[] {
   const { selectedCategory } = state.events;
@@ -9,7 +9,7 @@ export function getHighlightsForSelectedCategory(
   return state.events.list.filter((event: AgendaEvent) => {
     return (
       Object.keys(event.state).includes(selectedCategory) &&
-      event.state[selectedCategory] !== 'candidate'
+      event.state[selectedCategory] === 'candidate'
     );
   });
 }

@@ -1,3 +1,7 @@
-@import '../features/view-highlighted-events/components/EventsLoadingProgressSpinner.css';
-@import '../features/view-highlighted-events/components/EventsLoadingError.css';
-@import '../features/view-highlighted-events/EventsView.css';
+/* shared */
+@import '../features/shared/EventsLoadingProgressSpinner.css';
+@import '../features/shared/EventsLoadingError.css';
+@import '../features/shared/EventsView.css';
+
+/* highlighted events */
+@import '../features/view-highlighted-events/HighlightsList.css';

@@ -28,8 +28,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.1",
-    "redux": "^4.0.5",
-    "stylelint-config-standard": "^20.0.0"
+    "redux": "^4.0.5"
   },
   "devDependencies": {
     "@types/jest": "^25.2.1",
@@ -41,9 +40,14 @@
     "@typescript-eslint/parser": "^2.33.0",
     "classnames": "^2.2.6",
     "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-react": "^1.1.7",
+    "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.19.0",
     "husky": "^4.2.3",
     "jest": "^25.2.7",
+    "prettier": "^2.0.5",
+    "stylelint-config-standard": "^20.0.0",
     "ts-jest": "^25.3.1",
     "typescript": "^3.8.3"
   }

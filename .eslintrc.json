@@ -1,7 +1,10 @@
 {
   "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -20,15 +23,16 @@
   },
   "settings": {
     "react": {
+      "pragma": "React",
       "version": "detect"
     }
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
     "react/prop-types": "off",
-    "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
-    "semi": ["error", "always"]
+    "semi": ["error", "always"],
+    "prettier/prettier": ["error", { "singleQuote": true }]
   }
 }

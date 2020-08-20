@@ -32,7 +32,7 @@ describe('newEvent', () => {
     const validNewEvent = {
       name: 'Big Event',
       end: '13/07/1981',
-      state: { home: 'candidate'}
+      state: { home: 'candidate' },
     };
 
     expect(validationService.newEvent(validNewEvent)).toBe(true);

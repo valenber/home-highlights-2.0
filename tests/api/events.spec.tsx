@@ -209,18 +209,23 @@ describe('PUT request', () => {
   test('does not call updateAgendaEvent on request with only If', async () => {
     db.updateAgendaEvent = jest.fn();
 
-    await eventsEndpointHandler({ method: 'PUT', body: {id: '28973912837012983'} });
+    await eventsEndpointHandler({
+      method: 'PUT',
+      body: { id: '28973912837012983' },
+    });
 
     expect(db.updateAgendaEvent).not.toHaveBeenCalled();
   });
-
 
   test('calls updateAgendaEvent on valid request', async () => {
     db.updateAgendaEvent = jest.fn().mockImplementation(() => {
       return 'ok';
     });
 
-    await eventsEndpointHandler({ method: 'PUT', body: { id: 'event_id', name: 'Event' } });
+    await eventsEndpointHandler({
+      method: 'PUT',
+      body: { id: 'event_id', name: 'Event' },
+    });
 
     expect(db.updateAgendaEvent).toHaveBeenCalledTimes(1);
   });
