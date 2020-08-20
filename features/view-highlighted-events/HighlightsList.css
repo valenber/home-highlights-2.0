@@ -1,8 +1,9 @@
 .highlightsGrid {
   flex-grow: 1;
-  padding: calc(var(--spacing) * 2);
+
+  /* padding: calc(var(--spacing) * 2); */
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: calc(var(--spacing) * 2);
   align-content: start;
 }

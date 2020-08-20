@@ -29,7 +29,7 @@ export const CategoriesTabs: React.FC = () => {
   }
 
   return (
-    <Paper>
+    <Paper className="categoriesTabs">
       <Tabs
         indicatorColor="secondary"
         textColor="primary"

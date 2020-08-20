@@ -1,6 +1,7 @@
 import React from 'react';
 import { CategoriesTabs } from './CategoriesTabs';
 import { HighlightsList } from '../view-highlighted-events/HighlightsList';
+import { CandidatesList } from '../view-candidate-events/CandidatesList';
 
 export const EventsView: React.FC = () => {
   return (
@@ -8,6 +9,8 @@ export const EventsView: React.FC = () => {
       <CategoriesTabs />
 
       <HighlightsList />
+
+      <CandidatesList />
     </div>
   );
 };

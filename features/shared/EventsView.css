@@ -2,18 +2,23 @@
   width: 100vw;
   max-width: 1450px; /* this is how wide all the category tabs are together */
   height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.eventsView .p-tabview-panel {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: calc(var(--spacing) * 4);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 48px auto;
+  gap: calc(var(--spacing) * 2);
 }
 
-.eventsView .eventsListsWrapper {
-  padding: calc(var(--spacing) * 3) 0;
-  flex-grow: 1;
-  display: flex;
+.eventsView .categoriesTabs {
+  grid-column: 1 / 5;
+  grid-row: 1 / 2;
+}
+
+.eventsView .highlightsGrid {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+}
+
+.eventsView .candidatesList {
+  grid-column: 4 / 5;
+  grid-row: 2 / 3;
 }
