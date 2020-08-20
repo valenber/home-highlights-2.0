@@ -9,9 +9,9 @@ import { addEventsList } from '../store/eventsSlice';
 import { getAllApiEvents } from '../services/api';
 import { useSelector } from 'react-redux';
 import { getAllStoreEvents } from '../store/selectors/getAllStoreEvents';
-import { EventsLoadingProgressSpinner } from '../features/view-highlighted-events/components/EventsLoadingProgressSpinner';
-import { EventsView } from '../features/view-highlighted-events/EventsView';
-import { EventsLoadingError } from '../features/view-highlighted-events/components/EventsLoadingError';
+import { EventsLoadingProgressSpinner } from '../features/shared/EventsLoadingProgressSpinner';
+import { EventsView } from '../features/shared/EventsView';
+import { EventsLoadingError } from '../features/shared/EventsLoadingError';
 
 const IndexPage = () => {
   const dispatch = useAppDispatch();
