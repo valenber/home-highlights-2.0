@@ -31,9 +31,13 @@ async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
 
   interface FdbEvent {
     data: AgendaEvent;
+    ref: string;
   }
 
-  return data.map((event: FdbEvent) => event.data);
+  return data.map((event: FdbEvent) => ({
+    ...event.data,
+    id: extractRefString(event.ref),
+  }));
 }
 
 async function createNewAgendaEvent(
