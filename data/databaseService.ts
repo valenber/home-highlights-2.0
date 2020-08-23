@@ -74,19 +74,19 @@ async function deleteAgendaEvent(id: string): Promise<string> {
 
 async function updateAgendaEvent(
   eventObject: Partial<AgendaEvent>,
-): Promise<string> {
+): Promise<AgendaEvent> {
   const { id } = eventObject;
   delete eventObject.id;
 
   const [client, q] = getDB();
 
-  const { ref } = await client.query(
-    q.Update(q.Ref(q.Collection(targetCollection, id)), eventObject),
+  const { ref, data } = await client.query(
+    q.Update(q.Ref(q.Collection(targetCollection), id), { data: eventObject }),
   );
 
   const updatedRecordRef: string = extractRefString(ref);
 
-  return updatedRecordRef;
+  return { ...data, id: updatedRecordRef };
 }
 
 export const databaseService = {

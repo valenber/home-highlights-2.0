@@ -3,6 +3,7 @@ import {
   addEvent,
   addEventsList,
   removeEventById,
+  patchEvent,
   initialState,
   selectEventCategory,
 } from './eventsSlice';
@@ -51,5 +52,17 @@ describe('reducers', () => {
     const newState = eventsReducer(initialState, selectEventCategory(null));
 
     expect(newState.selectedCategory).toBe(null);
+  });
+
+  test('update event props by id', () => {
+    const updatedEvent = { ...firstEvent, name: 'Event twenty one' };
+    const newState = eventsReducer(
+      { ...initialState, list: [firstEvent, secondEvent] },
+      patchEvent(updatedEvent),
+    );
+    expect(newState).toEqual({
+      ...initialState,
+      list: [updatedEvent, secondEvent],
+    });
   });
 });

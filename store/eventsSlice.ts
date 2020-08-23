@@ -40,6 +40,16 @@ const events = createSlice({
     ): void {
       state.selectedCategory = action.payload;
     },
+
+    patchEvent(state, action: PayloadAction<AgendaEvent>): EventsSlice {
+      const { payload } = action;
+      return {
+        ...state,
+        list: state.list.map((event) =>
+          event.id === payload.id ? payload : event,
+        ),
+      };
+    },
   },
 });
 
@@ -51,4 +61,5 @@ export const {
   addEventsList,
   removeEventById,
   selectEventCategory,
+  patchEvent,
 } = events.actions;

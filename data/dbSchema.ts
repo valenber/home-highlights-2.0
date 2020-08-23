@@ -21,7 +21,7 @@ export type AgendaEventCategory =
   | 'events'
   | 'christmas';
 
-type AgendaEventStatus = 'candidate' | 'highlight' | 'mainfocus';
+export type AgendaEventStatus = 'candidate' | 'highlight' | 'mainfocus';
 
 // this is an examle of a valid agenda event object
 export const exampleAgendaEvent: AgendaEvent = {
