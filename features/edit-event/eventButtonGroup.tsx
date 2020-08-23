@@ -66,7 +66,7 @@ export const EventButtonGroup: React.FC<EventButtonGroupProps> = ({
   }
 
   return (
-    <ButtonGroup>
+    <ButtonGroup className="cardControls">
       <IconButton onClick={handlePromoteButtonClic}>
         <StateButton />
       </IconButton>
