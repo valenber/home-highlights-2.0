@@ -1,13 +1,26 @@
 .highlightsGrid {
-  flex-grow: 1;
+  --gap: calc(var(--spacing) * 2);
 
-  /* padding: calc(var(--spacing) * 2); */
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: calc(var(--spacing) * 2);
-  align-content: start;
+  flex-grow: 1;
+  gap: 0 var(--gap);
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .highlightsGrid .eventCard {
+  flex-basis: calc(50% - (var(--gap) / 2));
   max-height: 140px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+  padding-left: calc(var(--spacing) * 2);
+}
+
+.highlightsGrid .eventCard.mainFocus {
+  flex-basis: 100%;
+  order: -1;
+}
+
+.highlightsGrid .eventCard .cardControls {
+  align-self: flex-end;
 }
