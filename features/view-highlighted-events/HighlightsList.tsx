@@ -4,6 +4,7 @@ import { AgendaEvent } from '../../data/dbSchema';
 import { useSelector } from 'react-redux';
 import { getHighlightsForSelectedCategory } from './getHighlightsForSelectedCategory';
 import { dateFormat } from '../shared/helpers';
+import { EventButtonGroup } from '../edit-event/eventButtonGroup';
 
 export const HighlightsList: React.FC = () => {
   const categoryHighlights = useSelector(getHighlightsForSelectedCategory);
@@ -23,6 +24,7 @@ export const HighlightsList: React.FC = () => {
               <Typography gutterBottom variant="h6" component="h3">
                 {event.name}
               </Typography>
+              <EventButtonGroup event={event} />
             </CardContent>
           </Card>
         );

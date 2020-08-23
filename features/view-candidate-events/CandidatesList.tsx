@@ -4,6 +4,7 @@ import { getCandidatesForSelectedCategory } from './getCandidatesForSelectedCate
 import { useSelector } from 'react-redux';
 import { AgendaEvent } from '../../data/dbSchema';
 import { dateFormat } from '../shared/helpers';
+import { EventButtonGroup } from '../edit-event/eventButtonGroup';
 
 export const CandidatesList: React.FC = () => {
   const categoryCandidates: AgendaEvent[] = useSelector(
@@ -29,6 +30,7 @@ export const CandidatesList: React.FC = () => {
               <Typography gutterBottom variant="body1" component="h5">
                 {event.name}
               </Typography>
+              <EventButtonGroup event={event} />
             </CardContent>
           </Card>
         );
