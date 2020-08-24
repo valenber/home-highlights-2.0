@@ -5,3 +5,6 @@
 
 /* highlighted events */
 @import '../features/view-highlighted-events/HighlightsList.css';
+
+/* candidates events */
+@import '../features/view-candidate-events/CandidatesList.css';

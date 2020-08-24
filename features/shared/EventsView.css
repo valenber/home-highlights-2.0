@@ -14,7 +14,7 @@
   grid-row: 1 / 2;
 }
 
-.eventsView .highlightsGrid {
+.eventsView .highlightsList {
   grid-column: 1 / 5;
   grid-row: 2 / 3;
   overflow: auto;
