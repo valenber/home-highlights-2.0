@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Card, Typography } from '@material-ui/core';
+import { Card, Typography, Box } from '@material-ui/core';
 import { AgendaEvent } from '../../data/dbSchema';
 import { useSelector } from 'react-redux';
 import { getHighlightsForSelectedCategory } from './getHighlightsForSelectedCategory';
@@ -14,7 +14,11 @@ export const HighlightsList: React.FC = () => {
   const selectedCategory = useSelector(getSelectedCategory);
 
   return (
-    <Paper className="highlightsList">
+    <Box
+      className="highlightsList"
+      borderRight={1}
+      borderColor="secondary.main"
+    >
       {categoryHighlights.map((event: AgendaEvent) => {
         const formattedEndDate = dateFormat.format(new Date(event.end));
         const cardClass =
@@ -44,6 +48,6 @@ export const HighlightsList: React.FC = () => {
           </Card>
         );
       })}
-    </Paper>
+    </Box>
   );
 };

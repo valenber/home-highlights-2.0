@@ -6,11 +6,14 @@
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
+  padding: var(--spacing);
+  padding-top: calc(var(--spacing) * 5.5);
+  padding-right: calc(var(--spacing) * 2);
 }
 
 .highlightsList .eventCard {
   flex-basis: calc(50% - (var(--gap) / 2));
-  max-height: 140px;
+  max-height: 160px;
   display: flex;
   flex-direction: column;
   padding: var(--spacing);

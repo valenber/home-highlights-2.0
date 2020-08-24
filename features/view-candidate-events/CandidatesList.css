@@ -1,0 +1,16 @@
+.candidatesList {
+  padding: 0 var(--spacing);
+  padding-left: 1px;
+}
+
+.candidatesList .monthSeparator {
+  margin-bottom: var(--spacing);
+}
+
+.candidatesList .monthSeparator:not(:first-child) {
+  margin-top: calc(var(--spacing) * 3);
+}
+
+.candidatesList .eventCard {
+  margin-bottom: var(--spacing);
+}
