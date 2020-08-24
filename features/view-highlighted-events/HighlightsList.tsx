@@ -3,16 +3,18 @@ import { Paper, Card, Typography } from '@material-ui/core';
 import { AgendaEvent } from '../../data/dbSchema';
 import { useSelector } from 'react-redux';
 import { getHighlightsForSelectedCategory } from './getHighlightsForSelectedCategory';
-import { dateFormat } from '../shared/helpers';
+import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
 import { EventButtonGroup } from '../edit-event/eventButtonGroup';
 import { getSelectedCategory } from '../edit-event/getSelectedCategory';
 
 export const HighlightsList: React.FC = () => {
-  const categoryHighlights = useSelector(getHighlightsForSelectedCategory);
+  const categoryHighlights = useSelector(getHighlightsForSelectedCategory).sort(
+    byEndDateOldToNew,
+  );
   const selectedCategory = useSelector(getSelectedCategory);
 
   return (
-    <Paper className="highlightsGrid">
+    <Paper className="highlightsList">
       {categoryHighlights.map((event: AgendaEvent) => {
         const formattedEndDate = dateFormat.format(new Date(event.end));
         const cardClass =

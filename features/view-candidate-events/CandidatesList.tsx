@@ -3,7 +3,7 @@ import { Paper, Typography, CardContent, Card } from '@material-ui/core';
 import { getCandidatesForSelectedCategory } from './getCandidatesForSelectedCategory';
 import { useSelector } from 'react-redux';
 import { AgendaEvent } from '../../data/dbSchema';
-import { dateFormat } from '../shared/helpers';
+import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
 import { EventButtonGroup } from '../edit-event/eventButtonGroup';
 
 export const CandidatesList: React.FC = () => {
@@ -11,13 +11,11 @@ export const CandidatesList: React.FC = () => {
     getCandidatesForSelectedCategory,
   );
 
+  const sortedCategoryCandidates = categoryCandidates.sort(byEndDateOldToNew);
+
   return (
     <Paper className="candidatesList">
-      <Typography variant="h6" component="p">
-        Candidates count: {categoryCandidates.length}
-      </Typography>
-
-      {categoryCandidates.map((event: AgendaEvent) => {
+      {sortedCategoryCandidates.map((event: AgendaEvent) => {
         const formattedEndDate = dateFormat.format(new Date(event.end));
 
         return (
