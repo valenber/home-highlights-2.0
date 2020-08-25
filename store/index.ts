@@ -2,9 +2,11 @@ import { eventsReducer } from './eventsSlice';
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
+import { activeCategoryReducer } from './categorySlice';
 
 export const rootReducer = combineReducers({
   events: eventsReducer,
+  activeCategory: activeCategoryReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

@@ -1,12 +1,13 @@
 import React, { ChangeEvent } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useAppDispatch } from '../../store';
 import { AgendaEventCategory } from '../../data/dbSchema';
-import { selectEventCategory } from '../../store/eventsSlice';
 import { Paper, Tabs, Tab } from '@material-ui/core';
 import { getSelectedCategory } from '../../store/selectors/getSelectedCategory';
+import { selectCategory } from '../../store/categorySlice';
 
 export const CategoriesTabs: React.FC = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const selectedCategory = useSelector(getSelectedCategory);
 
   const eventCategories = [
@@ -25,7 +26,7 @@ export const CategoriesTabs: React.FC = () => {
     _event: ChangeEvent,
     newTab: AgendaEventCategory,
   ): void {
-    dispatch(selectEventCategory(newTab));
+    dispatch(selectCategory(newTab));
   }
 
   return (
