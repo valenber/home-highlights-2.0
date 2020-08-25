@@ -1,54 +1,31 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { AgendaEvent, AgendaEventCategory } from '../data/dbSchema';
+import { AgendaEvent } from '../data/dbSchema';
 
-export interface EventsSlice {
-  list: AgendaEvent[] | null;
-  selectedCategory: AgendaEventCategory;
-}
-
-export const initialState: EventsSlice = {
-  list: null,
-  selectedCategory: 'home',
-};
+export type EventsSlice = AgendaEvent[] | null;
 
 const events = createSlice({
   name: 'events',
-  initialState,
+  initialState: null,
   reducers: {
     addEvent(state, action: PayloadAction<AgendaEvent>): void {
-      state.list.push(action.payload);
+      state.push(action.payload);
     },
 
     addEventsList(state, action: PayloadAction<AgendaEvent[]>): EventsSlice {
-      if (!action.payload) {
-        return state;
-      }
+      const { payload } = action;
 
-      return { ...state, list: [...action.payload] };
+      return payload ? [...payload] : state;
     },
 
     removeEventById(state, action: PayloadAction<string>): EventsSlice {
-      return {
-        ...state,
-        list: state.list.filter((event) => event.id !== action.payload),
-      };
-    },
-
-    selectEventCategory(
-      state,
-      action: PayloadAction<AgendaEventCategory>,
-    ): void {
-      state.selectedCategory = action.payload;
+      return state.filter((event: AgendaEvent) => event.id !== action.payload);
     },
 
     patchEvent(state, action: PayloadAction<AgendaEvent>): EventsSlice {
       const { payload } = action;
-      return {
-        ...state,
-        list: state.list.map((event) =>
-          event.id === payload.id ? payload : event,
-        ),
-      };
+      return state.map((event: AgendaEvent) =>
+        event.id === payload.id ? payload : event,
+      );
     },
   },
 });
@@ -60,6 +37,5 @@ export const {
   addEvent,
   addEventsList,
   removeEventById,
-  selectEventCategory,
   patchEvent,
 } = events.actions;
