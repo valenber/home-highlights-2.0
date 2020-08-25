@@ -4,12 +4,12 @@ import { AgendaEvent } from '../../data/dbSchema';
 export function getHighlightsForSelectedCategory(
   state: AppState,
 ): AgendaEvent[] {
-  const { selectedCategory } = state.events;
+  const { activeCategory } = state;
 
   return state.events.list.filter((event: AgendaEvent) => {
     return (
-      Object.keys(event.state).includes(selectedCategory) &&
-      event.state[selectedCategory] !== 'candidate'
+      Object.keys(event.state).includes(activeCategory) &&
+      event.state[activeCategory] !== 'candidate'
     );
   });
 }
