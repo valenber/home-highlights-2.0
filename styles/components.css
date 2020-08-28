@@ -8,3 +8,6 @@
 
 /* candidates events */
 @import '../features/view-candidate-events/CandidatesList.css';
+
+/* events editor */
+@import '../features/edit-event/EditorForm.css';
