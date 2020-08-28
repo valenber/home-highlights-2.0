@@ -57,6 +57,7 @@ export const CandidatesList: React.FC = () => {
               color="primary"
               variant="h6"
               component="h5"
+              key={event}
             >
               {event}
             </Typography>
