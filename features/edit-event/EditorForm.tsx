@@ -28,7 +28,7 @@ const optionsCategory: AgendaEventCategory[] = [
 const EditorForm = (
   <form className="editorForm">
     <div className="editorForm__title">
-      <Typography variant="h5" component="h5" color="textPrimary">
+      <Typography variant="h4" component="h5" color="textPrimary">
         Event editor
       </Typography>
       <Typography variant="body1" component="h5" color="textSecondary">
@@ -53,7 +53,6 @@ const EditorForm = (
       label="Start"
       type="date"
       variant="outlined"
-      defaultValue="home"
       InputLabelProps={{
         shrink: true,
       }}
@@ -65,7 +64,6 @@ const EditorForm = (
       label="End"
       type="date"
       variant="outlined"
-      defaultValue=""
       InputLabelProps={{
         shrink: true,
       }}
@@ -76,7 +74,6 @@ const EditorForm = (
       className="eventCategory"
       select
       label="Event category"
-      value={0}
       onChange={(): void => console.log('changed')}
       variant="outlined"
     >
