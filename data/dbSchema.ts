@@ -1,7 +1,7 @@
 export type AgendaEvent = {
   id: string;
   name: string;
-  start?: Date;
+  start?: string;
   end: string;
   state: AgendaEventState;
 };
@@ -27,7 +27,7 @@ export type AgendaEventStatus = 'candidate' | 'highlight' | 'mainfocus';
 export const exampleAgendaEvent: AgendaEvent = {
   id: 'djwk2odim10dm20',
   name: 'PhotoEspaña 2020',
-  start: new Date('1/4/2020'),
+  start: '2020-01-26T00:00:00.000Z',
   end: '2020-04-26T00:00:00.000Z',
   state: {
     home: 'candidate',
