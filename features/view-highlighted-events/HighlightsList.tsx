@@ -1,11 +1,14 @@
 import React from 'react';
-import { Card, Typography, Box } from '@material-ui/core';
-import { AgendaEvent } from '../../data/dbSchema';
 import { useSelector } from 'react-redux';
+
+import { Card, Typography, Box } from '@material-ui/core';
+
+import { AgendaEvent } from '../../data/dbSchema';
 import { getHighlightsForSelectedCategory } from './getHighlightsForSelectedCategory';
-import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
-import { EventButtonGroup } from '../edit-event/eventButtonGroup';
 import { getSelectedCategory } from '../edit-event/getSelectedCategory';
+import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
+
+import { EventButtonGroup } from '../edit-event/EventButtonGroup';
 
 export const HighlightsList: React.FC = () => {
   const categoryHighlights = useSelector(getHighlightsForSelectedCategory).sort(

@@ -4,7 +4,7 @@ import { getCandidatesForSelectedCategory } from './getCandidatesForSelectedCate
 import { useSelector } from 'react-redux';
 import { AgendaEvent } from '../../data/dbSchema';
 import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
-import { EventButtonGroup } from '../edit-event/eventButtonGroup';
+import { EventButtonGroup } from '../edit-event/EventButtonGroup';
 
 export const CandidatesList: React.FC = () => {
   const categoryCandidates: AgendaEvent[] = useSelector(
