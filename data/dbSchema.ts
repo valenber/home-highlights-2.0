@@ -6,7 +6,7 @@ export type AgendaEvent = {
   state: AgendaEventState;
 };
 
-type AgendaEventState = {
+export type AgendaEventState = {
   [category in AgendaEventCategory]?: AgendaEventStatus;
 };
 

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import {
   Modal,
   Typography,
@@ -9,13 +10,18 @@ import {
   Radio,
   Button,
   IconButton,
+  FormControl,
+  InputLabel,
+  Select,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import { AgendaEventCategory } from '../../data/dbSchema';
-import { useSelector } from 'react-redux';
+
+import { AgendaEventCategory, AgendaEventState } from '../../data/dbSchema';
 import { getEditedEvent } from '../../store/selectors/getEditedEvent';
 import { useAppDispatch } from '../../store';
 import { selectEventToEdit } from '../../store/editorSlice';
+
+import { useForm, Controller } from 'react-hook-form';
 
 const optionsCategory: AgendaEventCategory[] = [
   'home',
@@ -31,16 +37,25 @@ const optionsCategory: AgendaEventCategory[] = [
 
 export const EditorFormModal: React.FC = () => {
   const editedEvent = useSelector(getEditedEvent);
-
   const dispatch = useAppDispatch();
+  const [eventState, setEventState] = useState<AgendaEventState>({});
+  const { register, control, handleSubmit } = useForm();
 
   function handleModalClose(): void {
     dispatch(selectEventToEdit(false));
   }
 
+  function handleCategoryChange({ target }): void {
+    console.log(target);
+  }
+
+  function onFormSubmit(data: unknown): void {
+    console.log(data);
+  }
+
   return (
     <Modal open={!!editedEvent} onClose={handleModalClose}>
-      <form className="editorForm">
+      <form className="editorForm" onSubmit={handleSubmit(onFormSubmit)}>
         <div className="editorForm__title">
           <Typography variant="h4" component="h5" color="textPrimary">
             Event editor
@@ -64,6 +79,8 @@ export const EditorFormModal: React.FC = () => {
           className="eventName"
           label="Event Name"
           variant="outlined"
+          name="name"
+          inputRef={register}
         />
         <TextField
           id="eventStartDate"
@@ -71,6 +88,8 @@ export const EditorFormModal: React.FC = () => {
           label="Start"
           type="date"
           variant="outlined"
+          name="start"
+          inputRef={register}
           InputLabelProps={{
             shrink: true,
           }}
@@ -82,44 +101,53 @@ export const EditorFormModal: React.FC = () => {
           label="End"
           type="date"
           variant="outlined"
+          name="end"
+          inputRef={register}
           InputLabelProps={{
             shrink: true,
           }}
         />
 
-        <TextField
-          id="eventCategory"
-          className="eventCategory"
-          select
-          label="Event category"
-          onChange={(): void => console.log('changed')}
-          variant="outlined"
-        >
-          {optionsCategory.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </TextField>
-        <RadioGroup
-          name="eventStatus"
-          className="eventStatus"
-          value="candidate"
-          onChange={(): void => console.log('change')}
-        >
+        <Controller
+          as={
+            <TextField
+              id="eventCategory"
+              className="eventCategory"
+              select
+              label="Event category"
+              variant="outlined"
+            >
+              {optionsCategory.map((option) => (
+                <MenuItem key={option} value={option}>
+                  {option}
+                </MenuItem>
+              ))}
+            </TextField>
+          }
+          name="category-1"
+          control={control}
+        />
+
+        <RadioGroup className="eventStatus">
           <FormControlLabel
             value="candidate"
             control={<Radio />}
+            name="category-1-status"
+            inputRef={register}
             label="Candidate"
           />
           <FormControlLabel
             value="highlight"
             control={<Radio />}
+            name="category-1-status"
+            inputRef={register}
             label="Highlight"
           />
           <FormControlLabel
             value="mainfocus"
             control={<Radio />}
+            name="category-1-status"
+            inputRef={register}
             label="Main focus"
           />
         </RadioGroup>
@@ -129,6 +157,7 @@ export const EditorFormModal: React.FC = () => {
           className="saveEventButton"
           color="primary"
           size="large"
+          type="submit"
         >
           Save event
         </Button>
