@@ -24,7 +24,7 @@ export const EditorFormModal: React.FC = () => {
   const editedEvent = useSelector(getEditedEvent);
   const dispatch = useAppDispatch();
   const { values, handleInputChange } = useForm(editedEvent);
-  const debugPanel = true;
+  const debugPanel = false;
 
   const optionsCategory: AgendaEventCategory[] = [
     'home',
@@ -173,7 +173,7 @@ export const EditorFormModal: React.FC = () => {
         <Button
           variant="contained"
           className="saveEventButton"
-          color="primary"
+          color="secondary"
           size="large"
           type="submit"
         >

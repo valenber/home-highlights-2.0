@@ -19,7 +19,6 @@ export const useForm = (
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
-    console.log(name, value);
 
     if (name === 'newCategory') {
       setValues({

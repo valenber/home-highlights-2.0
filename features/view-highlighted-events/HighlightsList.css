@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   align-content: flex-start;
   padding: var(--spacing);
-  padding-top: calc(var(--spacing) * 5.5);
+  padding-top: calc(var(--spacing) * 5);
   padding-right: calc(var(--spacing) * 2);
 }
 
