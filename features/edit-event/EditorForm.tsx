@@ -23,8 +23,8 @@ import { useForm } from './useForm';
 export const EditorFormModal: React.FC = () => {
   const editedEvent = useSelector(getEditedEvent);
   const dispatch = useAppDispatch();
-  const { values, handleInputChange } = useForm(editedEvent);
-  const debugPanel = false;
+  const { values, handleInputChange, handleFormSubmit } = useForm(editedEvent);
+  const debugPanel = true;
 
   const optionsCategory: AgendaEventCategory[] = [
     'home',
@@ -45,11 +45,6 @@ export const EditorFormModal: React.FC = () => {
 
   function handleModalClose(): void {
     dispatch(selectEventToEdit(false));
-  }
-
-  function handleFormSubmit(event: FormEvent): void {
-    /* this needs to be handled inside useForm hook */
-    event.preventDefault();
   }
 
   return (

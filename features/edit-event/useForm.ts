@@ -1,21 +1,54 @@
-import { useState, useEffect, ChangeEvent } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { AgendaEvent } from '../../data/dbSchema';
+import { updateEventProps } from '../../services/api';
+import { useAppDispatch } from '../../store';
+import { patchEvent } from '../../store/eventsSlice';
+import { selectEventToEdit } from '../../store/editorSlice';
 
 interface UseFormReturnObject {
   values: Partial<AgendaEvent>;
   handleInputChange: (data: unknown) => void;
+  handleFormSubmit: (event: FormEvent) => void;
 }
 
 export const useForm = (
   initialValues: Partial<AgendaEvent> | false,
 ): UseFormReturnObject => {
   const [values, setValues] = useState<Partial<AgendaEvent>>();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (initialValues !== false) {
       setValues(initialValues);
     }
   }, [initialValues]);
+
+  const updateExistingAgendaEvent = async (
+    updateObject: Partial<AgendaEvent>,
+  ): Promise<void> => {
+    const { event, error } = await updateEventProps(updateObject);
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    if (event) {
+      dispatch(patchEvent(event));
+      dispatch(selectEventToEdit(false));
+      return;
+    }
+  };
+
+  const handleFormSubmit = (event: FormEvent): void => {
+    event.preventDefault();
+
+    if (values.id) {
+      updateExistingAgendaEvent(values);
+    } else {
+      console.log('Creating new event...');
+    }
+  };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
@@ -45,5 +78,6 @@ export const useForm = (
   return {
     values,
     handleInputChange,
+    handleFormSubmit,
   };
 };
