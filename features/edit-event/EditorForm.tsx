@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { useSelector } from 'react-redux';
 import {
   Modal,
@@ -20,30 +20,36 @@ import { selectEventToEdit } from '../../store/editorSlice';
 
 import { useForm } from './useForm';
 
-const optionsCategory: AgendaEventCategory[] = [
-  'home',
-  'current',
-  'exhibitions',
-  'theatreanddance',
-  'music',
-  'sports',
-  'fairs',
-  'events',
-  'christmas',
-];
-
 export const EditorFormModal: React.FC = () => {
   const editedEvent = useSelector(getEditedEvent);
   const dispatch = useAppDispatch();
   const { values, handleInputChange } = useForm(editedEvent);
   const debugPanel = true;
 
+  const optionsCategory: AgendaEventCategory[] = [
+    'home',
+    'current',
+    'exhibitions',
+    'theatreanddance',
+    'music',
+    'sports',
+    'fairs',
+    'events',
+    'christmas',
+  ].reduce((acc, category) => {
+    if (values && !Object.keys(values?.state).includes(category)) {
+      acc.push(category);
+    }
+    return acc;
+  }, []);
+
   function handleModalClose(): void {
     dispatch(selectEventToEdit(false));
   }
 
-  function handleFormSubmit(data: unknown): void {
-    console.log(data);
+  function handleFormSubmit(event: FormEvent): void {
+    /* this needs to be handled inside useForm hook */
+    event.preventDefault();
   }
 
   return (
@@ -109,39 +115,61 @@ export const EditorFormModal: React.FC = () => {
           }}
         />
 
-        <TextField
-          id="eventCategory"
-          className="eventCategory"
-          select
-          label="Event category"
-          variant="outlined"
-        >
-          {optionsCategory.map((option) => (
-            <MenuItem key={option} value={option}>
-              {option}
-            </MenuItem>
-          ))}
-        </TextField>
-        <RadioGroup className="eventStatus">
-          <FormControlLabel
-            value="candidate"
-            control={<Radio />}
-            name="category-1-status"
-            label="Candidate"
-          />
-          <FormControlLabel
-            value="highlight"
-            control={<Radio />}
-            name="category-1-status"
-            label="Highlight"
-          />
-          <FormControlLabel
-            value="mainfocus"
-            control={<Radio />}
-            name="category-1-status"
-            label="Main focus"
-          />
-        </RadioGroup>
+        {values &&
+          /* Object.keys(values?.state) && */
+          [...Object.keys(values.state), 'NEW'].map((category) => {
+            return (
+              <div className="eventCategoryInputGroup" key={category}>
+                <TextField
+                  id="eventCategory"
+                  className="categorySelect"
+                  disabled={category !== 'NEW'}
+                  select={category === 'NEW'}
+                  label={category === 'NEW' ? 'New category' : 'Event category'}
+                  variant="outlined"
+                  value={category !== 'NEW' ? category : undefined}
+                  name="newCategory"
+                  onChange={handleInputChange}
+                >
+                  {optionsCategory.map((option) => (
+                    <MenuItem key={option} value={option}>
+                      {option}
+                    </MenuItem>
+                  ))}
+                </TextField>
+
+                {category !== 'NEW' && (
+                  <RadioGroup
+                    className="categoryStatus"
+                    value={
+                      category !== 'NEW' ? values?.state[category] : 'candidate'
+                    }
+                    onChange={handleInputChange}
+                  >
+                    <FormControlLabel
+                      value="candidate"
+                      control={<Radio />}
+                      name={category}
+                      label="Candidate"
+                    />
+                    <FormControlLabel
+                      value="highlight"
+                      control={<Radio />}
+                      name={category}
+                      label="Highlight"
+                    />
+                    <FormControlLabel
+                      value="mainfocus"
+                      control={<Radio />}
+                      name={category}
+                      label="Main focus"
+                    />
+                  </RadioGroup>
+                )}
+              </div>
+            );
+          })}
+
         <Button
           variant="contained"
           className="saveEventButton"
