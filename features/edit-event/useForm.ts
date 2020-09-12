@@ -1,5 +1,5 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
-import { AgendaEvent } from '../../data/dbSchema';
+import { AgendaEvent, AgendaEventCategory } from '../../data/dbSchema';
 import { updateEventProps } from '../../services/api';
 import { useAppDispatch } from '../../store';
 import { patchEvent } from '../../store/eventsSlice';
@@ -9,6 +9,7 @@ interface UseFormReturnObject {
   values: Partial<AgendaEvent>;
   handleInputChange: (data: unknown) => void;
   handleFormSubmit: (event: FormEvent) => void;
+  deleteEventCategory: (category: AgendaEventCategory) => void;
 }
 
 export const useForm = (
@@ -50,6 +51,14 @@ export const useForm = (
     }
   };
 
+  const deleteEventCategory = (category: AgendaEventCategory): void => {
+    const { [category]: removeThis, ...remainingState } = values.state;
+    setValues({
+      ...values,
+      state: { ...remainingState },
+    });
+  };
+
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
 
@@ -79,5 +88,6 @@ export const useForm = (
     values,
     handleInputChange,
     handleFormSubmit,
+    deleteEventCategory,
   };
 };

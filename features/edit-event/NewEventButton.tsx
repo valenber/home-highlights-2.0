@@ -15,7 +15,7 @@ export const NewEventButton: React.FC = () => {
       <Button
         onClick={handleButtonClick}
         variant="contained"
-        color="secondary"
+        color="primary"
         size="large"
       >
         Add Event

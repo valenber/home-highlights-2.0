@@ -1,5 +1,6 @@
-import React, { FormEvent } from 'react';
+import React from 'react';
 import { useSelector } from 'react-redux';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import {
   Modal,
   Typography,
@@ -23,7 +24,12 @@ import { useForm } from './useForm';
 export const EditorFormModal: React.FC = () => {
   const editedEvent = useSelector(getEditedEvent);
   const dispatch = useAppDispatch();
-  const { values, handleInputChange, handleFormSubmit } = useForm(editedEvent);
+  const {
+    values,
+    handleInputChange,
+    handleFormSubmit,
+    deleteEventCategory,
+  } = useForm(editedEvent);
   const debugPanel = true;
 
   const optionsCategory: AgendaEventCategory[] = [
@@ -143,23 +149,35 @@ export const EditorFormModal: React.FC = () => {
                   >
                     <FormControlLabel
                       value="candidate"
-                      control={<Radio />}
+                      control={<Radio color="primary" />}
                       name={category}
                       label="Candidate"
                     />
                     <FormControlLabel
                       value="highlight"
-                      control={<Radio />}
+                      control={<Radio color="primary" />}
                       name={category}
                       label="Highlight"
                     />
                     <FormControlLabel
                       value="mainfocus"
-                      control={<Radio />}
+                      control={<Radio color="primary" />}
                       name={category}
                       label="Main focus"
                     />
                   </RadioGroup>
+                )}
+                {category !== 'NEW' && (
+                  <Button
+                    className="deleteCategoryButton"
+                    size="small"
+                    color="secondary"
+                    onClick={(): void =>
+                      deleteEventCategory(category as AgendaEventCategory)
+                    }
+                  >
+                    <DeleteForeverIcon />
+                  </Button>
                 )}
               </div>
             );
@@ -168,7 +186,7 @@ export const EditorFormModal: React.FC = () => {
         <Button
           variant="contained"
           className="saveEventButton"
-          color="secondary"
+          color="primary"
           size="large"
           type="submit"
         >
