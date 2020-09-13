@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { AgendaEvent } from '../../data/dbSchema';
 import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
 import { EventButtonGroup } from '../edit-event/EventButtonGroup';
+import { ExpirationChip } from '../shared/ExpirationChip';
 
 export const CandidatesList: React.FC = () => {
   const categoryCandidates: AgendaEvent[] = useSelector(
@@ -68,6 +69,7 @@ export const CandidatesList: React.FC = () => {
 
         return (
           <Card className="eventCard" key={event.id} variant="elevation">
+            <ExpirationChip eventEndDate={event.end} />
             <CardContent>
               <Typography color="textSecondary" variant="body2" component="p">
                 {formattedEndDate}

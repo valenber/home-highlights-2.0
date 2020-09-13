@@ -20,6 +20,11 @@
   padding-left: calc(var(--spacing) * 2);
 }
 
+.eventCard .eventDate {
+  display: flex;
+  justify-content: space-between;
+}
+
 .highlightsList .eventCard.mainFocus {
   flex-basis: 100%;
   order: -1;

@@ -13,4 +13,11 @@
 
 .candidatesList .eventCard {
   margin-bottom: var(--spacing);
+  position: relative;
+}
+
+.candidatesList .expirationChip {
+  position: absolute;
+  bottom: calc(var(--spacing) * 2);
+  right: calc(var(--spacing) * 2);
 }
