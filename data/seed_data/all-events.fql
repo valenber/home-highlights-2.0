@@ -3233,7 +3233,7 @@ Map(
   }
 ],
   Lambda("event",
-    Create(Collection("testAgendaEvents"), { data: Var("event")})
+    Create(Collection("agendaEvents"), { data: Var("event")})
   )
 );
 
