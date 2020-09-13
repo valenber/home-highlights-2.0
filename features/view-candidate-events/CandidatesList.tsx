@@ -78,7 +78,7 @@ export const CandidatesList: React.FC = () => {
               <Typography gutterBottom variant="body1" component="h5">
                 {event.name}
               </Typography>
-              <EventButtonGroup event={event} />
+              <EventButtonGroup existingEvent={event} />
             </CardContent>
           </Card>
         );

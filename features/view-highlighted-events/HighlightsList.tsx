@@ -53,7 +53,7 @@ export const HighlightsList: React.FC = () => {
               </Typography>
             )}
 
-            <EventButtonGroup event={event} />
+            <EventButtonGroup existingEvent={event} />
           </Card>
         );
       })}

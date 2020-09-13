@@ -13,17 +13,17 @@ import { useAppDispatch } from '../../store';
 import { selectEventToEdit } from '../../store/editorSlice';
 
 interface EventButtonGroupProps {
-  event: AgendaEvent;
+  existingEvent: AgendaEvent;
 }
 
 export const EventButtonGroup: React.FC<EventButtonGroupProps> = ({
-  event,
+  existingEvent,
 }) => {
   const dispatch = useAppDispatch();
 
   const selectedCategory = useSelector(getSelectedCategory);
-  const eventStatus = event.state[selectedCategory];
-  const { id } = event;
+  const eventStatus = existingEvent.state[selectedCategory];
+  const { id } = existingEvent;
 
   const stateIconMap = {
     candidate: <StarBorderIcon color="primary" />,
@@ -41,8 +41,9 @@ export const EventButtonGroup: React.FC<EventButtonGroupProps> = ({
 
   async function handlePromoteButtonClick(): Promise<void> {
     const statusUpdateObject = {
-      id: id,
+      ...existingEvent,
       state: {
+        ...existingEvent.state,
         [selectedCategory]: nextStatusMap[eventStatus],
       },
     };
