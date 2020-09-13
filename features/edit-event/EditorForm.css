@@ -53,6 +53,16 @@
   grid-column: -2 / -1;
 }
 
+.editorForm .actionBlockDivider {
+  grid-column: 1 / -1;
+}
+
+.editorForm .deleteEventButton {
+  grid-column: 1 / 3;
+  justify-self: self-start;
+  align-self: end;
+}
+
 .editorForm .saveEventButton {
   grid-column: -5 / -1;
 }

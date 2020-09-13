@@ -11,6 +11,7 @@ import {
   Radio,
   Button,
   IconButton,
+  Divider,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -29,8 +30,9 @@ export const EditorFormModal: React.FC = () => {
     handleInputChange,
     handleFormSubmit,
     deleteEventCategory,
+    deleteSelectedAgendaEvent,
   } = useForm(editedEvent);
-  const debugPanel = true;
+  const debugPanel = false;
 
   const optionsCategory: AgendaEventCategory[] = [
     'home',
@@ -182,6 +184,18 @@ export const EditorFormModal: React.FC = () => {
               </div>
             );
           })}
+
+        <Divider className="actionBlockDivider" />
+        <Button
+          variant="contained"
+          className="deleteEventButton"
+          color="secondary"
+          type="button"
+          size="small"
+          onClick={deleteSelectedAgendaEvent}
+        >
+          Delete
+        </Button>
 
         <Button
           variant="contained"

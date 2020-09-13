@@ -79,3 +79,31 @@ export async function createNewEvent(
     return { event: null, error: error.message };
   }
 }
+
+interface ApiDeleteEventResponse extends ApiResponse {
+  event: string | null;
+}
+
+export async function deleteEvent(
+  eventId: string,
+): Promise<ApiDeleteEventResponse> {
+  try {
+    const res = await fetch('/api/events', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: eventId }),
+    });
+
+    if (!res.ok) {
+      throw new Error(`Bad server response - ${res.status}: ${res.statusText}`);
+    }
+
+    const deletedEvent = await res.json().then((json) => json.data);
+
+    return { event: deletedEvent, error: null };
+  } catch (error) {
+    return { event: null, error: error.message };
+  }
+}

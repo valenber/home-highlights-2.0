@@ -1,8 +1,12 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { AgendaEvent, AgendaEventCategory } from '../../data/dbSchema';
-import { updateEventProps, createNewEvent } from '../../services/api';
+import {
+  updateEventProps,
+  createNewEvent,
+  deleteEvent,
+} from '../../services/api';
 import { useAppDispatch } from '../../store';
-import { patchEvent, addEvent } from '../../store/eventsSlice';
+import { patchEvent, addEvent, removeEventById } from '../../store/eventsSlice';
 import { selectEventToEdit } from '../../store/editorSlice';
 
 interface UseFormReturnObject {
@@ -10,6 +14,7 @@ interface UseFormReturnObject {
   handleInputChange: (data: unknown) => void;
   handleFormSubmit: (event: FormEvent) => void;
   deleteEventCategory: (category: AgendaEventCategory) => void;
+  deleteSelectedAgendaEvent: () => void;
 }
 
 export const useForm = (
@@ -53,6 +58,27 @@ export const useForm = (
     if (event) {
       dispatch(addEvent(event));
       dispatch(selectEventToEdit(false));
+      return;
+    }
+  };
+
+  const deleteSelectedAgendaEvent = async (): Promise<void> => {
+    if (!values.id) {
+      dispatch(selectEventToEdit(false));
+      return;
+    }
+
+    const { event, error } = await deleteEvent(values.id);
+    console.log(values.id);
+
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    if (event) {
+      dispatch(selectEventToEdit(false));
+      dispatch(removeEventById(event));
       return;
     }
   };
@@ -105,5 +131,6 @@ export const useForm = (
     handleInputChange,
     handleFormSubmit,
     deleteEventCategory,
+    deleteSelectedAgendaEvent,
   };
 };
