@@ -26,13 +26,15 @@ export const EditorFormModal: React.FC = () => {
   const editedEvent = useSelector(getEditedEvent);
   const dispatch = useAppDispatch();
   const {
+    errors,
+    validateInput,
     values,
     handleInputChange,
     handleFormSubmit,
     deleteEventCategory,
     deleteSelectedAgendaEvent,
   } = useForm(editedEvent);
-  const debugPanel = false;
+  const debugPanel = true;
 
   const optionsCategory: AgendaEventCategory[] = [
     'home',
@@ -88,6 +90,9 @@ export const EditorFormModal: React.FC = () => {
           InputLabelProps={{
             shrink: !!values?.name,
           }}
+          onBlur={validateInput}
+          error={!!errors?.name}
+          helperText={errors?.name}
         />
 
         <TextField
@@ -116,6 +121,9 @@ export const EditorFormModal: React.FC = () => {
           InputLabelProps={{
             shrink: true,
           }}
+          onBlur={validateInput}
+          error={!!errors?.end}
+          helperText={errors?.end}
         />
 
         {values &&
@@ -208,8 +216,14 @@ export const EditorFormModal: React.FC = () => {
         </Button>
 
         {debugPanel && (
-          <div style={{ gridColumn: '1 / -1' }}>
+          <div style={{ gridColumn: '1 / 7' }}>
             VALUES:<pre>{JSON.stringify(values, null, 2)}</pre>
+          </div>
+        )}
+
+        {debugPanel && (
+          <div style={{ gridColumn: '7 / -1' }}>
+            ERRORS:<pre>{JSON.stringify(errors, null, 2)}</pre>
           </div>
         )}
       </form>

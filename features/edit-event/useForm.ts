@@ -1,4 +1,4 @@
-import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
+import { useState, useEffect, ChangeEvent, FormEvent, FocusEvent } from 'react';
 import { AgendaEvent, AgendaEventCategory } from '../../data/dbSchema';
 import {
   updateEventProps,
@@ -9,7 +9,14 @@ import { useAppDispatch } from '../../store';
 import { patchEvent, addEvent, removeEventById } from '../../store/eventsSlice';
 import { selectEventToEdit } from '../../store/editorSlice';
 
+interface FormErrorsObject {
+  name?: string;
+  end?: string;
+}
+
 interface UseFormReturnObject {
+  errors: FormErrorsObject;
+  validateInput: (event: FocusEvent<HTMLInputElement>) => void;
   values: Partial<AgendaEvent>;
   handleInputChange: (data: unknown) => void;
   handleFormSubmit: (event: FormEvent) => void;
@@ -21,6 +28,7 @@ export const useForm = (
   initialValues: Partial<AgendaEvent> | false,
 ): UseFormReturnObject => {
   const [values, setValues] = useState<Partial<AgendaEvent>>();
+  const [errors, setErrors] = useState<FormErrorsObject>({});
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -85,6 +93,9 @@ export const useForm = (
 
   const handleFormSubmit = (event: FormEvent): void => {
     event.preventDefault();
+    if (!values.name || !values.end || Object.keys(errors).length) {
+      return;
+    }
 
     if (values.id) {
       updateExistingAgendaEvent(values);
@@ -99,6 +110,30 @@ export const useForm = (
       ...values,
       state: { ...remainingState },
     });
+  };
+
+  const validateInput = (event: FocusEvent<HTMLInputElement>): void => {
+    const { name, value } = event.target;
+    console.log('validating', name, value);
+
+    // name is required
+    if (name === 'name' && !values.name.trim().length) {
+      setErrors({ ...errors, [name]: 'An event must have a name' });
+      return;
+    }
+
+    // end date is required
+    if (name === 'end' && !value) {
+      setErrors({ ...errors, [name]: 'An event must have an end date' });
+      return;
+    }
+
+    // if input is valid clear its errors
+    const {
+      [name as keyof FormErrorsObject]: removeThis,
+      ...remainingErrors
+    } = errors;
+    setErrors({ ...remainingErrors });
   };
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>): void => {
@@ -128,6 +163,8 @@ export const useForm = (
 
   return {
     values,
+    validateInput,
+    errors,
     handleInputChange,
     handleFormSubmit,
     deleteEventCategory,
