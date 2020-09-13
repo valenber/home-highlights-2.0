@@ -114,7 +114,6 @@ export const useForm = (
 
   const validateInput = (event: FocusEvent<HTMLInputElement>): void => {
     const { name, value } = event.target;
-    console.log('validating', name, value);
 
     // name is required
     if (name === 'name' && !values.name.trim().length) {
