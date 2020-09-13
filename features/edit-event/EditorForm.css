@@ -1,0 +1,68 @@
+.editorForm {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-white);
+  padding: calc(var(--spacing) * 3);
+  border-radius: calc(var(--spacing) / 2);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: calc(var(--spacing) * 3) calc(var(--spacing) * 2);
+  min-width: 720px;
+}
+
+.editorForm__title {
+  grid-column: 1 / -2;
+}
+
+.editorForm .modalCloseButton {
+  grid-column: -2 / -1;
+  justify-self: self-end;
+}
+
+.editorForm .eventName {
+  grid-column: 1 / -1;
+}
+
+.editorForm .eventStartDate {
+  grid-column: 1 / 7;
+}
+
+.editorForm .eventEndDate {
+  grid-column: 7 / -1;
+}
+
+.eventCategoryInputGroup {
+  grid-column: 1 / -1;
+  display: grid;
+  column-gap: calc(var(--spacing) * 2);
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.eventCategoryInputGroup .categorySelect {
+  grid-column: 1 / 4;
+}
+
+.eventCategoryInputGroup .categoryStatus {
+  grid-column: 4 / 12;
+  flex-direction: row;
+}
+
+.eventCategoryInputGroup .deleteCategoryButton {
+  grid-column: -2 / -1;
+}
+
+.editorForm .actionBlockDivider {
+  grid-column: 1 / -1;
+}
+
+.editorForm .deleteEventButton {
+  grid-column: 1 / 3;
+  justify-self: self-start;
+  align-self: end;
+}
+
+.editorForm .saveEventButton {
+  grid-column: -5 / -1;
+}

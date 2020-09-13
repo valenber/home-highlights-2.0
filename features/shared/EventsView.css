@@ -4,7 +4,7 @@
   height: 100vh;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: 48px auto;
+  grid-template-rows: 48px 48px 1fr;
   gap: calc(var(--spacing) * 2);
   overflow: hidden;
 }
@@ -16,12 +16,17 @@
 
 .eventsView .highlightsList {
   grid-column: 1 / 5;
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
   overflow: auto;
+}
+
+.eventsView .newEventButton {
+  grid-column: 5 / 7;
+  grid-row: 2 / 3;
 }
 
 .eventsView .candidatesList {
   grid-column: 5 / 7;
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
   overflow: auto;
 }

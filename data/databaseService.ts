@@ -42,7 +42,7 @@ async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
 
 async function createNewAgendaEvent(
   newEventPayload: Partial<AgendaEvent> | string,
-): Promise<string> {
+): Promise<Partial<AgendaEvent>> {
   const newEventObject =
     typeof newEventPayload === 'string'
       ? JSON.parse(newEventPayload)
@@ -51,14 +51,20 @@ async function createNewAgendaEvent(
   const [client, q] = getDB();
   const { name, start, end, state, last_update } = newEventObject;
 
-  const { ref } = await client.query(
+  interface FaunaDbRecord {
+    data: Partial<AgendaEvent>;
+    ref: string;
+  }
+
+  const newEventDbRecord: FaunaDbRecord = await client.query(
     q.Create(q.Collection(targetCollection), {
       data: { name, start, end, state, last_update },
     }),
   );
-  const newRecordRef: string = extractRefString(ref);
+  const newRecordRef: string = extractRefString(newEventDbRecord.ref);
+  const newEvent = { ...newEventDbRecord.data, id: newRecordRef };
 
-  return newRecordRef;
+  return newEvent;
 }
 
 async function deleteAgendaEvent(id: string): Promise<string> {

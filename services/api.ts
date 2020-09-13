@@ -1,9 +1,12 @@
 import fetch from 'isomorphic-unfetch';
 import { AgendaEvent } from '../data/dbSchema';
 
-export interface ApiGetEventsResponse {
-  events: AgendaEvent[] | null;
+interface ApiResponse {
   error: string | null;
+}
+
+export interface ApiGetEventsResponse extends ApiResponse {
+  events: AgendaEvent[] | null;
 }
 
 export async function getAllApiEvents(): Promise<ApiGetEventsResponse> {
@@ -21,9 +24,8 @@ export async function getAllApiEvents(): Promise<ApiGetEventsResponse> {
   }
 }
 
-export interface ApiUpdateEventResponse {
+export interface ApiUpdateEventResponse extends ApiResponse {
   event: AgendaEvent | null;
-  error: string | null;
 }
 
 export async function updateEventProps(
@@ -45,6 +47,62 @@ export async function updateEventProps(
     const updatedEvent = await res.json().then((json) => json.data);
 
     return { event: updatedEvent, error: null };
+  } catch (error) {
+    return { event: null, error: error.message };
+  }
+}
+
+export interface ApiCreateEventResponse extends ApiResponse {
+  event: AgendaEvent | null;
+}
+
+export async function createNewEvent(
+  newEventObject: Partial<AgendaEvent>,
+): Promise<ApiCreateEventResponse> {
+  try {
+    const res = await fetch('/api/events', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newEventObject),
+    });
+
+    if (!res.ok) {
+      throw new Error(`Bad server response - ${res.status}: ${res.statusText}`);
+    }
+
+    const createdEvent = await res.json().then((json) => json.data);
+
+    return { event: createdEvent, error: null };
+  } catch (error) {
+    return { event: null, error: error.message };
+  }
+}
+
+interface ApiDeleteEventResponse extends ApiResponse {
+  event: string | null;
+}
+
+export async function deleteEvent(
+  eventId: string,
+): Promise<ApiDeleteEventResponse> {
+  try {
+    const res = await fetch('/api/events', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: eventId }),
+    });
+
+    if (!res.ok) {
+      throw new Error(`Bad server response - ${res.status}: ${res.statusText}`);
+    }
+
+    const deletedEvent = await res.json().then((json) => json.data);
+
+    return { event: deletedEvent, error: null };
   } catch (error) {
     return { event: null, error: error.message };
   }

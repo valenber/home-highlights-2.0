@@ -3,28 +3,23 @@ import { ButtonGroup, IconButton } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import StarsIcon from '@material-ui/icons/Stars';
+import EditIcon from '@material-ui/icons/Edit';
 import { AgendaEvent } from '../../data/dbSchema';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getSelectedCategory } from './getSelectedCategory';
 import { updateEventProps } from '../../services/api';
 import { patchEvent } from '../../store/eventsSlice';
+import { useAppDispatch } from '../../store';
+import { selectEventToEdit } from '../../store/editorSlice';
 
 interface EventButtonGroupProps {
   event: AgendaEvent;
 }
 
-/* 
-[x] display correct star
-on click
-
-[x] prepare DB update objetc
-[x] call endpoint to update DB
-[ ] patch the store with new version of event */
-
 export const EventButtonGroup: React.FC<EventButtonGroupProps> = ({
   event,
 }) => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const selectedCategory = useSelector(getSelectedCategory);
   const eventStatus = event.state[selectedCategory];
@@ -44,7 +39,7 @@ export const EventButtonGroup: React.FC<EventButtonGroupProps> = ({
     mainfocus: 'candidate',
   };
 
-  async function handlePromoteButtonClic(): Promise<void> {
+  async function handlePromoteButtonClick(): Promise<void> {
     const statusUpdateObject = {
       id: id,
       state: {
@@ -65,10 +60,17 @@ export const EventButtonGroup: React.FC<EventButtonGroupProps> = ({
     }
   }
 
+  function handleEditButtonClick(): void {
+    dispatch(selectEventToEdit(id));
+  }
+
   return (
     <ButtonGroup className="cardControls">
-      <IconButton onClick={handlePromoteButtonClic}>
+      <IconButton onClick={handlePromoteButtonClick}>
         <StateButton />
+      </IconButton>
+      <IconButton onClick={handleEditButtonClick}>
+        <EditIcon color="primary" />
       </IconButton>
     </ButtonGroup>
   );
