@@ -12,6 +12,7 @@ import {
   Button,
   IconButton,
   Divider,
+  Tooltip,
 } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
@@ -177,17 +178,28 @@ export const EditorFormModal: React.FC = () => {
                     />
                   </RadioGroup>
                 )}
+
                 {category !== 'NEW' && (
-                  <Button
+                  <Tooltip
+                    title="Can't delete last category"
+                    disableHoverListener={Object.keys(values.state).length > 1}
+                    disableFocusListener={Object.keys(values.state).length > 1}
                     className="deleteCategoryButton"
-                    size="small"
-                    color="secondary"
-                    onClick={(): void =>
-                      deleteEventCategory(category as AgendaEventCategory)
-                    }
+                    placement="left"
                   >
-                    <DeleteForeverIcon />
-                  </Button>
+                    <span>
+                      <Button
+                        size="small"
+                        disabled={Object.keys(values.state).length <= 1}
+                        color="secondary"
+                        onClick={(): void =>
+                          deleteEventCategory(category as AgendaEventCategory)
+                        }
+                      >
+                        <DeleteForeverIcon />
+                      </Button>
+                    </span>
+                  </Tooltip>
                 )}
               </div>
             );
@@ -200,6 +212,7 @@ export const EditorFormModal: React.FC = () => {
           color="secondary"
           type="button"
           size="small"
+          tabIndex="-1"
           onClick={deleteSelectedAgendaEvent}
         >
           Delete

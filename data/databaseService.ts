@@ -87,7 +87,7 @@ async function updateAgendaEvent(
   const [client, q] = getDB();
 
   const { ref, data } = await client.query(
-    q.Update(q.Ref(q.Collection(targetCollection), id), { data: eventObject }),
+    q.Replace(q.Ref(q.Collection(targetCollection), id), { data: eventObject }),
   );
 
   const updatedRecordRef: string = extractRefString(ref);
