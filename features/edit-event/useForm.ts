@@ -1,8 +1,8 @@
 import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { AgendaEvent, AgendaEventCategory } from '../../data/dbSchema';
-import { updateEventProps } from '../../services/api';
+import { updateEventProps, createNewEvent } from '../../services/api';
 import { useAppDispatch } from '../../store';
-import { patchEvent } from '../../store/eventsSlice';
+import { patchEvent, addEvent } from '../../store/eventsSlice';
 import { selectEventToEdit } from '../../store/editorSlice';
 
 interface UseFormReturnObject {
@@ -41,13 +41,29 @@ export const useForm = (
     }
   };
 
+  const createNewAgendaEvent = async (
+    eventObject: Partial<AgendaEvent>,
+  ): Promise<void> => {
+    const { event, error } = await createNewEvent(eventObject);
+    if (error) {
+      console.error(error);
+      return;
+    }
+
+    if (event) {
+      dispatch(addEvent(event));
+      dispatch(selectEventToEdit(false));
+      return;
+    }
+  };
+
   const handleFormSubmit = (event: FormEvent): void => {
     event.preventDefault();
 
     if (values.id) {
       updateExistingAgendaEvent(values);
     } else {
-      console.log('Creating new event...');
+      createNewAgendaEvent(values);
     }
   };
 
