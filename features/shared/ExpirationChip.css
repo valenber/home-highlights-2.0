@@ -1,0 +1,13 @@
+.expirationChip {
+  font-size: 0.95em;
+}
+
+.expirationChip.expireSoonWarningChip {
+  background-color: #ffeb3b;
+  color: #000;
+}
+
+.expirationChip.expiredWarningChip {
+  background-color: #ff1744;
+  color: #fff;
+}

@@ -8,6 +8,7 @@ import { getHighlightsForSelectedCategory } from './getHighlightsForSelectedCate
 import { getSelectedCategory } from '../edit-event/getSelectedCategory';
 import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
 
+import { ExpirationChip } from '../shared/ExpirationChip';
 import { EventButtonGroup } from '../edit-event/EventButtonGroup';
 
 export const HighlightsList: React.FC = () => {
@@ -31,8 +32,13 @@ export const HighlightsList: React.FC = () => {
 
         return (
           <Card className={cardClass} key={event.id} variant="elevation">
-            <Typography color="textSecondary" gutterBottom>
+            <Typography
+              className="eventDate"
+              color="textSecondary"
+              gutterBottom
+            >
               {formattedEndDate}
+              <ExpirationChip eventEndDate={event.end} />
             </Typography>
 
             {event.state[selectedCategory] === 'highlight' && (

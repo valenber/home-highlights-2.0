@@ -2,6 +2,7 @@
 @import '../features/shared/EventsLoadingProgressSpinner.css';
 @import '../features/shared/EventsLoadingError.css';
 @import '../features/shared/EventsView.css';
+@import '../features/shared/ExpirationChip.css';
 
 /* highlighted events */
 @import '../features/view-highlighted-events/HighlightsList.css';
