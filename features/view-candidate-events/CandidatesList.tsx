@@ -3,7 +3,7 @@ import { Typography, CardContent, Card } from '@material-ui/core';
 import { getCandidatesForSelectedCategory } from './getCandidatesForSelectedCategory';
 import { useSelector } from 'react-redux';
 import { AgendaEvent } from '../../data/dbSchema';
-import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
+import { dateFormat, byStartDateOldToNew } from '../shared/helpers';
 import { EventButtonGroup } from '../edit-event/EventButtonGroup';
 import { ExpirationChip } from '../shared/ExpirationChip';
 
@@ -28,19 +28,21 @@ export const CandidatesList: React.FC = () => {
   ];
 
   const sortedCategoryCandidates = categoryCandidates
-    .sort(byEndDateOldToNew)
+    .sort(byStartDateOldToNew)
     .reduce((newList, event, idx, originalList) => {
-      const previousEventEndDateMonth =
+      const previousEventStartDateMonth =
         idx === 0
           ? null
-          : monthNames[new Date(originalList[idx - 1].end).getMonth()];
+          : monthNames[new Date(originalList[idx - 1].start).getMonth()];
 
-      const currentEventEndDateMonth =
-        monthNames[new Date(event.end).getMonth()];
+      const currentEventStartDateMonth =
+        monthNames[new Date(event.start).getMonth()];
 
-      if (previousEventEndDateMonth !== currentEventEndDateMonth) {
+      if (previousEventStartDateMonth !== currentEventStartDateMonth) {
         newList.push(
-          `${currentEventEndDateMonth} ${new Date(event.end).getFullYear()}`,
+          `${currentEventStartDateMonth} ${new Date(
+            event.start,
+          ).getFullYear()}`,
         );
       }
 
@@ -65,6 +67,9 @@ export const CandidatesList: React.FC = () => {
           );
         }
 
+        const formattedStartDate = event.start
+          ? dateFormat?.format(new Date(event.start))
+          : '[missing start date]';
         const formattedEndDate = dateFormat.format(new Date(event.end));
 
         return (
@@ -72,7 +77,9 @@ export const CandidatesList: React.FC = () => {
             <ExpirationChip eventEndDate={event.end} />
             <CardContent>
               <Typography color="textSecondary" variant="body2" component="p">
-                {formattedEndDate}
+                {formattedStartDate !== formattedEndDate
+                  ? `${formattedStartDate} - ${formattedEndDate}`
+                  : formattedEndDate}
               </Typography>
 
               <Typography gutterBottom variant="body1" component="h5">
