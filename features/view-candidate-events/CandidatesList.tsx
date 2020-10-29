@@ -65,6 +65,7 @@ export const CandidatesList: React.FC = () => {
           );
         }
 
+        const formattedStartDate = dateFormat.format(new Date(event.start));
         const formattedEndDate = dateFormat.format(new Date(event.end));
 
         return (
@@ -72,7 +73,9 @@ export const CandidatesList: React.FC = () => {
             <ExpirationChip eventEndDate={event.end} />
             <CardContent>
               <Typography color="textSecondary" variant="body2" component="p">
-                {formattedEndDate}
+                {formattedStartDate !== formattedEndDate
+                  ? `${formattedStartDate} - ${formattedEndDate}`
+                  : formattedEndDate}
               </Typography>
 
               <Typography gutterBottom variant="body1" component="h5">
