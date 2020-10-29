@@ -24,7 +24,9 @@ export const HighlightsList: React.FC = () => {
       borderColor="secondary.main"
     >
       {categoryHighlights.map((event: AgendaEvent) => {
+        const formattedStartDate = dateFormat.format(new Date(event.start));
         const formattedEndDate = dateFormat.format(new Date(event.end));
+
         const cardClass =
           event.state[selectedCategory] === 'highlight'
             ? 'eventCard'
@@ -37,7 +39,9 @@ export const HighlightsList: React.FC = () => {
               color="textSecondary"
               gutterBottom
             >
-              {formattedEndDate}
+              {formattedStartDate !== formattedEndDate
+                ? `${formattedStartDate} - ${formattedEndDate}`
+                : formattedEndDate}
               <ExpirationChip eventEndDate={event.end} />
             </Typography>
 
