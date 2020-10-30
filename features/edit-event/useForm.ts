@@ -105,6 +105,7 @@ export const useForm = (
   };
 
   const deleteEventCategory = (category: AgendaEventCategory): void => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { [category]: removeThis, ...remainingState } = values.state;
     setValues({
       ...values,
@@ -129,6 +130,7 @@ export const useForm = (
 
     // if input is valid clear its errors
     const {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       [name as keyof FormErrorsObject]: removeThis,
       ...remainingErrors
     } = errors;

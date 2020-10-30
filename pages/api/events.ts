@@ -11,7 +11,11 @@ export interface ApiRequest {
 export interface ApiResponse {
   status: number;
   message: string;
-  data?: {};
+  data?:
+    | AgendaEvent[]
+    | Partial<AgendaEvent>
+    | { providedObject: Record<string, unknown> }
+    | string;
 }
 
 // this is exported to simplify testing

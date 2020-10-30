@@ -13,7 +13,7 @@ import { EventsLoadingProgressSpinner } from '../features/shared/EventsLoadingPr
 import { EventsView } from '../features/shared/EventsView';
 import { EventsLoadingError } from '../features/shared/EventsLoadingError';
 
-const IndexPage = () => {
+const IndexPage: React.FC = () => {
   const dispatch = useAppDispatch();
   const storeEvents = useSelector(getAllStoreEvents);
   const [fetchingError, setFetchingError] = useState<string | null>(null);

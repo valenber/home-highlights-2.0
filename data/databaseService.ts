@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import { AgendaEvent } from './dbSchema';
 import faunadb, { Client } from 'faunadb';
 
@@ -22,17 +21,21 @@ function getDB(): [Client, typeof faunadb.query] {
 async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
   const [client, q] = getDB();
 
-  const { data } = await client.query(
+  interface FdbEvent {
+    data: AgendaEvent;
+    ref: string;
+  }
+
+  interface GetAllQuery {
+    data: FdbEvent[];
+  }
+
+  const { data }: GetAllQuery = await client.query(
     q.Map(
       q.Paginate(q.Documents(q.Collection(targetCollection)), { size: 600 }),
       q.Lambda((x) => q.Get(x)),
     ),
   );
-
-  interface FdbEvent {
-    data: AgendaEvent;
-    ref: string;
-  }
 
   return data.map((event: FdbEvent) => ({
     ...event.data,
@@ -69,7 +72,11 @@ async function createNewAgendaEvent(
 
 async function deleteAgendaEvent(id: string): Promise<string> {
   const [client, q] = getDB();
-  const { ref } = await client.query(
+
+  interface DeleteEventQuery {
+    ref: string;
+  }
+  const { ref }: DeleteEventQuery = await client.query(
     q.Delete(q.Ref(q.Collection(targetCollection), id)),
   );
 
@@ -86,7 +93,12 @@ async function updateAgendaEvent(
 
   const [client, q] = getDB();
 
-  const { ref, data } = await client.query(
+  interface DeleteEventQuery {
+    ref: string;
+    data: AgendaEvent;
+  }
+
+  const { ref, data }: DeleteEventQuery = await client.query(
     q.Replace(q.Ref(q.Collection(targetCollection), id), { data: eventObject }),
   );
 
