@@ -13,7 +13,7 @@ import { StrictMode } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 
-const AppRoot = ({ Component, pageProps }: AppProps) => {
+const AppRoot: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <StrictMode>
       <Provider store={store}>
