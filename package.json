@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@types/jest": "26.0.15",
-    "@types/mongoose": "5.7.36",
+    "@types/mongoose": "5.7.37",
     "@types/node": "13.13.30",
     "@types/react": "16.9.55",
     "@types/react-redux": "7.1.9",
