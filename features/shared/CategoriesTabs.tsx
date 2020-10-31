@@ -10,17 +10,19 @@ export const CategoriesTabs: React.FC = () => {
   const dispatch = useAppDispatch();
   const selectedCategory = useSelector(getSelectedCategory);
 
-  const eventCategories = [
-    'home',
-    'current',
-    'exhibitions',
-    'theatre and dance',
-    'music',
-    'sports',
-    'fairs',
-    'events',
-    'christmas',
-  ];
+  const categoriesLabels = {
+    home: 'Home',
+    /* eslint-disable */
+    current: "What's on",
+    /* eslint-enable */
+    exhibitions: 'Exhibitions',
+    theatreanddance: 'Theatre and Dance',
+    music: 'Music',
+    sports: 'Sports',
+    fairs: 'Fairs',
+    events: 'Events',
+    christmas: 'Christmas',
+  };
 
   function handleTabChange(
     _event: ChangeEvent,
@@ -37,13 +39,11 @@ export const CategoriesTabs: React.FC = () => {
         onChange={handleTabChange}
         value={selectedCategory}
       >
-        {eventCategories.map((category) => (
+        {Object.keys(categoriesLabels).map((category) => (
           <Tab
             key={category}
-            label={category}
-            value={
-              category === 'theatre and dance' ? 'theatreanddance' : category
-            }
+            label={categoriesLabels[category]}
+            value={category}
           />
         ))}
       </Tabs>
