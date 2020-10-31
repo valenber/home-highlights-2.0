@@ -1,3 +1,4 @@
+import { useSnackbar } from 'notistack';
 import { useState, useEffect, ChangeEvent, FormEvent, FocusEvent } from 'react';
 import { AgendaEvent, AgendaEventCategory } from '../../data/dbSchema';
 import {
@@ -8,6 +9,7 @@ import {
 import { useAppDispatch } from '../../store';
 import { patchEvent, addEvent, removeEventById } from '../../store/eventsSlice';
 import { selectEventToEdit } from '../../store/editorSlice';
+import { snackbarOptions } from '../shared/snackbarOptions';
 
 interface FormErrorsObject {
   name?: string;
@@ -30,6 +32,8 @@ export const useForm = (
   const [values, setValues] = useState<Partial<AgendaEvent>>();
   const [errors, setErrors] = useState<FormErrorsObject>({});
   const dispatch = useAppDispatch();
+  const editedEventName = values?.name ?? 'UNKNOWN';
+  const { enqueueSnackbar } = useSnackbar();
 
   useEffect(() => {
     if (initialValues !== false) {
@@ -44,12 +48,22 @@ export const useForm = (
 
     if (error) {
       console.error(error);
+
+      enqueueSnackbar(`Failed to update event "${editedEventName}"`, {
+        ...snackbarOptions.error,
+      });
       return;
     }
 
     if (event) {
       dispatch(patchEvent(event));
+
       dispatch(selectEventToEdit(false));
+
+      enqueueSnackbar(`Updated event "${event.name}"`, {
+        ...snackbarOptions.success,
+      });
+
       return;
     }
   };
@@ -60,12 +74,22 @@ export const useForm = (
     const { event, error } = await createNewEvent(eventObject);
     if (error) {
       console.error(error);
+
+      enqueueSnackbar(`Failed to create new event "${editedEventName}"`, {
+        ...snackbarOptions.error,
+      });
+
       return;
     }
 
     if (event) {
       dispatch(addEvent(event));
       dispatch(selectEventToEdit(false));
+
+      enqueueSnackbar(`Created new event "${event.name}"`, {
+        ...snackbarOptions.success,
+      });
+
       return;
     }
   };
@@ -77,16 +101,26 @@ export const useForm = (
     }
 
     const { event, error } = await deleteEvent(values.id);
-    console.log(values.id);
 
     if (error) {
       console.error(error);
+
+      enqueueSnackbar(`Failed to delete "${editedEventName}" from the DB`, {
+        ...snackbarOptions.error,
+      });
+
       return;
     }
 
     if (event) {
       dispatch(selectEventToEdit(false));
+
       dispatch(removeEventById(event));
+
+      enqueueSnackbar(`Deleted "${editedEventName}" from the DB`, {
+        ...snackbarOptions.success,
+      });
+
       return;
     }
   };
