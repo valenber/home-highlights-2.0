@@ -12,6 +12,7 @@ import { getAllStoreEvents } from '../store/selectors/getAllStoreEvents';
 import { EventsLoadingProgressSpinner } from '../features/shared/EventsLoadingProgressSpinner';
 import { EventsView } from '../features/shared/EventsView';
 import { EventsLoadingError } from '../features/shared/EventsLoadingError';
+import Head from 'next/head';
 
 const IndexPage: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -33,6 +34,11 @@ const IndexPage: React.FC = () => {
 
   return (
     <>
+      <Head>
+        <title>Monkey Polonkey</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+
       {loadingState && <EventsLoadingProgressSpinner />}
 
       {fetchingError && <EventsLoadingError message={fetchingError} />}
