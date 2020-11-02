@@ -1,6 +1,7 @@
 export function getDaysTillDate(date: string): number {
   return Math.ceil(
-    (new Date(date).getTime() - new Date().getTime()) / (1000 * 3600 * 24),
+    (new Date(date).getTime() - new Date(Date.now()).getTime()) /
+      (1000 * 3600 * 24),
   );
 }
 
