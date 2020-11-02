@@ -1,0 +1,9 @@
+.eventCard[data-expiration-status="expired"] {
+  border: solid 1px #ff1744;
+  border-left-width: 4px;
+}
+
+.eventCard[data-expiration-status="expiring-soon"] {
+  border: solid 1px #ffeb3b;
+  border-left-width: 4px;
+}
