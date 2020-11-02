@@ -10,6 +10,7 @@ import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
 
 import { ExpirationChip } from '../shared/ExpirationChip';
 import { EventButtonGroup } from '../edit-event/EventButtonGroup';
+import { getExpirationStatus } from '../event-expiration/helpers';
 
 export const HighlightsList: React.FC = () => {
   const categoryHighlights = useSelector(getHighlightsForSelectedCategory).sort(
@@ -33,7 +34,12 @@ export const HighlightsList: React.FC = () => {
             : 'eventCard mainFocus';
 
         return (
-          <Card className={cardClass} key={event.id} variant="elevation">
+          <Card
+            className={cardClass}
+            data-expiration-status={getExpirationStatus({ date: event.end })}
+            key={event.id}
+            variant="elevation"
+          >
             <Typography
               className="eventDate"
               color="textSecondary"
@@ -42,7 +48,10 @@ export const HighlightsList: React.FC = () => {
               {formattedStartDate !== formattedEndDate
                 ? `${formattedStartDate} - ${formattedEndDate}`
                 : formattedEndDate}
-              <ExpirationChip eventEndDate={event.end} />
+
+              {getExpirationStatus({ date: event.end }) === 'expiring-soon' && (
+                <ExpirationChip eventEndDate={event.end} />
+              )}
             </Typography>
 
             {event.state[selectedCategory] === 'highlight' && (

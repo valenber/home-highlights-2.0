@@ -6,6 +6,7 @@ import { AgendaEvent } from '../../data/dbSchema';
 import { dateFormat, byStartDateOldToNew } from '../shared/helpers';
 import { EventButtonGroup } from '../edit-event/EventButtonGroup';
 import { ExpirationChip } from '../shared/ExpirationChip';
+import { getExpirationStatus } from '../event-expiration/helpers';
 
 export const CandidatesList: React.FC = () => {
   const categoryCandidates: AgendaEvent[] = useSelector(
@@ -73,8 +74,17 @@ export const CandidatesList: React.FC = () => {
         const formattedEndDate = dateFormat.format(new Date(event.end));
 
         return (
-          <Card className="eventCard" key={event.id} variant="elevation">
-            <ExpirationChip eventEndDate={event.end} />
+          <Card
+            className="eventCard"
+            key={event.id}
+            variant="elevation"
+            data-expiration-status={getExpirationStatus({
+              date: event.end,
+              threshold: 14,
+            })}
+          >
+            {getExpirationStatus({ date: event.end, threshold: 14 }) ===
+              'expiring-soon' && <ExpirationChip eventEndDate={event.end} />}
             <CardContent>
               <Typography color="textSecondary" variant="body2" component="p">
                 {formattedStartDate !== formattedEndDate

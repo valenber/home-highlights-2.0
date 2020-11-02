@@ -12,3 +12,6 @@
 
 /* events editor */
 @import '../features/edit-event/EditorForm.css';
+
+/* events expiration status styling */
+@import '../features/event-expiration/styling.css';
