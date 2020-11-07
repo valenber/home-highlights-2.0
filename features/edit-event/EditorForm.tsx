@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 import React from 'react';
 import { useSelector } from 'react-redux';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
@@ -128,7 +129,6 @@ export const EditorFormModal: React.FC = () => {
         />
 
         {values &&
-          /* Object.keys(values?.state) && */
           [...Object.keys(values.state), 'NEW'].map((category) => {
             return (
               <div className="eventCategoryInputGroup" key={category}>
@@ -139,15 +139,23 @@ export const EditorFormModal: React.FC = () => {
                   select={category === 'NEW'}
                   label={category === 'NEW' ? 'New category' : 'Event category'}
                   variant="outlined"
-                  value={category !== 'NEW' ? category : undefined}
+                  value={
+                    category === 'NEW'
+                      ? undefined
+                      : category === 'current'
+                      ? "what's on"
+                      : category
+                  }
                   name="newCategory"
                   onChange={handleInputChange}
                 >
-                  {optionsCategory.map((option) => (
-                    <MenuItem key={option} value={option}>
-                      {option}
-                    </MenuItem>
-                  ))}
+                  {optionsCategory.map((option) => {
+                    return (
+                      <MenuItem key={option} value={option}>
+                        {option === 'current' ? "what's on" : option}
+                      </MenuItem>
+                    );
+                  })}
                 </TextField>
 
                 {category !== 'NEW' && (

@@ -3,7 +3,7 @@ import { getDaysTillDate, getExpirationStatus } from './helpers';
 beforeEach(() => {
   jest
     .spyOn(global.Date, 'now')
-    .mockImplementationOnce(() => new Date('2020-11-02:00:00.000Z').valueOf());
+    .mockImplementation(() => new Date('2020-11-02:00:00.000Z').valueOf());
 });
 
 describe('days till date', () => {
