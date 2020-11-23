@@ -80,10 +80,11 @@ export const EventButtonGroup: React.FC<EventButtonGroupProps> = ({
 
   return (
     <ButtonGroup className="cardControls">
-      <IconButton onClick={handlePromoteButtonClick}>
+      <IconButton onClick={handlePromoteButtonClick} aria-label="promote event">
         <StateButton />
       </IconButton>
-      <IconButton onClick={handleEditButtonClick}>
+
+      <IconButton onClick={handleEditButtonClick} aria-label="edit event">
         <EditIcon color="primary" />
       </IconButton>
     </ButtonGroup>

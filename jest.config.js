@@ -1,9 +1,9 @@
 module.exports = {
   preset: 'ts-jest',
   moduleFileExtensions: ['js', 'jsx', 'ts', 'tsx'],
-  transform: { '\\.(js|jsx|ts|tsx)': ['ts-jest'] },
+  transform: { '\\.(js|jsx|ts|tsx)': ['babel-jest'] },
   testMatch: ['**/*.(test|spec).(js|jsx|ts|tsx)'],
-  testEnvironment: 'node',
+  testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: ['/node_modules/'],
   coverageReporters: ['text'],
   moduleNameMapper: {
