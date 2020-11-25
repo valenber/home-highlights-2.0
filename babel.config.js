@@ -1,4 +1,15 @@
 module.exports = {
   presets: ['next/babel'],
-  plugins: [],
+  plugins: [
+    [
+      'module-resolver',
+      {
+        root: ['.'],
+        alias: {
+          'test-utils': './tests/utils',
+          'mock-events': './tests/mocks/events.ts',
+        },
+      },
+    ],
+  ],
 };
