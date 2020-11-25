@@ -18,8 +18,9 @@
     }
   },
   "resolutions": {
-    "*/react": "16.8.0",
-    "*/react-dom": "16.8.0"
+    "@material-ui/core/react": "16.8.0",
+    "@material-ui/core/react-dom": "16.8.0",
+    "react-redux/react": "16.8.3"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.0",
