@@ -3992,12 +3992,13 @@ eslint-config-react@1.1.7:
   resolved "https://registry.yarnpkg.com/eslint-config-react/-/eslint-config-react-1.1.7.tgz#a0918d0fc47d0e9bd161a47308021da85d2585b3"
   integrity sha1-oJGND8R9DpvRYaRzCAIdqF0lhbM=
 
-eslint-plugin-jest-dom@3.2.4:
-  version "3.2.4"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-jest-dom/-/eslint-plugin-jest-dom-3.2.4.tgz#78e95c48755240a4d1e9d6c3bdcd87ea4af242b9"
-  integrity sha512-CRR5rMMJgLKjxHHuio/oy4tt5gnUohgGNMzLM0p0THoyRYewzV/PE+8qUUHSyTO+iexCvgnHukdRfckdyi+5tg==
+eslint-plugin-jest-dom@3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-jest-dom/-/eslint-plugin-jest-dom-3.3.0.tgz#5be14f8c303b7e8551b426bc7ac8a152d01736ae"
+  integrity sha512-/7LqlMPiZh4SHy8YXSHilcx/zy7m5Fb7rl4AlzjIY8+amsGP2nZq9WIbMv0JYYVeq20p5+44GmWO6dCZcdLj4A==
   dependencies:
     "@babel/runtime" "^7.9.6"
+    "@testing-library/dom" "^7.28.1"
     requireindex "^1.2.0"
 
 eslint-plugin-prettier@3.1.4:
