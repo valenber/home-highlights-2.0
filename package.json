@@ -12,9 +12,6 @@
     "lint": "eslint . '*/**/*.{js,ts,tsx}' --fix",
     "typecheck": "tsc --noEmit"
   },
-  "engines": {
-    "node": "12.x"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "echo 'RUNNING PRE-COMMIT VALIDATION:' && yarn test --verbose --coverage && yarn typecheck && yarn lint"
