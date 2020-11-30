@@ -41,7 +41,6 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "always"],
-    "prettier/prettier": ["error", { "singleQuote": true }],
-    "no-unused-vars": ["error", { "ignoreRestSiblings": true }]
+    "prettier/prettier": ["error", { "singleQuote": true }]
   }
 }

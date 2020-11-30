@@ -3,11 +3,7 @@ export type AgendaEvent = {
   name: string;
   start?: string;
   end: string;
-  state: AgendaEventState;
-};
-
-export type AgendaEventState = {
-  [category in AgendaEventCategory]?: AgendaEventStatus;
+  state: Partial<Record<AgendaEventCategory, AgendaEventStatus>>;
 };
 
 export type AgendaEventCategory =
