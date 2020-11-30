@@ -22,9 +22,9 @@
   "exclude": ["node_modules"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "rules": {
-    "no-unused-vars": {
-      "severity": "error",
-      "options": { "ignoreRestSiblings": true }
-    }
+    "no-unused-vars": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   }
 }
