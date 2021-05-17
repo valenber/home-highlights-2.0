@@ -24,11 +24,11 @@ function renderWithProviders(
   // this allows us to spy on dispatch
   store.dispatch = jest.fn(store.dispatch);
 
-  const renderResult = render(<Provider store={store}>{children}</Provider>, {
+  const view = render(<Provider store={store}>{children}</Provider>, {
     ...options,
   });
 
-  return { store, ...renderResult };
+  return { store, ...view };
 }
 
 export * from '@testing-library/react';
