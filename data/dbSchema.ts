@@ -4,6 +4,7 @@ export type AgendaEvent = {
   start?: string;
   end: string;
   state: Partial<Record<AgendaEventCategory, AgendaEventStatus>>;
+  tags?: string[] | null;
 };
 
 export type AgendaEventCategory =
@@ -30,4 +31,5 @@ export const exampleAgendaEvent: AgendaEvent = {
     current: 'highlight',
     fairs: 'mainfocus',
   },
+  tags: ['new'],
 };
