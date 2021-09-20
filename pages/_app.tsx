@@ -14,7 +14,19 @@ import { ReactText, StrictMode } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 import React from 'react';
-import { Button } from '@material-ui/core';
+import { Button, createTheme, ThemeProvider } from '@material-ui/core';
+import { green, purple } from '@material-ui/core/colors';
+
+const customTheme = createTheme({
+  palette: {
+    primary: {
+      main: purple[500],
+    },
+    secondary: {
+      main: green[500],
+    },
+  },
+});
 
 const AppRoot: React.FC<AppProps> = ({ Component, pageProps }) => {
   const notistackRef = React.createRef();
@@ -27,25 +39,27 @@ const AppRoot: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <StrictMode>
       <Provider store={store}>
-        <SnackbarProvider
-          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-          // @ts-ignore
-          ref={notistackRef}
-          maxSnack={3}
-          action={(key) => (
-            <Button
-              size="small"
-              variant="outlined"
-              onClick={onClickDismiss(key)}
-            >
-              dismiss
-            </Button>
-          )}
-        >
-          <div className="appLayout">
-            <Component {...pageProps} />
-          </div>
-        </SnackbarProvider>
+        <ThemeProvider theme={customTheme}>
+          <SnackbarProvider
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            ref={notistackRef}
+            maxSnack={3}
+            action={(key) => (
+              <Button
+                size="small"
+                variant="outlined"
+                onClick={onClickDismiss(key)}
+              >
+                dismiss
+              </Button>
+            )}
+          >
+            <div className="appLayout">
+              <Component {...pageProps} />
+            </div>
+          </SnackbarProvider>
+        </ThemeProvider>
       </Provider>
     </StrictMode>
   );
