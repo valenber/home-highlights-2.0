@@ -33,6 +33,10 @@
   grid-column: 7 / -1;
 }
 
+.editorForm .eventTags {
+  grid-column: 1 / -1;
+}
+
 .eventCategoryInputGroup {
   grid-column: 1 / -1;
   display: grid;

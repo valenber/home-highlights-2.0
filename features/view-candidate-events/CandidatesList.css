@@ -21,3 +21,8 @@
   bottom: calc(var(--spacing) * 2);
   right: calc(var(--spacing) * 2);
 }
+
+.candidatesList .tagList {
+  display: flex;
+  gap: 8px;
+}

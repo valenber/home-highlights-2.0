@@ -188,8 +188,18 @@ export const useForm = (
       return;
     }
 
-    if (!['name', 'start', 'end'].includes(name)) {
+    if (!['name', 'start', 'end', 'tags'].includes(name)) {
       setValues({ ...values, state: { ...values.state, [name]: value } });
+      return;
+    }
+
+    if (['tags'].includes(name)) {
+      setValues({
+        ...values,
+        tags: value.length
+          ? value.replace(/^\s+|\s+$|\s+(?=\s)/g, '').split(',')
+          : null,
+      });
       return;
     }
 

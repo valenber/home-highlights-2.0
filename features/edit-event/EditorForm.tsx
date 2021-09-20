@@ -36,7 +36,7 @@ export const EditorFormModal: React.FC = () => {
     deleteEventCategory,
     deleteSelectedAgendaEvent,
   } = useForm(editedEvent);
-  const debugPanel = false;
+  const debugPanel = true;
 
   const optionsCategory: AgendaEventCategory[] = [
     'home',
@@ -126,6 +126,20 @@ export const EditorFormModal: React.FC = () => {
           onBlur={validateInput}
           error={!!errors?.end}
           helperText={errors?.end}
+        />
+
+        <TextField
+          id="tags"
+          className="eventTags"
+          label="Tag list"
+          variant="outlined"
+          name="tags"
+          onChange={handleInputChange}
+          value={values?.tags}
+          InputLabelProps={{
+            shrink: !!values?.tags?.length,
+          }}
+          onBlur={validateInput}
         />
 
         {values &&
