@@ -36,7 +36,7 @@ export const EditorFormModal: React.FC = () => {
     deleteEventCategory,
     deleteSelectedAgendaEvent,
   } = useForm(editedEvent);
-  const debugPanel = true;
+  const debugPanel = false;
 
   const optionsCategory: AgendaEventCategory[] = [
     'home',
