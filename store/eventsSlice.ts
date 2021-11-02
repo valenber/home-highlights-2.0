@@ -33,9 +33,5 @@ const events = createSlice({
 const { reducer } = events;
 
 export { reducer as eventsReducer };
-export const {
-  addEvent,
-  addEventsList,
-  removeEventById,
-  patchEvent,
-} = events.actions;
+export const { addEvent, addEventsList, removeEventById, patchEvent } =
+  events.actions;
