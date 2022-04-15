@@ -1,8 +1,3 @@
-/* NextJS page */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable react/react-in-jsx-scope */
-/* eslint-disable react/display-name */
-
 import { AppProps } from 'next/app';
 import { SnackbarProvider } from 'notistack';
 
