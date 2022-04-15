@@ -15,16 +15,16 @@
   "dependencies": {
     "@material-ui/core": "4.12.4",
     "@material-ui/icons": "4.11.3",
-    "@reduxjs/toolkit": "^1.5.0",
+    "@reduxjs/toolkit": "1.8.1",
     "faunadb": "^4.0.0",
     "isomorphic-unfetch": "^3.1.0",
-    "next": "^12.0.0",
+    "next": "12.1.5",
     "notistack": "1.0.10",
     "postcss": "8.4.12",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-redux": "^7.2.2",
-    "redux": "^4.0.5"
+    "react-redux": "7.2.8",
+    "redux": "4.1.2"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.4",

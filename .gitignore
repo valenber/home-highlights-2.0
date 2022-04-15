@@ -4,3 +4,4 @@ yarn-error.log
 .env
 .vercel
 node_modules
+tsconfig.tsbuildinfo
