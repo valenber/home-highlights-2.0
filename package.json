@@ -23,7 +23,7 @@
     "postcss": "8.4.12",
     "react": "18.0.0",
     "react-dom": "18.0.0",
-    "react-redux": "7.2.8",
+    "react-redux": "8.0.0",
     "redux": "4.1.2"
   },
   "devDependencies": {
@@ -33,7 +33,6 @@
     "@types/jest": "27.4.1",
     "@types/react": "18.0.5",
     "@types/node": "16.11.27",
-    "@types/react-redux": "7.1.24",
     "@types/redux-mock-store": "1.0.3",
     "@typescript-eslint/eslint-plugin": "5.19.0",
     "@typescript-eslint/parser": "5.19.0",
