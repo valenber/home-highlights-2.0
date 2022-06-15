@@ -32,7 +32,7 @@
     "@testing-library/user-event": "14.2.0",
     "@types/jest": "27.5.2",
     "@types/react": "18.0.12",
-    "@types/node": "16.11.39",
+    "@types/node": "16.11.40",
     "@types/redux-mock-store": "1.0.3",
     "@typescript-eslint/eslint-plugin": "5.28.0",
     "@typescript-eslint/parser": "5.28.0",
