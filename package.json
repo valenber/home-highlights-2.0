@@ -34,7 +34,7 @@
     "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "14.4.2",
     "@types/jest": "27.5.2",
-    "@types/react": "18.0.15",
+    "@types/react": "18.0.16",
     "@types/node": "16.11.47",
     "@types/redux-mock-store": "1.0.3",
     "@typescript-eslint/eslint-plugin": "5.32.0",
