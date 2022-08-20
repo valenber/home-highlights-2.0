@@ -13,7 +13,8 @@
     "build": "next build",
     "test": "jest",
     "lint": "eslint . '*/**/*.{js,ts,tsx}' --fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@material-ui/core": "4.12.4",
@@ -34,8 +35,8 @@
     "@testing-library/react": "13.3.0",
     "@testing-library/user-event": "14.4.3",
     "@types/jest": "28.1.7",
-    "@types/react": "18.0.17",
     "@types/node": "16.11.51",
+    "@types/react": "18.0.17",
     "@types/redux-mock-store": "1.0.3",
     "@typescript-eslint/eslint-plugin": "5.33.1",
     "@typescript-eslint/parser": "5.33.1",
