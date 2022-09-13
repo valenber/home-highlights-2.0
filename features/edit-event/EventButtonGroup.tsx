@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonGroup, IconButton } from '@material-ui/core';
+import { Button, ButtonGroup } from '@material-ui/core';
 import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import StarsIcon from '@material-ui/icons/Stars';
@@ -79,14 +79,18 @@ export const EventButtonGroup: React.FC<EventButtonGroupProps> = ({
   }
 
   return (
-    <ButtonGroup className="cardControls">
-      <IconButton onClick={handlePromoteButtonClick} aria-label="promote event">
+    <ButtonGroup className="cardControls" variant="text">
+      <Button onClick={handlePromoteButtonClick} aria-label="promote event">
         <StateButton />
-      </IconButton>
+      </Button>
 
-      <IconButton onClick={handleEditButtonClick} aria-label="edit event">
+      <Button
+        onClick={handleEditButtonClick}
+        aria-label="edit event"
+        variant="text"
+      >
         <EditIcon color="primary" />
-      </IconButton>
+      </Button>
     </ButtonGroup>
   );
 };
