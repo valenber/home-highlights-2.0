@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chip, Typography, CardContent, Card } from '@material-ui/core';
+import { Chip, Typography, CardContent, Card } from '@mui/material';
 import { getCandidatesForSelectedCategory } from './getCandidatesForSelectedCategory';
 import { useSelector } from 'react-redux';
 import { AgendaEvent } from '../../data/dbSchema';
@@ -7,7 +7,7 @@ import { dateFormat, byStartDateOldToNew } from '../shared/helpers';
 import { EventButtonGroup } from '../edit-event/EventButtonGroup';
 import { ExpirationChip } from '../shared/ExpirationChip';
 import { getExpirationStatus } from '../event-expiration/helpers';
-import { orange } from '@material-ui/core/colors';
+import { orange } from '@mui/material/colors';
 
 export const CandidatesList: React.FC = () => {
   const categoryCandidates: AgendaEvent[] = useSelector(

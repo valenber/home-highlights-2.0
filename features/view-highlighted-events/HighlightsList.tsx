@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { Card, Typography, Box } from '@material-ui/core';
+import { Card, Typography, Box } from '@mui/material';
 
 import { AgendaEvent } from '../../data/dbSchema';
 import { getHighlightsForSelectedCategory } from './getHighlightsForSelectedCategory';

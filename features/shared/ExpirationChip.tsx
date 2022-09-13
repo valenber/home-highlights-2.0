@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Chip } from '@material-ui/core';
+import { Chip } from '@mui/material';
 
 import { getDaysTillDate } from '../event-expiration/helpers';
 
