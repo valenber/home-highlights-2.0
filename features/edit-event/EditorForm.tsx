@@ -155,7 +155,7 @@ export const EditorFormModal: React.FC = () => {
                   variant="outlined"
                   value={
                     category === 'NEW'
-                      ? undefined
+                      ? ''
                       : category === 'current'
                       ? "what's on"
                       : category
