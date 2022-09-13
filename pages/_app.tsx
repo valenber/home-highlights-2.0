@@ -13,20 +13,17 @@ import {
   Button,
   createTheme,
   ThemeProvider,
-  Theme,
+  // Theme,
   StyledEngineProvider,
-  adaptV4Theme,
 } from '@mui/material';
 import { green, purple } from '@mui/material/colors';
 
+// declare module '@mui/styles/defaultTheme' {
+//   // eslint-disable-next-line @typescript-eslint/no-empty-interface
+//   interface DefaultTheme extends Theme {}
+// }
 
-declare module '@mui/styles/defaultTheme' {
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  interface DefaultTheme extends Theme {}
-}
-
-
-const customTheme = createTheme(adaptV4Theme({
+const customTheme = createTheme({
   palette: {
     primary: {
       main: purple[500],
@@ -35,7 +32,7 @@ const customTheme = createTheme(adaptV4Theme({
       main: green[500],
     },
   },
-}));
+});
 
 const AppRoot: React.FC<AppProps> = ({ Component, pageProps }) => {
   const notistackRef = React.createRef();

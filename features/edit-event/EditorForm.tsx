@@ -76,7 +76,8 @@ export const EditorFormModal: React.FC = () => {
           aria-label="delete"
           className="modalCloseButton"
           tabIndex={-1}
-          size="large">
+          size="large"
+        >
           <CloseIcon fontSize="large" color="primary" />
         </IconButton>
 
@@ -104,7 +105,7 @@ export const EditorFormModal: React.FC = () => {
           type="date"
           variant="outlined"
           name="start"
-          value={values?.start ? values.start.split('T')[0] : null}
+          value={values?.start ? values.start.split('T')[0] : ''}
           onChange={handleInputChange}
           InputLabelProps={{
             shrink: true,
@@ -234,7 +235,7 @@ export const EditorFormModal: React.FC = () => {
           color="secondary"
           type="button"
           size="small"
-          tabIndex="-1"
+          tabIndex={-1}
           onClick={deleteSelectedAgendaEvent}
         >
           Delete
