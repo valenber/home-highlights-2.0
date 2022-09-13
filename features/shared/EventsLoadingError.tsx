@@ -1,5 +1,5 @@
 import React from 'react';
-import PermScanWifiTwoToneIcon from '@material-ui/icons/PermScanWifiTwoTone';
+import PermScanWifiTwoToneIcon from '@mui/icons-material/PermScanWifiTwoTone';
 
 interface EventsLoadingErrorProps {
   message: string;

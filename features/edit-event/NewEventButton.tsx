@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Box } from '@material-ui/core';
+import { Button, Box } from '@mui/material';
 import { useAppDispatch } from '../../store';
 import { selectEventToEdit } from '../../store/editorSlice';
 

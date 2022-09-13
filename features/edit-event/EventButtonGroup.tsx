@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button, ButtonGroup } from '@material-ui/core';
-import StarIcon from '@material-ui/icons/Star';
-import StarBorderIcon from '@material-ui/icons/StarBorder';
-import StarsIcon from '@material-ui/icons/Stars';
-import EditIcon from '@material-ui/icons/Edit';
+import { Button, ButtonGroup } from '@mui/material';
+import StarIcon from '@mui/icons-material/Star';
+import StarBorderIcon from '@mui/icons-material/StarBorder';
+import StarsIcon from '@mui/icons-material/Stars';
+import EditIcon from '@mui/icons-material/Edit';
 import { AgendaEvent } from '../../data/dbSchema';
 import { useSelector } from 'react-redux';
 import { getSelectedCategory } from './getSelectedCategory';

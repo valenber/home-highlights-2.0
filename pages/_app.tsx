@@ -9,8 +9,19 @@ import { ReactText, StrictMode } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 import React from 'react';
-import { Button, createTheme, ThemeProvider } from '@material-ui/core';
-import { green, purple } from '@material-ui/core/colors';
+import {
+  Button,
+  createTheme,
+  ThemeProvider,
+  // Theme,
+  StyledEngineProvider,
+} from '@mui/material';
+import { green, purple } from '@mui/material/colors';
+
+// declare module '@mui/styles/defaultTheme' {
+//   // eslint-disable-next-line @typescript-eslint/no-empty-interface
+//   interface DefaultTheme extends Theme {}
+// }
 
 const customTheme = createTheme({
   palette: {
@@ -34,27 +45,29 @@ const AppRoot: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <StrictMode>
       <Provider store={store}>
-        <ThemeProvider theme={customTheme}>
-          <SnackbarProvider
-            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-            // @ts-ignore
-            ref={notistackRef}
-            maxSnack={3}
-            action={(key) => (
-              <Button
-                size="small"
-                variant="outlined"
-                onClick={onClickDismiss(key)}
-              >
-                dismiss
-              </Button>
-            )}
-          >
-            <div className="appLayout">
-              <Component {...pageProps} />
-            </div>
-          </SnackbarProvider>
-        </ThemeProvider>
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={customTheme}>
+            <SnackbarProvider
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
+              ref={notistackRef}
+              maxSnack={3}
+              action={(key) => (
+                <Button
+                  size="small"
+                  variant="outlined"
+                  onClick={onClickDismiss(key)}
+                >
+                  dismiss
+                </Button>
+              )}
+            >
+              <div className="appLayout">
+                <Component {...pageProps} />
+              </div>
+            </SnackbarProvider>
+          </ThemeProvider>
+        </StyledEngineProvider>
       </Provider>
     </StrictMode>
   );

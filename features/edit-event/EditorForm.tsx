@@ -1,7 +1,7 @@
 /* eslint-disable quotes */
 import React from 'react';
 import { useSelector } from 'react-redux';
-import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import {
   Modal,
   Typography,
@@ -14,8 +14,8 @@ import {
   IconButton,
   Divider,
   Tooltip,
-} from '@material-ui/core';
-import CloseIcon from '@material-ui/icons/Close';
+} from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
 
 import { AgendaEventCategory } from '../../data/dbSchema';
 import { getEditedEvent } from '../../store/selectors/getEditedEvent';
@@ -76,6 +76,7 @@ export const EditorFormModal: React.FC = () => {
           aria-label="delete"
           className="modalCloseButton"
           tabIndex={-1}
+          size="large"
         >
           <CloseIcon fontSize="large" color="primary" />
         </IconButton>
@@ -104,7 +105,7 @@ export const EditorFormModal: React.FC = () => {
           type="date"
           variant="outlined"
           name="start"
-          value={values?.start ? values.start.split('T')[0] : null}
+          value={values?.start ? values.start.split('T')[0] : ''}
           onChange={handleInputChange}
           InputLabelProps={{
             shrink: true,
@@ -234,7 +235,7 @@ export const EditorFormModal: React.FC = () => {
           color="secondary"
           type="button"
           size="small"
-          tabIndex="-1"
+          tabIndex={-1}
           onClick={deleteSelectedAgendaEvent}
         >
           Delete

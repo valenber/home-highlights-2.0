@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../store';
 import { AgendaEventCategory } from '../../data/dbSchema';
-import { Paper, Tabs, Tab } from '@material-ui/core';
+import { Paper, Tabs, Tab } from '@mui/material';
 import { getSelectedCategory } from '../../store/selectors/getSelectedCategory';
 import { selectCategory } from '../../store/categorySlice';
 
