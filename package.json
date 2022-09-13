@@ -28,7 +28,7 @@
     "faunadb": "4.0.0",
     "isomorphic-unfetch": "3.1.0",
     "next": "12.3.0",
-    "notistack": "1.0.10",
+    "notistack": "2.0.5",
     "postcss": "8.4.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
