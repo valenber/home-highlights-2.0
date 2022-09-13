@@ -1,7 +1,7 @@
 .next
 yarn-error.log
 .now
-.env
+.env*
 .vercel
 node_modules
 tsconfig.tsbuildinfo
