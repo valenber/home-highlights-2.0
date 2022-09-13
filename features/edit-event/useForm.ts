@@ -151,7 +151,7 @@ export const useForm = (
     const { name, value } = event.target;
 
     // name is required
-    if (name === 'name' && !values.name.trim().length) {
+    if (name === 'name' && !values?.name?.trim()?.length) {
       setErrors({ ...errors, [name]: 'An event must have a name' });
       return;
     }
