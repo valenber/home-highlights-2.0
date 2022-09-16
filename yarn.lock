@@ -2342,10 +2342,10 @@ fastq@^1.6.0:
   dependencies:
     reusify "^1.0.4"
 
-faunadb@4.6.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.6.0.tgz#86ffe4a2b9e6efdf29103d61623edfbaba53dd60"
-  integrity sha512-lBCS9wOLIdoeQmhzFvNAXM9B4T3Ptv2HUf0RrPsC2LA1zPtTQFBtdhH7fvTlwRyUawIKDjs1wn5pk2o8g0Cylg==
+faunadb@4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/faunadb/-/faunadb-4.7.0.tgz#54c6011f6f22615dab6e8457ecb1dadd6b41a922"
+  integrity sha512-bX5c2n+lEOrdu1PbkSFpDUdE/PLQ2x6jZptY4fAwOF9hCw6DIvmfk1ZjLipWUswOvydvlku2/7O3imqXa557iw==
   dependencies:
     base64-js "^1.2.0"
     boxen "^5.0.1"
