@@ -6,25 +6,11 @@ import { Card, Typography, Box } from '@mui/material';
 import { AgendaEvent } from '../../data/dbSchema';
 import { getHighlightsForSelectedCategory } from './getHighlightsForSelectedCategory';
 import { getSelectedCategory } from '../edit-event/getSelectedCategory';
-import { dateFormat, byEndDateOldToNew } from '../shared/helpers';
+import { byEndDateOldToNew, getFormattedEventDates } from '../shared/helpers';
 
 import { ExpirationChip } from '../shared/ExpirationChip';
 import { EventButtonGroup } from '../edit-event/EventButtonGroup';
 import { getExpirationStatus } from '../event-expiration/helpers';
-
-function getFormattedEventDates(event: AgendaEvent): {
-  startDate: string;
-  endDate: string;
-} {
-  try {
-    const startDate = dateFormat.format(new Date(event.start));
-    const endDate = dateFormat.format(new Date(event.end));
-    return { startDate, endDate };
-  } catch (error) {
-    console.error('Failed to parse event dates for event', error);
-    console.dir(event);
-  }
-}
 
 export const HighlightsList: React.FC = () => {
   const categoryHighlights = useSelector(getHighlightsForSelectedCategory).sort(
@@ -40,9 +26,6 @@ export const HighlightsList: React.FC = () => {
     >
       {categoryHighlights.map((event: AgendaEvent) => {
         const { startDate, endDate } = getFormattedEventDates(event);
-
-        const formattedStartDate = startDate;
-        const formattedEndDate = endDate;
 
         const cardClass =
           event.state[selectedCategory] === 'highlight'
@@ -61,9 +44,7 @@ export const HighlightsList: React.FC = () => {
               color="textSecondary"
               gutterBottom
             >
-              {formattedStartDate !== formattedEndDate
-                ? `${formattedStartDate} - ${formattedEndDate}`
-                : formattedEndDate}
+              {startDate !== endDate ? `${startDate} - ${endDate}` : endDate}
 
               {getExpirationStatus({ date: event.end }) === 'expiring-soon' && (
                 <ExpirationChip eventEndDate={event.end} />

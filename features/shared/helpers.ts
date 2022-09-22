@@ -1,10 +1,31 @@
 import { AgendaEvent } from '../../data/dbSchema';
 
-export const dateFormat = new Intl.DateTimeFormat('en-GB', {
+export const _dateFormat = new Intl.DateTimeFormat('en-GB', {
   day: '2-digit',
   month: 'short',
   year: 'numeric',
 });
+
+export function getFormattedEventDates(event: AgendaEvent): {
+  startDate: string;
+  endDate: string;
+} {
+  try {
+    let startDate: string;
+
+    if (event.start?.length) {
+      startDate = _dateFormat.format(new Date(event.start));
+    } else {
+      startDate = _dateFormat.format(new Date(event.end));
+    }
+    const endDate = _dateFormat.format(new Date(event.end));
+
+    return { startDate, endDate };
+  } catch (error) {
+    console.error('Failed to parse event dates', error);
+    console.dir(event);
+  }
+}
 
 export function byEndDateOldToNew(
   eventA: AgendaEvent,
