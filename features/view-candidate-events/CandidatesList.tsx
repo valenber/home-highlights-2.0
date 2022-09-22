@@ -3,7 +3,7 @@ import { Chip, Typography, CardContent, Card } from '@mui/material';
 import { getCandidatesForSelectedCategory } from './getCandidatesForSelectedCategory';
 import { useSelector } from 'react-redux';
 import { AgendaEvent } from '../../data/dbSchema';
-import { dateFormat, byStartDateOldToNew } from '../shared/helpers';
+import { byStartDateOldToNew, getFormattedEventDates } from '../shared/helpers';
 import { EventButtonGroup } from '../edit-event/EventButtonGroup';
 import { ExpirationChip } from '../shared/ExpirationChip';
 import { getExpirationStatus } from '../event-expiration/helpers';
@@ -69,10 +69,7 @@ export const CandidatesList: React.FC = () => {
           );
         }
 
-        const formattedStartDate = event.start
-          ? dateFormat?.format(new Date(event.start))
-          : '[missing start date]';
-        const formattedEndDate = dateFormat.format(new Date(event.end));
+        const { startDate, endDate } = getFormattedEventDates(event);
 
         return (
           <Card
@@ -88,9 +85,7 @@ export const CandidatesList: React.FC = () => {
               'expiring-soon' && <ExpirationChip eventEndDate={event.end} />}
             <CardContent>
               <Typography color="textSecondary" variant="body2" component="p">
-                {formattedStartDate !== formattedEndDate
-                  ? `${formattedStartDate} - ${formattedEndDate}`
-                  : formattedEndDate}
+                {startDate !== endDate ? `${startDate} - ${endDate}` : endDate}
               </Typography>
 
               <Typography gutterBottom variant="body1" component="h5">
