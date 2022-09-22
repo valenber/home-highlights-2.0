@@ -17,7 +17,7 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-import { AgendaEventCategory } from '../../data/dbSchema';
+import { AgendaEvent, AgendaEventCategory } from '../../data/dbSchema';
 import { getEditedEvent } from '../../store/selectors/getEditedEvent';
 import { useAppDispatch } from '../../store';
 import { selectEventToEdit } from '../../store/editorSlice';
@@ -62,7 +62,9 @@ export const EditorFormModal: React.FC = () => {
     dispatch(selectEventToEdit(false));
   }
 
-  const [matchedEvents, searchTermSetter] = useEventSearch();
+  const [matchedEvents, searchTermSetter] = useEventSearch(
+    (editedEvent as AgendaEvent)?.name,
+  );
 
   function handleEventNameChange(event: ChangeEvent<HTMLInputElement>) {
     searchTermSetter(event.target.value);
