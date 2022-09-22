@@ -9,12 +9,12 @@ export function eventsMatcher(
   events: AgendaEvent[],
   searchTerm: string,
 ): SearchResult[] {
-  if (!searchTerm.length) {
+  const term = searchTerm.trim().toLowerCase();
+
+  if (term.length < 4) {
     return [];
   }
   return events
-    .filter((event) =>
-      event.name.toLowerCase().includes(searchTerm.toLowerCase()),
-    )
+    .filter((event) => event.name.trim().toLowerCase().includes(term))
     .map((event) => ({ id: event.id, name: event.name }));
 }

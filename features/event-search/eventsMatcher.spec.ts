@@ -27,3 +27,9 @@ test('returns empty list when search is empty', () => {
 
   expect(result).toEqual([]);
 });
+
+test('returns empty list when search is shorter than 4 chars', () => {
+  const result = eventsMatcher([firstEvent, thirdEvent], 'one');
+
+  expect(result).toEqual([]);
+});

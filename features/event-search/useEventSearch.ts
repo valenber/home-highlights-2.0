@@ -7,9 +7,8 @@ export function useEventSearch(): [
   SearchResult[],
   Dispatch<SetStateAction<string>>,
 ] {
-  const [searchTerm, setSearchTerm] = useState('');
-
   const eventsList = useSelector(getAllStoreEvents);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const matchedEvents = eventsMatcher(eventsList, searchTerm);
 
