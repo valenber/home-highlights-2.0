@@ -1,6 +1,6 @@
 import { AgendaEvent } from '../../data/dbSchema';
 
-export const dateFormat = new Intl.DateTimeFormat('en-GB', {
+export const _dateFormat = new Intl.DateTimeFormat('en-GB', {
   day: '2-digit',
   month: 'short',
   year: 'numeric',
@@ -14,11 +14,11 @@ export function getFormattedEventDates(event: AgendaEvent): {
     let startDate: string;
 
     if (event.start?.length) {
-      startDate = dateFormat.format(new Date(event.start));
+      startDate = _dateFormat.format(new Date(event.start));
     } else {
-      startDate = dateFormat.format(new Date(event.end));
+      startDate = _dateFormat.format(new Date(event.end));
     }
-    const endDate = dateFormat.format(new Date(event.end));
+    const endDate = _dateFormat.format(new Date(event.end));
 
     return { startDate, endDate };
   } catch (error) {
