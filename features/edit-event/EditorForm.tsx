@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import React from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useSelector } from 'react-redux';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import {
@@ -23,6 +23,7 @@ import { useAppDispatch } from '../../store';
 import { selectEventToEdit } from '../../store/editorSlice';
 
 import { useForm } from './useForm';
+import { useEventSearch } from 'features/event-search/useEventSearch';
 
 export const EditorFormModal: React.FC = () => {
   const editedEvent = useSelector(getEditedEvent);
@@ -59,6 +60,13 @@ export const EditorFormModal: React.FC = () => {
     dispatch(selectEventToEdit(false));
   }
 
+  const [matchedEvents, searchTermSetter] = useEventSearch();
+
+  function handleEventNameChange(event: ChangeEvent<HTMLInputElement>) {
+    searchTermSetter(event.target.value);
+    handleInputChange(event);
+  }
+
   return (
     <Modal open={!!editedEvent} onClose={handleModalClose}>
       <form className="editorForm" onSubmit={handleFormSubmit}>
@@ -88,7 +96,7 @@ export const EditorFormModal: React.FC = () => {
           label="Event Name"
           variant="outlined"
           name="name"
-          onChange={handleInputChange}
+          onChange={handleEventNameChange}
           value={values?.name}
           InputLabelProps={{
             shrink: !!values?.name,
@@ -97,6 +105,8 @@ export const EditorFormModal: React.FC = () => {
           error={!!errors?.name}
           helperText={errors?.name}
         />
+
+        <p>{matchedEvents.length}</p>
 
         <TextField
           id="eventStartDate"
