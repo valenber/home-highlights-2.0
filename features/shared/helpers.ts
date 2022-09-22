@@ -1,4 +1,7 @@
+import Rollbar from 'rollbar';
 import { AgendaEvent } from '../../data/dbSchema';
+
+const rollbar = new Rollbar();
 
 export const _dateFormat = new Intl.DateTimeFormat('en-GB', {
   day: '2-digit',
@@ -14,6 +17,7 @@ export function getFormattedEventDates(event: AgendaEvent): {
     let startDate: string;
 
     if (event.start?.length) {
+      rollbar.info('start dates is missing in event', event);
       startDate = _dateFormat.format(new Date(event.start));
     } else {
       startDate = _dateFormat.format(new Date(event.end));
@@ -22,8 +26,7 @@ export function getFormattedEventDates(event: AgendaEvent): {
 
     return { startDate, endDate };
   } catch (error) {
-    console.error('Failed to parse event dates', error);
-    console.dir(event);
+    rollbar.error('Failed to parse event dates', error);
   }
 }
 
