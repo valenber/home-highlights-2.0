@@ -6,6 +6,20 @@ export const dateFormat = new Intl.DateTimeFormat('en-GB', {
   year: 'numeric',
 });
 
+export function getFormattedEventDates(event: AgendaEvent): {
+  startDate: string;
+  endDate: string;
+} {
+  try {
+    const startDate = dateFormat.format(new Date(event.start));
+    const endDate = dateFormat.format(new Date(event.end));
+    return { startDate, endDate };
+  } catch (error) {
+    console.error('Failed to parse event dates', error);
+    console.dir(event);
+  }
+}
+
 export function byEndDateOldToNew(
   eventA: AgendaEvent,
   eventB: AgendaEvent,
