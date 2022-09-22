@@ -11,8 +11,15 @@ export function getFormattedEventDates(event: AgendaEvent): {
   endDate: string;
 } {
   try {
-    const startDate = dateFormat.format(new Date(event.start));
+    let startDate: string;
+
+    if (event.start?.length) {
+      startDate = dateFormat.format(new Date(event.start));
+    } else {
+      startDate = dateFormat.format(new Date(event.end));
+    }
     const endDate = dateFormat.format(new Date(event.end));
+
     return { startDate, endDate };
   } catch (error) {
     console.error('Failed to parse event dates', error);
