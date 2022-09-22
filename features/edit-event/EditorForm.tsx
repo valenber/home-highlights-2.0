@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent } from 'react';
 import { useSelector } from 'react-redux';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import {
@@ -24,6 +24,7 @@ import { selectEventToEdit } from '../../store/editorSlice';
 
 import { useForm } from './useForm';
 import { useEventSearch } from 'features/event-search/useEventSearch';
+import { MatchedEventButton } from 'features/event-search/MatchedEventButton';
 
 export const EditorFormModal: React.FC = () => {
   const editedEvent = useSelector(getEditedEvent);
@@ -92,6 +93,7 @@ export const EditorFormModal: React.FC = () => {
         <TextField
           id="eventName"
           autoFocus
+          autoComplete="off"
           className="eventName"
           label="Event Name"
           variant="outlined"
@@ -106,7 +108,11 @@ export const EditorFormModal: React.FC = () => {
           helperText={errors?.name}
         />
 
-        <p>{matchedEvents.length}</p>
+        <div className="matchedEvents">
+          {matchedEvents.map((event) => {
+            return <MatchedEventButton key={event.id} event={event} />;
+          })}
+        </div>
 
         <TextField
           id="eventStartDate"
