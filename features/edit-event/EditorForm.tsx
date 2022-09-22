@@ -58,6 +58,7 @@ export const EditorFormModal: React.FC = () => {
   }, []);
 
   function handleModalClose(): void {
+    searchTermSetter('');
     dispatch(selectEventToEdit(false));
   }
 
