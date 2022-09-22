@@ -1,5 +1,5 @@
 /* eslint-disable quotes */
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { useSelector } from 'react-redux';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import {
@@ -17,12 +17,14 @@ import {
 } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
-import { AgendaEventCategory } from '../../data/dbSchema';
+import { AgendaEvent, AgendaEventCategory } from '../../data/dbSchema';
 import { getEditedEvent } from '../../store/selectors/getEditedEvent';
 import { useAppDispatch } from '../../store';
 import { selectEventToEdit } from '../../store/editorSlice';
 
 import { useForm } from './useForm';
+import { useEventSearch } from 'features/event-search/useEventSearch';
+import { MatchedEventButton } from 'features/event-search/MatchedEventButton';
 
 export const EditorFormModal: React.FC = () => {
   const editedEvent = useSelector(getEditedEvent);
@@ -56,7 +58,17 @@ export const EditorFormModal: React.FC = () => {
   }, []);
 
   function handleModalClose(): void {
+    searchTermSetter('');
     dispatch(selectEventToEdit(false));
+  }
+
+  const [matchedEvents, searchTermSetter] = useEventSearch(
+    (editedEvent as AgendaEvent)?.name,
+  );
+
+  function handleEventNameChange(event: ChangeEvent<HTMLInputElement>) {
+    searchTermSetter(event.target.value);
+    handleInputChange(event);
   }
 
   return (
@@ -84,11 +96,12 @@ export const EditorFormModal: React.FC = () => {
         <TextField
           id="eventName"
           autoFocus
+          autoComplete="off"
           className="eventName"
           label="Event Name"
           variant="outlined"
           name="name"
-          onChange={handleInputChange}
+          onChange={handleEventNameChange}
           value={values?.name}
           InputLabelProps={{
             shrink: !!values?.name,
@@ -97,6 +110,12 @@ export const EditorFormModal: React.FC = () => {
           error={!!errors?.name}
           helperText={errors?.name}
         />
+
+        <div className="matchedEvents">
+          {matchedEvents.map((event) => {
+            return <MatchedEventButton key={event.id} event={event} />;
+          })}
+        </div>
 
         <TextField
           id="eventStartDate"

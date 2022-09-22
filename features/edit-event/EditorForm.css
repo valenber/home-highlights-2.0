@@ -73,3 +73,7 @@
 .editorForm .saveEventButton {
   grid-column: -5 / -1;
 }
+
+.editorForm .matchedEvents {
+  grid-column: 1 / -1;
+}
