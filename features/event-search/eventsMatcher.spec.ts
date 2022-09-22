@@ -33,3 +33,14 @@ test('returns empty list when search is shorter than 4 chars', () => {
 
   expect(result).toEqual([]);
 });
+
+test('matches ignoring spaces', () => {
+  const testOne = { ...secondEvent, name: 'RM - ATM' };
+  const testTwo = { ...thirdEvent, name: 'RM-ATM' };
+  const result = eventsMatcher([testOne, testTwo], 'rm-a');
+
+  expect(result).toEqual([
+    { id: '222', name: 'RM - ATM' },
+    { id: '333', name: 'RM-ATM' },
+  ]);
+});

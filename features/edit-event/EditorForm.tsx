@@ -112,9 +112,11 @@ export const EditorFormModal: React.FC = () => {
         />
 
         <div className="matchedEvents">
-          {matchedEvents.map((event) => {
-            return <MatchedEventButton key={event.id} event={event} />;
-          })}
+          {matchedEvents
+            .filter((event) => event.id !== (editedEvent as AgendaEvent)?.id)
+            .map((event) => {
+              return <MatchedEventButton key={event.id} event={event} />;
+            })}
         </div>
 
         <TextField
