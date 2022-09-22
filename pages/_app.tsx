@@ -17,6 +17,7 @@ import {
   StyledEngineProvider,
 } from '@mui/material';
 import { green, purple } from '@mui/material/colors';
+import { RollbarProvider } from 'services/rollbar';
 
 // declare module '@mui/styles/defaultTheme' {
 //   // eslint-disable-next-line @typescript-eslint/no-empty-interface
@@ -44,31 +45,33 @@ const AppRoot: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <StrictMode>
-      <Provider store={store}>
-        <StyledEngineProvider injectFirst>
-          <ThemeProvider theme={customTheme}>
-            <SnackbarProvider
-              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-              // @ts-ignore
-              ref={notistackRef}
-              maxSnack={3}
-              action={(key) => (
-                <Button
-                  size="small"
-                  variant="outlined"
-                  onClick={onClickDismiss(key)}
-                >
-                  dismiss
-                </Button>
-              )}
-            >
-              <div className="appLayout">
-                <Component {...pageProps} />
-              </div>
-            </SnackbarProvider>
-          </ThemeProvider>
-        </StyledEngineProvider>
-      </Provider>
+      <RollbarProvider>
+        <Provider store={store}>
+          <StyledEngineProvider injectFirst>
+            <ThemeProvider theme={customTheme}>
+              <SnackbarProvider
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                ref={notistackRef}
+                maxSnack={3}
+                action={(key) => (
+                  <Button
+                    size="small"
+                    variant="outlined"
+                    onClick={onClickDismiss(key)}
+                  >
+                    dismiss
+                  </Button>
+                )}
+              >
+                <div className="appLayout">
+                  <Component {...pageProps} />
+                </div>
+              </SnackbarProvider>
+            </ThemeProvider>
+          </StyledEngineProvider>
+        </Provider>
+      </RollbarProvider>
     </StrictMode>
   );
 };
