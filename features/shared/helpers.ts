@@ -15,7 +15,6 @@ export function getFormattedEventDates(event: AgendaEvent): {
     let startDate: string;
 
     if (event.start?.length) {
-      rollbarReporter.info();
       startDate = _dateFormat.format(new Date(event.start));
     } else {
       startDate = _dateFormat.format(new Date(event.end));
