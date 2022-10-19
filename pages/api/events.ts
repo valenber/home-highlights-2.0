@@ -2,6 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { AgendaEvent } from '../../data/dbSchema';
 import { databaseService as db } from '../../data/databaseService';
 import { validationService } from '../../data/validationService';
+import { rollbarReporter } from 'services/rollbar';
 
 export interface ApiRequest {
   method: string;
@@ -28,6 +29,8 @@ export async function eventsEndpointHandler(
         const events = await db.getAllAgendaEvents();
         return { status: 200, message: 'OK', data: events };
       } catch (error) {
+        rollbarReporter.error('DB: failed to getAllAgendaEvents');
+
         return {
           status: 500,
           message: `Error on getAllAgendaEvents: ${error.message}`,
@@ -48,6 +51,8 @@ export async function eventsEndpointHandler(
         const dbResponse = await db.createNewAgendaEvent(request.body);
         return { status: 200, message: 'OK', data: dbResponse };
       } catch (error) {
+        rollbarReporter.error('DB: failed to createNewAgendaEvent');
+
         return {
           status: 500,
           message: `Error on createNewAgendaEvent: ${error.message}.`,
@@ -67,6 +72,8 @@ export async function eventsEndpointHandler(
         const dbResponse = await db.deleteAgendaEvent(request.body.id);
         return { status: 200, message: 'OK', data: dbResponse };
       } catch (error) {
+        rollbarReporter.error('DB: failed to deleteAgendaEvent');
+
         return {
           status: 500,
           message: `Error on deleteAgendaEvent: ${error.message}.`,
@@ -90,6 +97,8 @@ export async function eventsEndpointHandler(
         const dbResponse = await db.updateAgendaEvent(request.body);
         return { status: 200, message: 'OK', data: dbResponse };
       } catch (error) {
+        rollbarReporter.error('DB: failed to updateAgendaEvent');
+
         return {
           status: 500,
           message: `Error on updateAgendaEvent: ${error.message}.`,

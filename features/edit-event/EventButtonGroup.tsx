@@ -13,6 +13,7 @@ import { patchEvent } from '../../store/eventsSlice';
 import { useAppDispatch } from '../../store';
 import { selectEventToEdit } from '../../store/editorSlice';
 import { snackbarOptions } from '../shared/snackbarOptions';
+import { rollbarReporter } from 'services/rollbar';
 
 interface EventButtonGroupProps {
   existingEvent: AgendaEvent;
@@ -56,7 +57,11 @@ export const EventButtonGroup: React.FC<EventButtonGroupProps> = ({
     const { event, error } = await updateEventProps(statusUpdateObject);
 
     if (error) {
-      console.error(error);
+      rollbarReporter.error('Failed to change event status', {
+        error,
+        event_prev: existingEvent,
+        event_next: statusUpdateObject,
+      });
 
       enqueueSnackbar(`Failed to change status of "${editedEventName}"`, {
         ...snackbarOptions.error,
