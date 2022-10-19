@@ -10,6 +10,7 @@ import { useAppDispatch } from '../../store';
 import { patchEvent, addEvent, removeEventById } from '../../store/eventsSlice';
 import { selectEventToEdit } from '../../store/editorSlice';
 import { snackbarOptions } from '../shared/snackbarOptions';
+import { rollbarReporter } from 'services/rollbar';
 
 interface FormErrorsObject {
   name?: string;
@@ -47,7 +48,10 @@ export const useForm = (
     const { event, error } = await updateEventProps(updateObject);
 
     if (error) {
-      console.error(error);
+      rollbarReporter.error('Failed to update event', {
+        error,
+        event: updateObject,
+      });
 
       enqueueSnackbar(`Failed to update event "${editedEventName}"`, {
         ...snackbarOptions.error,
@@ -73,7 +77,10 @@ export const useForm = (
   ): Promise<void> => {
     const { event, error } = await createNewEvent(eventObject);
     if (error) {
-      console.error(error);
+      rollbarReporter.error('Failed to create new agenda event', {
+        error,
+        event: eventObject,
+      });
 
       enqueueSnackbar(`Failed to create new event "${editedEventName}"`, {
         ...snackbarOptions.error,
@@ -103,7 +110,10 @@ export const useForm = (
     const { event, error } = await deleteEvent(values.id);
 
     if (error) {
-      console.error(error);
+      rollbarReporter.error('Failed to delete event', {
+        error,
+        eventId: values.id,
+      });
 
       enqueueSnackbar(`Failed to delete "${editedEventName}" from the DB`, {
         ...snackbarOptions.error,
