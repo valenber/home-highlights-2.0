@@ -20,7 +20,7 @@
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
     "@mui/icons-material": "5.10.9",
-    "@mui/material": "5.10.11",
+    "@mui/material": "5.10.12",
     "@mui/styles": "5.10.10",
     "@reduxjs/toolkit": "1.8.6",
     "@rollbar/react": "0.11.1",
