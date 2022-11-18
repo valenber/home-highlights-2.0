@@ -4,7 +4,7 @@ import { exampleAgendaEvent, AgendaEvent } from '../../data/dbSchema';
 
 const mockState: AppState = {
   events: [exampleAgendaEvent],
-  activeCategory: 'home',
+  activeCategory: 'current',
   editedEvent: false,
 };
 
@@ -36,7 +36,7 @@ test('returns event scaffold when null is in store', () => {
     start: '',
     end: '',
     state: {
-      home: 'candidate',
+      current: 'candidate',
     },
   };
   const result = getEditedEvent(state);

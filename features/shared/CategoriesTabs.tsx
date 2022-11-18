@@ -10,9 +10,8 @@ export const CategoriesTabs: React.FC = () => {
   const dispatch = useAppDispatch();
   const selectedCategory = useSelector(getSelectedCategory);
 
-  const categoriesLabels = {
-    home: 'Home',
-    /* eslint-disable */
+  const categoriesLabels: Record<AgendaEventCategory, string> = {
+    // eslint-disable-next-line quotes
     current: "What's on",
     /* eslint-enable */
     exhibitions: 'Exhibitions',
