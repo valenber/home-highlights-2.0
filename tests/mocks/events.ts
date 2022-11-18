@@ -6,7 +6,7 @@ export const firstEvent: AgendaEvent = {
   start: '2020-03-26T00:00:00.000Z',
   end: '2020-04-26T00:00:00.000Z',
   state: {
-    home: 'candidate',
+    music: 'candidate',
   },
 };
 

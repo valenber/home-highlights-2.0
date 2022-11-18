@@ -8,7 +8,6 @@ export type AgendaEvent = {
 };
 
 export type AgendaEventCategory =
-  | 'home'
   | 'current'
   | 'exhibitions'
   | 'theatreanddance'
@@ -27,7 +26,6 @@ export const exampleAgendaEvent: AgendaEvent = {
   start: '2020-01-26T00:00:00.000Z',
   end: '2020-04-26T00:00:00.000Z',
   state: {
-    home: 'candidate',
     current: 'highlight',
     fairs: 'mainfocus',
   },
