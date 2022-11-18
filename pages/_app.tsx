@@ -1,11 +1,11 @@
 import { AppProps } from 'next/app';
-import { SnackbarProvider } from 'notistack';
+import { SnackbarKey, SnackbarProvider } from 'notistack';
 
 // custom shared styles
 import '../styles/app.css';
 import '../styles/components.css';
 
-import { ReactText, StrictMode } from 'react';
+import { StrictMode } from 'react';
 import { Provider } from 'react-redux';
 import { store } from '../store';
 import React from 'react';
@@ -19,11 +19,6 @@ import {
 import { green, purple } from '@mui/material/colors';
 import { RollbarProvider } from 'services/rollbar';
 
-// declare module '@mui/styles/defaultTheme' {
-//   // eslint-disable-next-line @typescript-eslint/no-empty-interface
-//   interface DefaultTheme extends Theme {}
-// }
-
 const customTheme = createTheme({
   palette: {
     primary: {
@@ -36,10 +31,8 @@ const customTheme = createTheme({
 });
 
 const AppRoot: React.FC<AppProps> = ({ Component, pageProps }) => {
-  const notistackRef = React.createRef();
-  const onClickDismiss = (key: ReactText) => () => {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
+  const notistackRef = React.createRef<SnackbarProvider>();
+  const onClickDismiss = (key: SnackbarKey) => () => {
     notistackRef.current.closeSnackbar(key);
   };
 
@@ -50,8 +43,6 @@ const AppRoot: React.FC<AppProps> = ({ Component, pageProps }) => {
           <StyledEngineProvider injectFirst>
             <ThemeProvider theme={customTheme}>
               <SnackbarProvider
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
                 ref={notistackRef}
                 maxSnack={3}
                 action={(key) => (
