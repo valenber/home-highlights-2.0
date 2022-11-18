@@ -5,7 +5,7 @@ export type SelectedCategorySlice = AgendaEventCategory | null;
 
 const activeCategory = createSlice({
   name: 'activeCategory',
-  initialState: 'home' as AgendaEventCategory,
+  initialState: 'current' as AgendaEventCategory,
   reducers: {
     selectCategory(
       _state,
