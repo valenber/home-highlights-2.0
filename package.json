@@ -33,7 +33,7 @@
     "react-dom": "18.2.0",
     "react-redux": "8.0.5",
     "redux": "4.2.0",
-    "rollbar": "2.25.2"
+    "rollbar": "2.26.0"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "5.16.5",
