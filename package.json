@@ -19,7 +19,7 @@
     "@mui/icons-material": "5.11.9",
     "@mui/material": "5.11.9",
     "@mui/styles": "5.11.9",
-    "@reduxjs/toolkit": "1.9.2",
+    "@reduxjs/toolkit": "1.9.5",
     "@rollbar/react": "0.11.1",
     "faunadb": "4.8.0",
     "isomorphic-unfetch": "4.0.2",
