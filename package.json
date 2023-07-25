@@ -4,9 +4,6 @@
   "main": "index.js",
   "author": "Valentin Berlin <valentin.berlin@protonmail.com>",
   "license": "MIT",
-  "engines": {
-    "node": "16"
-  },
   "scripts": {
     "dev": "next",
     "start": "next start",
