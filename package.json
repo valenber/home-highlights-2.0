@@ -4,9 +4,6 @@
   "main": "index.js",
   "author": "Valentin Berlin <valentin.berlin@protonmail.com>",
   "license": "MIT",
-  "engines": {
-    "node": "16"
-  },
   "scripts": {
     "dev": "next",
     "start": "next start",
@@ -22,8 +19,8 @@
     "@mui/icons-material": "5.11.9",
     "@mui/material": "5.11.9",
     "@mui/styles": "5.11.9",
-    "@reduxjs/toolkit": "1.9.2",
     "@rollbar/react": "0.11.2",
+    "@reduxjs/toolkit": "1.9.5",
     "faunadb": "4.8.0",
     "isomorphic-unfetch": "4.0.2",
     "next": "12.3.4",
@@ -47,7 +44,7 @@
     "@typescript-eslint/parser": "5.59.7",
     "babel-plugin-module-resolver": "5.0.0",
     "classnames": "2.3.2",
-    "eslint": "8.34.0",
+    "eslint": "8.45.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-config-react": "1.1.7",
     "eslint-plugin-jest-dom": "4.0.3",
@@ -57,7 +54,7 @@
     "husky": "8.0.3",
     "jest": "29.4.3",
     "jest-environment-jsdom": "29.4.3",
-    "prettier": "2.8.4",
+    "prettier": "2.8.8",
     "redux-mock-store": "1.5.4",
     "stylelint": "15.1.0",
     "stylelint-config-standard": "30.0.1",
@@ -65,7 +62,7 @@
     "typescript": "4.9.5"
   },
   "volta": {
-    "node": "16.19.1",
+    "node": "16.20.1",
     "yarn": "1.22.19"
   }
 }
