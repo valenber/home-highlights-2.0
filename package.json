@@ -14,8 +14,8 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@emotion/react": "11.10.6",
-    "@emotion/styled": "11.10.6",
+    "@emotion/react": "11.11.1",
+    "@emotion/styled": "11.11.0",
     "@mui/icons-material": "5.14.3",
     "@mui/material": "5.14.3",
     "@mui/styles": "5.14.3",
