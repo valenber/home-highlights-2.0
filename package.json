@@ -20,7 +20,7 @@
     "@mui/material": "5.15.6",
     "@mui/styles": "5.15.6",
     "@rollbar/react": "0.11.2",
-    "@reduxjs/toolkit": "1.9.7",
+    "@reduxjs/toolkit": "2.1.0",
     "faunadb": "4.8.0",
     "isomorphic-unfetch": "4.0.2",
     "next": "12.3.4",
