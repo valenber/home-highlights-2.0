@@ -18,6 +18,7 @@ jest.mock('../../../data/supabaseService', () => ({
   supabaseService: {
     getAllAgendaEvents: jest.fn(),
     createNewAgendaEvent: jest.fn(),
+    updateAgendaEvent: jest.fn(),
   },
 }));
 
@@ -207,6 +208,115 @@ describe('POST request', () => {
     expect(response).toEqual({
       status: 500,
       message: `Error on createNewAgendaEvent: ${errorMessage}.`,
+    });
+  });
+});
+
+describe('PUT request', () => {
+  const eventId = '123';
+  const validUpdateEvent: Partial<AgendaEvent> = {
+    id: eventId,
+    name: 'Updated Event Name',
+    state: { current: 'mainfocus' as const },
+  };
+
+  const updatedEvent: AgendaEvent = {
+    id: eventId,
+    name: 'Updated Event Name',
+    start: '2023-01-01T00:00:00.000Z',
+    end: '2023-12-31T00:00:00.000Z',
+    state: { current: 'mainfocus' },
+    tags: ['updated'],
+  };
+
+  test('returns 422 if event ID is missing', async () => {
+    const response = await eventsEndpointHandler({
+      method: 'PUT',
+      body: { name: 'Updated Event Name' },
+    });
+
+    expect(response).toEqual({
+      status: 422,
+      message: 'Can not update event. Missing ID.',
+    });
+    expect(db.updateAgendaEvent).not.toHaveBeenCalled();
+  });
+
+  test('returns 422 if only ID is provided with no update values', async () => {
+    const response = await eventsEndpointHandler({
+      method: 'PUT',
+      body: { id: eventId },
+    });
+
+    expect(response).toEqual({
+      status: 422,
+      message: 'Can not update event. Missing values to be updated.',
+    });
+    expect(db.updateAgendaEvent).not.toHaveBeenCalled();
+  });
+
+  test('calls updateAgendaEvent with correct parameters', async () => {
+    (db.updateAgendaEvent as jest.Mock).mockResolvedValueOnce(updatedEvent);
+
+    await eventsEndpointHandler({
+      method: 'PUT',
+      body: validUpdateEvent,
+    });
+
+    // Check that we pass ID and the rest of the body separately
+    expect(db.updateAgendaEvent).toHaveBeenCalledWith(eventId, {
+      name: 'Updated Event Name',
+      state: { current: 'mainfocus' },
+    });
+  });
+
+  test('returns the updated event on success', async () => {
+    (db.updateAgendaEvent as jest.Mock).mockResolvedValueOnce(updatedEvent);
+
+    const response = await eventsEndpointHandler({
+      method: 'PUT',
+      body: validUpdateEvent,
+    });
+
+    expect(response).toEqual({
+      status: 200,
+      message: 'OK',
+      data: updatedEvent,
+    });
+  });
+
+  test('reports to rollbar on DB error', async () => {
+    const errorMessage = 'Database update error';
+
+    (db.updateAgendaEvent as jest.Mock).mockImplementationOnce(() => {
+      throw new Error(errorMessage);
+    });
+
+    await eventsEndpointHandler({
+      method: 'PUT',
+      body: validUpdateEvent,
+    });
+
+    expect(rollbarReporter.error).toHaveBeenCalledWith(
+      'DB: failed to updateAgendaEvent',
+    );
+  });
+
+  test('returns error object on DB error', async () => {
+    const errorMessage = 'Database update error';
+
+    (db.updateAgendaEvent as jest.Mock).mockImplementationOnce(() => {
+      throw new Error(errorMessage);
+    });
+
+    const response = await eventsEndpointHandler({
+      method: 'PUT',
+      body: validUpdateEvent,
+    });
+
+    expect(response).toEqual({
+      status: 500,
+      message: `Error on updateAgendaEvent: ${errorMessage}.`,
     });
   });
 });

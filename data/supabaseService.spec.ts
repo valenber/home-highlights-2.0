@@ -6,9 +6,12 @@ jest.mock('@supabase/supabase-js', () => {
   const mockSingle = jest.fn();
   const mockSelect = jest.fn(() => ({ single: mockSingle }));
   const mockInsert = jest.fn(() => ({ select: mockSelect }));
+  const mockEq = jest.fn(() => ({ select: mockSelect }));
+  const mockUpdate = jest.fn(() => ({ eq: mockEq }));
   const mockFrom = jest.fn(() => ({
     select: mockSelect,
     insert: mockInsert,
+    update: mockUpdate,
   }));
   const mockClient = { from: mockFrom };
 
@@ -26,6 +29,8 @@ describe('supabaseService', () => {
   const mockFrom = mockClient.from;
   const mockSelect = mockFrom().select;
   const mockInsert = mockFrom().insert;
+  const mockUpdate = mockFrom().update;
+  const mockEq = mockFrom().update().eq;
   const mockSingle = mockFrom().select().single;
 
   beforeEach(() => {
@@ -178,6 +183,132 @@ describe('supabaseService', () => {
 
       // Verify Supabase client was called correctly
       expect(mockFrom).toHaveBeenCalledWith('agenda_events');
+    });
+  });
+
+  describe('updateAgendaEvent', () => {
+    it('should update an event and return the transformed response', async () => {
+      const eventId = '1';
+      // Partial event data to update
+      const updateData: Partial<Omit<AgendaEvent, 'id'>> = {
+        name: 'Updated Event Name',
+        start: '2023-04-01T00:00:00.000Z',
+        state: { current: 'mainfocus' },
+      };
+
+      // Expected database format for the update
+      const expectedDbUpdate = {
+        name: 'Updated Event Name',
+        start_date: '2023-04-01T00:00:00.000Z',
+        state: { current: 'mainfocus' },
+      };
+
+      // Mock response from Supabase after update
+      const mockResponseData = {
+        id: '1',
+        name: 'Updated Event Name',
+        start_date: '2023-04-01T00:00:00.000Z',
+        end_date: '2023-04-30T00:00:00.000Z',
+        state: { current: 'mainfocus' },
+        tags: ['test'],
+      };
+
+      // Setup the mock chain
+      mockSingle.mockResolvedValueOnce({ data: mockResponseData, error: null });
+
+      // Call the service method
+      const result = await supabaseService.updateAgendaEvent(
+        eventId,
+        updateData,
+      );
+
+      // Verify Supabase client was called correctly
+      expect(mockFrom).toHaveBeenCalledWith('agenda_events');
+      expect(mockUpdate).toHaveBeenCalledWith(expectedDbUpdate);
+      expect(mockEq).toHaveBeenCalledWith('id', eventId);
+
+      // Assert that the returned data is transformed correctly
+      expect(result).toEqual({
+        id: '1',
+        name: 'Updated Event Name',
+        start: '2023-04-01T00:00:00.000Z',
+        end: '2023-04-30T00:00:00.000Z',
+        state: { current: 'mainfocus' },
+        tags: ['test'],
+      } as AgendaEvent);
+    });
+
+    it('should update an event with end date and return the transformed response', async () => {
+      const eventId = '2';
+      // Partial event data to update - only updating end date
+      const updateData: Partial<Omit<AgendaEvent, 'id'>> = {
+        end: '2023-05-31T00:00:00.000Z',
+      };
+
+      // Expected database format for the update
+      const expectedDbUpdate = {
+        end_date: '2023-05-31T00:00:00.000Z',
+      };
+
+      // Mock response from Supabase after update
+      const mockResponseData = {
+        id: '2',
+        name: 'Test Event 2',
+        start_date: '2023-02-01T00:00:00.000Z',
+        end_date: '2023-05-31T00:00:00.000Z',
+        state: { exhibitions: 'candidate' },
+        tags: null,
+      };
+
+      // Setup the mock chain
+      mockSingle.mockResolvedValueOnce({ data: mockResponseData, error: null });
+
+      // Call the service method
+      const result = await supabaseService.updateAgendaEvent(
+        eventId,
+        updateData,
+      );
+
+      // Verify Supabase client was called correctly
+      expect(mockFrom).toHaveBeenCalledWith('agenda_events');
+      expect(mockUpdate).toHaveBeenCalledWith(expectedDbUpdate);
+      expect(mockEq).toHaveBeenCalledWith('id', eventId);
+
+      // Assert that the returned data is transformed correctly
+      expect(result).toEqual({
+        id: '2',
+        name: 'Test Event 2',
+        start: '2023-02-01T00:00:00.000Z',
+        end: '2023-05-31T00:00:00.000Z',
+        state: { exhibitions: 'candidate' },
+        tags: null,
+      } as AgendaEvent);
+    });
+
+    it('should throw an error when event update fails', async () => {
+      const eventId = '3';
+      const updateData: Partial<Omit<AgendaEvent, 'id'>> = {
+        name: 'Updated Name',
+      };
+
+      // Mock a failed Supabase response
+      const errorMessage = 'Record not found';
+      mockSingle.mockResolvedValueOnce({
+        data: null,
+        error: { message: errorMessage },
+      });
+
+      // Verify that the promise rejects with the expected error
+      await expect(
+        supabaseService.updateAgendaEvent(eventId, updateData),
+      ).rejects.toThrow(`Failed to update event: ${errorMessage}`);
+
+      // Verify Supabase client was called correctly
+      expect(mockFrom).toHaveBeenCalledWith('agenda_events');
+      expect(mockUpdate).toHaveBeenCalledWith({
+        name: 'Updated Name',
+      });
+      expect(mockEq).toHaveBeenCalledWith('id', eventId);
     });
   });
 });

@@ -35,7 +35,7 @@ export async function updateEventProps(
   updateObject: Partial<AgendaEvent>,
 ): Promise<ApiUpdateEventResponse> {
   try {
-    const res = await fetch(API_EVENTS_URL, {
+    const res = await fetch(API_EVENTS_URL_2, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

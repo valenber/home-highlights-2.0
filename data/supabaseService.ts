@@ -26,7 +26,7 @@ async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
 }
 
 async function createNewAgendaEvent(
-  event: Omit<AgendaEvent, 'id'>,
+  event: Partial<AgendaEvent>,
 ): Promise<AgendaEvent> {
   // Transform the event object to match database schema (start → start_date, end → end_date)
   const { start, end, ...restEventData } = event;
@@ -55,7 +55,40 @@ async function createNewAgendaEvent(
   } as AgendaEvent;
 }
 
+async function updateAgendaEvent(
+  id: string,
+  event: Partial<AgendaEvent>,
+): Promise<AgendaEvent> {
+  // Transform the event object to match database schema (start → start_date, end → end_date)
+  const { start, end, ...restEventData } = event;
+
+  // Build the update object, only including fields that are provided
+  const dbEvent: Record<string, unknown> = { ...restEventData };
+  if (start !== undefined) dbEvent.start_date = start;
+  if (end !== undefined) dbEvent.end_date = end;
+
+  const { data, error } = await supabaseClient
+    .from(eventsTable)
+    .update(dbEvent)
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) {
+    throw new Error(`Failed to update event: ${error.message}`);
+  }
+
+  // Transform the response back to the application schema
+  const { start_date, end_date, ...rest } = data;
+  return {
+    ...rest,
+    start: start_date,
+    end: end_date,
+  } as AgendaEvent;
+}
+
 export const supabaseService = {
   getAllAgendaEvents,
   createNewAgendaEvent,
+  updateAgendaEvent,
 };

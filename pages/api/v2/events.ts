@@ -6,7 +6,7 @@ import { validationService } from '../../../data/validationService';
 
 export interface ApiRequest {
   method: string;
-  body?: Omit<AgendaEvent, 'id'>;
+  body?: Partial<AgendaEvent>;
 }
 
 export interface ApiResponse {
@@ -56,6 +56,33 @@ export async function eventsEndpointHandler(
         return {
           status: 500,
           message: `Error on createNewAgendaEvent: ${error.message}.`,
+        };
+      }
+    }
+
+    case 'PUT': {
+      if (!request?.body?.id) {
+        return { status: 422, message: 'Can not update event. Missing ID.' };
+      }
+
+      if (Object.keys(request?.body).length < 2) {
+        return {
+          status: 422,
+          message: 'Can not update event. Missing values to be updated.',
+        };
+      }
+
+      const { id, ...body } = request.body;
+
+      try {
+        const dbResponse = await db.updateAgendaEvent(id, body);
+        return { status: 200, message: 'OK', data: dbResponse };
+      } catch (error) {
+        rollbarReporter.error('DB: failed to updateAgendaEvent');
+
+        return {
+          status: 500,
+          message: `Error on updateAgendaEvent: ${error.message}.`,
         };
       }
     }
