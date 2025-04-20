@@ -1,6 +1,6 @@
-import { eventsEndpointHandler } from '../../pages/api/v1/events';
-import { databaseService as db } from '../../data/databaseService';
-import { validationService } from '../../data/validationService';
+import { eventsEndpointHandler } from '../../../pages/api/v1/events';
+import { databaseService as db } from '../../../data/databaseService';
+import { validationService } from '../../../data/validationService';
 
 afterEach(() => {
   jest.clearAllMocks();
