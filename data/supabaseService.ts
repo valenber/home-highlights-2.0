@@ -32,7 +32,7 @@ async function createNewAgendaEvent(
   const { start, end, ...restEventData } = event;
   const dbEvent = {
     ...restEventData,
-    start_date: start,
+    start_date: start.length ? start : null,
     end_date: end,
   };
 
