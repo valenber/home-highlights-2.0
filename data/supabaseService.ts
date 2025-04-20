@@ -87,8 +87,22 @@ async function updateAgendaEvent(
   } as AgendaEvent;
 }
 
+async function deleteAgendaEvent(id: string): Promise<string> {
+  const { error } = await supabaseClient
+    .from(eventsTable)
+    .delete()
+    .eq('id', id);
+
+  if (error) {
+    throw new Error(`Failed to delete event: ${error.message}`);
+  }
+
+  return id;
+}
+
 export const supabaseService = {
   getAllAgendaEvents,
   createNewAgendaEvent,
   updateAgendaEvent,
+  deleteAgendaEvent,
 };

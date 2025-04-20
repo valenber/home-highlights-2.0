@@ -7,11 +7,14 @@ jest.mock('@supabase/supabase-js', () => {
   const mockSelect = jest.fn(() => ({ single: mockSingle }));
   const mockInsert = jest.fn(() => ({ select: mockSelect }));
   const mockEq = jest.fn(() => ({ select: mockSelect }));
+  const mockDeleteEq = jest.fn();
+  const mockDelete = jest.fn(() => ({ eq: mockDeleteEq }));
   const mockUpdate = jest.fn(() => ({ eq: mockEq }));
   const mockFrom = jest.fn(() => ({
     select: mockSelect,
     insert: mockInsert,
     update: mockUpdate,
+    delete: mockDelete,
   }));
   const mockClient = { from: mockFrom };
 
@@ -32,6 +35,8 @@ describe('supabaseService', () => {
   const mockUpdate = mockFrom().update;
   const mockEq = mockFrom().update().eq;
   const mockSingle = mockFrom().select().single;
+  const mockDelete = mockFrom().delete;
+  const mockDeleteEq = mockFrom().delete().eq;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -309,6 +314,46 @@ describe('supabaseService', () => {
         name: 'Updated Name',
       });
       expect(mockEq).toHaveBeenCalledWith('id', eventId);
+    });
+  });
+
+  describe('deleteAgendaEvent', () => {
+    it('should delete an event and return the event id', async () => {
+      const eventId = '1';
+
+      // Mock a successful Supabase response
+      mockDeleteEq.mockResolvedValueOnce({ error: null });
+
+      // Call the service method
+      const result = await supabaseService.deleteAgendaEvent(eventId);
+
+      // Verify Supabase client was called correctly
+      expect(mockFrom).toHaveBeenCalledWith('agenda_events');
+      expect(mockDelete).toHaveBeenCalled();
+      expect(mockDeleteEq).toHaveBeenCalledWith('id', eventId);
+
+      // Assert that the event ID is returned
+      expect(result).toEqual(eventId);
+    });
+
+    it('should throw an error when event deletion fails', async () => {
+      const eventId = '999';
+
+      // Mock a failed Supabase response
+      const errorMessage = 'Record not found';
+      mockDeleteEq.mockResolvedValueOnce({
+        error: { message: errorMessage },
+      });
+
+      // Verify that the promise rejects with the expected error
+      await expect(supabaseService.deleteAgendaEvent(eventId)).rejects.toThrow(
+        `Failed to delete event: ${errorMessage}`,
+      );
+
+      // Verify Supabase client was called correctly
+      expect(mockFrom).toHaveBeenCalledWith('agenda_events');
+      expect(mockDelete).toHaveBeenCalled();
+      expect(mockDeleteEq).toHaveBeenCalledWith('id', eventId);
     });
   });
 });

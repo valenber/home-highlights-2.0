@@ -87,6 +87,27 @@ export async function eventsEndpointHandler(
       }
     }
 
+    case 'DELETE': {
+      if (!request?.body?.id) {
+        return {
+          status: 422,
+          message: 'Can not delete event. Missing ID.',
+        };
+      }
+
+      try {
+        const dbResponse = await db.deleteAgendaEvent(request.body.id);
+        return { status: 200, message: 'OK', data: dbResponse };
+      } catch (error) {
+        rollbarReporter.error('DB: failed to deleteAgendaEvent');
+
+        return {
+          status: 500,
+          message: `Error on deleteAgendaEvent: ${error.message}.`,
+        };
+      }
+    }
+
     default:
       return {
         status: 422,

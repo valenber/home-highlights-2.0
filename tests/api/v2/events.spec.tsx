@@ -19,6 +19,7 @@ jest.mock('../../../data/supabaseService', () => ({
     getAllAgendaEvents: jest.fn(),
     createNewAgendaEvent: jest.fn(),
     updateAgendaEvent: jest.fn(),
+    deleteAgendaEvent: jest.fn(),
   },
 }));
 
@@ -317,6 +318,84 @@ describe('PUT request', () => {
     expect(response).toEqual({
       status: 500,
       message: `Error on updateAgendaEvent: ${errorMessage}.`,
+    });
+  });
+});
+
+describe('DELETE request', () => {
+  const eventId = '123';
+
+  test('returns 422 if event ID is missing', async () => {
+    const response = await eventsEndpointHandler({
+      method: 'DELETE',
+      body: {},
+    });
+
+    expect(response).toEqual({
+      status: 422,
+      message: 'Can not delete event. Missing ID.',
+    });
+    expect(db.deleteAgendaEvent).not.toHaveBeenCalled();
+  });
+
+  test('calls deleteAgendaEvent with correct ID', async () => {
+    (db.deleteAgendaEvent as jest.Mock).mockResolvedValueOnce(eventId);
+
+    await eventsEndpointHandler({
+      method: 'DELETE',
+      body: { id: eventId },
+    });
+
+    expect(db.deleteAgendaEvent).toHaveBeenCalledWith(eventId);
+  });
+
+  test('returns the deleted event ID on success', async () => {
+    (db.deleteAgendaEvent as jest.Mock).mockResolvedValueOnce(eventId);
+
+    const response = await eventsEndpointHandler({
+      method: 'DELETE',
+      body: { id: eventId },
+    });
+
+    expect(response).toEqual({
+      status: 200,
+      message: 'OK',
+      data: eventId,
+    });
+  });
+
+  test('reports to rollbar on DB error', async () => {
+    const errorMessage = 'Database delete error';
+
+    (db.deleteAgendaEvent as jest.Mock).mockImplementationOnce(() => {
+      throw new Error(errorMessage);
+    });
+
+    await eventsEndpointHandler({
+      method: 'DELETE',
+      body: { id: eventId },
+    });
+
+    expect(rollbarReporter.error).toHaveBeenCalledWith(
+      'DB: failed to deleteAgendaEvent',
+    );
+  });
+
+  test('returns error object on DB error', async () => {
+    const errorMessage = 'Database delete error';
+
+    (db.deleteAgendaEvent as jest.Mock).mockImplementationOnce(() => {
+      throw new Error(errorMessage);
+    });
+
+    const response = await eventsEndpointHandler({
+      method: 'DELETE',
+      body: { id: eventId },
+    });
+
+    expect(response).toEqual({
+      status: 500,
+      message: `Error on deleteAgendaEvent: ${errorMessage}.`,
     });
   });
 });
