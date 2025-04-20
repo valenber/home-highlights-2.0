@@ -1,6 +1,9 @@
 import fetch from 'isomorphic-unfetch';
 import { AgendaEvent } from '../data/dbSchema';
 
+const API_EVENTS_URL = '/api/v1/events';
+export const API_EVENTS_URL_2 = '/api/v2/events';
+
 interface ApiResponse {
   error: string | null;
 }
@@ -11,7 +14,7 @@ export interface ApiGetEventsResponse extends ApiResponse {
 
 export async function getAllApiEvents(): Promise<ApiGetEventsResponse> {
   try {
-    const res = await fetch('/api/events');
+    const res = await fetch(API_EVENTS_URL);
     if (!res.ok) {
       throw new Error(`Bad server response - ${res.status}: ${res.statusText}`);
     }
@@ -32,7 +35,7 @@ export async function updateEventProps(
   updateObject: Partial<AgendaEvent>,
 ): Promise<ApiUpdateEventResponse> {
   try {
-    const res = await fetch('/api/events', {
+    const res = await fetch(API_EVENTS_URL, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -60,7 +63,7 @@ export async function createNewEvent(
   newEventObject: Partial<AgendaEvent>,
 ): Promise<ApiCreateEventResponse> {
   try {
-    const res = await fetch('/api/events', {
+    const res = await fetch(API_EVENTS_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -88,7 +91,7 @@ export async function deleteEvent(
   eventId: string,
 ): Promise<ApiDeleteEventResponse> {
   try {
-    const res = await fetch('/api/events', {
+    const res = await fetch(API_EVENTS_URL, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',

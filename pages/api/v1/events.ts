@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { AgendaEvent } from '../../data/dbSchema';
-import { databaseService as db } from '../../data/databaseService';
-import { validationService } from '../../data/validationService';
+import { AgendaEvent } from '../../../data/dbSchema';
+import { databaseService as db } from '../../../data/databaseService';
+import { validationService } from '../../../data/validationService';
 import { rollbarReporter } from 'services/rollbar';
 
 export interface ApiRequest {
