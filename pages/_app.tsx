@@ -18,6 +18,7 @@ import {
 } from '@mui/material';
 import { green, purple } from '@mui/material/colors';
 import { RollbarProvider } from 'services/rollbar';
+import { AuthProvider } from 'services/auth';
 
 const customTheme = createTheme({
   palette: {
@@ -40,27 +41,29 @@ const AppRoot: React.FC<AppProps> = ({ Component, pageProps }) => {
     <StrictMode>
       <RollbarProvider>
         <Provider store={store}>
-          <StyledEngineProvider injectFirst>
-            <ThemeProvider theme={customTheme}>
-              <SnackbarProvider
-                ref={notistackRef}
-                maxSnack={3}
-                action={(key) => (
-                  <Button
-                    size="small"
-                    variant="outlined"
-                    onClick={onClickDismiss(key)}
-                  >
-                    dismiss
-                  </Button>
-                )}
-              >
-                <div className="appLayout">
-                  <Component {...pageProps} />
-                </div>
-              </SnackbarProvider>
-            </ThemeProvider>
-          </StyledEngineProvider>
+          <AuthProvider>
+            <StyledEngineProvider injectFirst>
+              <ThemeProvider theme={customTheme}>
+                <SnackbarProvider
+                  ref={notistackRef}
+                  maxSnack={3}
+                  action={(key) => (
+                    <Button
+                      size="small"
+                      variant="outlined"
+                      onClick={onClickDismiss(key)}
+                    >
+                      dismiss
+                    </Button>
+                  )}
+                >
+                  <div className="appLayout">
+                    <Component {...pageProps} />
+                  </div>
+                </SnackbarProvider>
+              </ThemeProvider>
+            </StyledEngineProvider>
+          </AuthProvider>
         </Provider>
       </RollbarProvider>
     </StrictMode>

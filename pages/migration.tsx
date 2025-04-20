@@ -8,6 +8,8 @@ import Head from 'next/head';
 import { Button } from '@mui/material';
 import { CheckCircle } from '@mui/icons-material';
 import { createNewEvent } from 'services/api';
+import ProtectedRoute from '../components/ProtectedRoute';
+import Link from 'next/link';
 
 const MoveBtn = ({ clickHandler }: { clickHandler: () => void }) => {
   return (
@@ -85,7 +87,7 @@ export const MigrationPage: React.FC = () => {
   }
 
   return (
-    <>
+    <ProtectedRoute>
       <Head>
         <title>Migration Tool</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -93,6 +95,8 @@ export const MigrationPage: React.FC = () => {
 
       <main>
         <h1>Welcome to the Migration tool!</h1>
+        <Link href="/">Home</Link>
+
         <p>FaunaDB Events count: {faunaEvents.length}</p>
         <p>SupaBase Events count: {supabaseEvents.length}</p>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -116,21 +120,8 @@ export const MigrationPage: React.FC = () => {
           </ul>
         </div>
       </main>
-    </>
+    </ProtectedRoute>
   );
 };
 
-const MigrationPagePlaceholder = () => (
-  <>
-    <Head>
-      <title>Migration Tool</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-
-    <main>
-      <p>Nothing to see here!</p>
-    </main>
-  </>
-);
-
-export default MigrationPagePlaceholder;
+export default MigrationPage;
