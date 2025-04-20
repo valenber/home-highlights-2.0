@@ -17,8 +17,8 @@ export const ExpirationChip: React.FC<ExpirationChipProps> = ({
     daysCount === 0
       ? 'expires today'
       : daysCount === 1
-      ? 'expires tomorrow'
-      : `expires in ${daysCount} days`;
+        ? 'expires tomorrow'
+        : `expires in ${daysCount} days`;
 
   return (
     <>
