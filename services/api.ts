@@ -2,7 +2,7 @@ import fetch from 'isomorphic-unfetch';
 import { AgendaEvent } from '../data/dbSchema';
 
 const API_EVENTS_URL = '/api/v1/events';
-export const API_EVENTS_URL_2 = '/api/v2/events';
+const API_EVENTS_URL_2 = '/api/v2/events';
 
 interface ApiResponse {
   error: string | null;
@@ -14,7 +14,7 @@ export interface ApiGetEventsResponse extends ApiResponse {
 
 export async function getAllApiEvents(): Promise<ApiGetEventsResponse> {
   try {
-    const res = await fetch(API_EVENTS_URL);
+    const res = await fetch(API_EVENTS_URL_2);
     if (!res.ok) {
       throw new Error(`Bad server response - ${res.status}: ${res.statusText}`);
     }
