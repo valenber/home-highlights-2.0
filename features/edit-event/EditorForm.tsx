@@ -179,8 +179,8 @@ export const EditorFormModal: React.FC = () => {
                     category === 'NEW'
                       ? ''
                       : category === 'current'
-                      ? "what's on"
-                      : category
+                        ? "what's on"
+                        : category
                   }
                   name="newCategory"
                   onChange={handleInputChange}
