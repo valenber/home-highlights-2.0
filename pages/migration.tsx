@@ -17,7 +17,7 @@ const MoveBtn = ({ clickHandler }: { clickHandler: () => void }) => {
   );
 };
 
-const MigrationPage: React.FC = () => {
+export const MigrationPage: React.FC = () => {
   const [faunaEvents, setFaunaEvents] = useState([]);
   const [supabaseEvents, setSupabaseEvents] = useState([]);
 
@@ -120,4 +120,17 @@ const MigrationPage: React.FC = () => {
   );
 };
 
-export default MigrationPage;
+const MigrationPagePlaceholder = () => (
+  <>
+    <Head>
+      <title>Migration Tool</title>
+      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+    </Head>
+
+    <main>
+      <p>Nothing to see here!</p>
+    </main>
+  </>
+);
+
+export default MigrationPagePlaceholder;
