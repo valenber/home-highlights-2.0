@@ -63,7 +63,7 @@ export async function createNewEvent(
   newEventObject: Partial<AgendaEvent>,
 ): Promise<ApiCreateEventResponse> {
   try {
-    const res = await fetch(API_EVENTS_URL, {
+    const res = await fetch(API_EVENTS_URL_2, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

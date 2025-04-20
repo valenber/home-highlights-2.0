@@ -1,11 +1,12 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { AgendaEvent } from '../../../data/dbSchema';
 import { supabaseService as db } from '../../../data/supabaseService';
-import { rollbarReporter } from 'services/rollbar';
+import { rollbarReporter } from '../../../services/rollbar';
+import { validationService } from '../../../data/validationService';
 
 export interface ApiRequest {
   method: string;
-  body?: Partial<AgendaEvent>;
+  body?: Omit<AgendaEvent, 'id'>;
 }
 
 export interface ApiResponse {
@@ -33,6 +34,28 @@ export async function eventsEndpointHandler(
         return {
           status: 500,
           message: `Error on getAllAgendaEvents: ${error.message}`,
+        };
+      }
+    }
+
+    case 'POST': {
+      if (!validationService.newEvent(request.body)) {
+        return {
+          status: 422,
+          message: 'Invalid new event object',
+          data: { providedObject: request.body },
+        };
+      }
+
+      try {
+        const dbResponse = await db.createNewAgendaEvent(request.body);
+        return { status: 200, message: 'OK', data: dbResponse };
+      } catch (error) {
+        rollbarReporter.error('DB: failed to createNewAgendaEvent');
+
+        return {
+          status: 500,
+          message: `Error on createNewAgendaEvent: ${error.message}.`,
         };
       }
     }

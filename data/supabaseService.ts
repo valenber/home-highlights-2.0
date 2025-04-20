@@ -25,6 +25,37 @@ async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
   })) as AgendaEvent[];
 }
 
+async function createNewAgendaEvent(
+  event: Omit<AgendaEvent, 'id'>,
+): Promise<AgendaEvent> {
+  // Transform the event object to match database schema (start → start_date, end → end_date)
+  const { start, end, ...restEventData } = event;
+  const dbEvent = {
+    ...restEventData,
+    start_date: start,
+    end_date: end,
+  };
+
+  const { data, error } = await supabaseClient
+    .from(eventsTable)
+    .insert(dbEvent)
+    .select()
+    .single();
+
+  if (error) {
+    throw new Error(`Failed to create event: ${error.message}`);
+  }
+
+  // Transform the response back to the application schema
+  const { start_date, end_date, ...rest } = data;
+  return {
+    ...rest,
+    start: start_date,
+    end: end_date,
+  } as AgendaEvent;
+}
+
 export const supabaseService = {
   getAllAgendaEvents,
+  createNewAgendaEvent,
 };
