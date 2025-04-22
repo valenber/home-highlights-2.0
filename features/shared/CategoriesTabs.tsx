@@ -2,13 +2,16 @@ import React, { ChangeEvent } from 'react';
 import { useSelector } from 'react-redux';
 import { useAppDispatch } from '../../store';
 import { AgendaEventCategory } from '../../data/dbSchema';
-import { Paper, Tabs, Tab } from '@mui/material';
+import { Paper, Tabs, Tab, Button } from '@mui/material';
+import LogoutIcon from '@mui/icons-material/Logout';
 import { getSelectedCategory } from '../../store/selectors/getSelectedCategory';
 import { selectCategory } from '../../store/categorySlice';
+import { useAuth } from '../../services/auth';
 
 export const CategoriesTabs: React.FC = () => {
   const dispatch = useAppDispatch();
   const selectedCategory = useSelector(getSelectedCategory);
+  const { signOut } = useAuth();
 
   const categoriesLabels: Record<AgendaEventCategory, string> = {
     // eslint-disable-next-line quotes
@@ -32,20 +35,36 @@ export const CategoriesTabs: React.FC = () => {
 
   return (
     <Paper className="categoriesTabs">
-      <Tabs
-        indicatorColor="secondary"
-        textColor="primary"
-        onChange={handleTabChange}
-        value={selectedCategory}
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
       >
-        {Object.keys(categoriesLabels).map((category) => (
-          <Tab
-            key={category}
-            label={categoriesLabels[category]}
-            value={category}
-          />
-        ))}
-      </Tabs>
+        <Tabs
+          indicatorColor="secondary"
+          textColor="primary"
+          onChange={handleTabChange}
+          value={selectedCategory}
+        >
+          {Object.keys(categoriesLabels).map((category) => (
+            <Tab
+              key={category}
+              label={categoriesLabels[category]}
+              value={category}
+            />
+          ))}
+        </Tabs>
+        <Button
+          onClick={signOut}
+          color="primary"
+          startIcon={<LogoutIcon />}
+          style={{ marginRight: '16px' }}
+        >
+          Logout
+        </Button>
+      </div>
     </Paper>
   );
 };

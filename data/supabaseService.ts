@@ -11,6 +11,28 @@ const eventsTable = 'agenda_events';
 // Create a supabase client for the entire app
 const supabaseClient = createClient(supabaseUrl, supabaseKey);
 
+// Authentication functions
+async function signInWithEmail(email: string, password: string) {
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) throw new Error(`Authentication failed: ${error.message}`);
+  return data;
+}
+
+async function signOut() {
+  const { error } = await supabaseClient.auth.signOut();
+  if (error) throw new Error(`Sign out failed: ${error.message}`);
+}
+
+async function getCurrentUser() {
+  const { data, error } = await supabaseClient.auth.getUser();
+  if (error) throw new Error(`Failed to get user: ${error.message}`);
+  return data.user;
+}
+
 async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
   const { data, error } = await supabaseClient.from(eventsTable).select('*');
 
@@ -101,8 +123,14 @@ async function deleteAgendaEvent(id: string): Promise<string> {
 }
 
 export const supabaseService = {
+  // Database operations
   getAllAgendaEvents,
   createNewAgendaEvent,
   updateAgendaEvent,
   deleteAgendaEvent,
+
+  // Auth operations
+  signInWithEmail,
+  signOut,
+  getCurrentUser,
 };
