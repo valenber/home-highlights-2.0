@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 type UserType = {
   id: string;
   email: string;
+  needsRefresh?: boolean;
 } | null;
 
 type AuthContextType = {
@@ -42,6 +43,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
         const { data } = await res.json();
         setUser(data);
+
+        // Check if session needs to be refreshed
+        if (data && data.needsRefresh) {
+          await refreshSession();
+        }
       } catch (error) {
         console.error('Error checking authentication:', error);
         setUser(null);
@@ -52,6 +58,24 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
     checkUser();
   }, []);
+
+  // Function to refresh the session
+  const refreshSession = async () => {
+    try {
+      const res = await fetch(AUTH_API_URL, {
+        method: 'PUT',
+      });
+
+      if (!res.ok) {
+        throw new Error('Session refresh failed');
+      }
+
+      const { data } = await res.json();
+      setUser(data);
+    } catch (error) {
+      console.error('Error refreshing session:', error);
+    }
+  };
 
   const signIn = async (email: string, password: string) => {
     const res = await fetch(AUTH_API_URL, {
