@@ -33,6 +33,12 @@ async function getCurrentUser() {
   return data.user;
 }
 
+async function refreshSession() {
+  const { data, error } = await supabaseClient.auth.refreshSession();
+  if (error) throw new Error(`Failed to refresh session: ${error.message}`);
+  return data;
+}
+
 async function getAllAgendaEvents(): Promise<AgendaEvent[]> {
   const { data, error } = await supabaseClient.from(eventsTable).select('*');
 
@@ -133,4 +139,5 @@ export const supabaseService = {
   signInWithEmail,
   signOut,
   getCurrentUser,
+  refreshSession,
 };
