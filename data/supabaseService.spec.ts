@@ -21,11 +21,13 @@ jest.mock('@supabase/supabase-js', () => {
   const mockSignInWithPassword = jest.fn();
   const mockSignOut = jest.fn();
   const mockGetUser = jest.fn();
+  const mockRefreshSession = jest.fn();
 
   const mockAuth = {
     signInWithPassword: mockSignInWithPassword,
     signOut: mockSignOut,
     getUser: mockGetUser,
+    refreshSession: mockRefreshSession,
   };
 
   const mockClient = {
@@ -58,6 +60,7 @@ describe('supabaseService', () => {
   const mockSignInWithPassword = mockAuth.signInWithPassword;
   const mockSignOut = mockAuth.signOut;
   const mockGetUser = mockAuth.getUser;
+  const mockRefreshSession = mockAuth.refreshSession;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -506,6 +509,65 @@ describe('supabaseService', () => {
 
       // Verify Supabase auth was called
       expect(mockGetUser).toHaveBeenCalled();
+    });
+  });
+
+  describe('refreshSession', () => {
+    it('should successfully refresh the session', async () => {
+      // Mock user object
+      const mockUser = {
+        id: 'user123',
+        email: 'test@example.com',
+        app_metadata: {},
+        user_metadata: {},
+        aud: 'authenticated',
+        created_at: '2023-01-01T00:00:00.000Z',
+      };
+
+      // Mock session object
+      const mockSession = {
+        access_token: 'new-token',
+        refresh_token: 'new-refresh-token',
+        expires_at: Date.now() + 3600,
+      };
+
+      // Mock successful refresh response
+      mockRefreshSession.mockResolvedValueOnce({
+        data: {
+          user: mockUser,
+          session: mockSession,
+        },
+        error: null,
+      });
+
+      // Call the service method
+      const result = await supabaseService.refreshSession();
+
+      // Verify Supabase auth was called
+      expect(mockRefreshSession).toHaveBeenCalled();
+
+      // Assert the returned data
+      expect(result).toEqual({
+        user: mockUser,
+        session: mockSession,
+      });
+    });
+
+    it('should throw an error when session refresh fails', async () => {
+      // Mock error response
+      const errorMessage = 'Session expired or invalid';
+      mockRefreshSession.mockResolvedValueOnce({
+        data: null,
+        error: { message: errorMessage },
+      });
+
+      // Verify the promise rejects with expected error
+      await expect(supabaseService.refreshSession()).rejects.toThrow(
+        `Failed to refresh session: ${errorMessage}`,
+      );
+
+      // Verify Supabase auth was called
+      expect(mockRefreshSession).toHaveBeenCalled();
     });
   });
 });
