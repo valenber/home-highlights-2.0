@@ -1,4 +1,11 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+  useRef,
+} from 'react';
 import { useRouter } from 'next/router';
 
 type UserType = {
@@ -31,9 +38,33 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  useEffect(() => {
-    // Check if user is already logged in
-    const checkUser = async () => {
+  // Use ref to avoid stale closures
+  const userRef = useRef(user);
+  userRef.current = user;
+
+  // Function to refresh the session
+  const refreshSession = useCallback(async () => {
+    try {
+      const res = await fetch(AUTH_API_URL, {
+        method: 'PUT',
+      });
+
+      if (!res.ok) {
+        throw new Error('Session refresh failed');
+      }
+
+      const { data } = await res.json();
+      setUser(data);
+    } catch (error) {
+      console.error('Error refreshing session:', error);
+      // If refresh fails, user might need to log in again
+      setUser(null);
+    }
+  }, []);
+
+  // Check if user is already logged in
+  const checkUser = useCallback(
+    async (isInitialCheck = false) => {
       try {
         const res = await fetch(AUTH_API_URL);
 
@@ -52,30 +83,45 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         console.error('Error checking authentication:', error);
         setUser(null);
       } finally {
-        setLoading(false);
+        if (isInitialCheck) {
+          setLoading(false);
+        }
+      }
+    },
+    [refreshSession],
+  );
+
+  useEffect(() => {
+    // Initial auth check
+    checkUser(true);
+
+    // Re-validate session when user returns to tab
+    const handleVisibilityChange = () => {
+      if (!document.hidden && userRef.current) {
+        // User returned to the tab and has a session - re-validate it
+        checkUser();
       }
     };
 
-    checkUser();
-  }, []);
+    // Add event listener for tab visibility changes
+    document.addEventListener('visibilitychange', handleVisibilityChange);
 
-  // Function to refresh the session
-  const refreshSession = async () => {
-    try {
-      const res = await fetch(AUTH_API_URL, {
-        method: 'PUT',
-      });
+    // Periodic session validation (every 5 minutes)
+    const interval = setInterval(
+      () => {
+        if (userRef.current && !document.hidden) {
+          checkUser();
+        }
+      },
+      5 * 60 * 1000,
+    ); // 5 minutes
 
-      if (!res.ok) {
-        throw new Error('Session refresh failed');
-      }
-
-      const { data } = await res.json();
-      setUser(data);
-    } catch (error) {
-      console.error('Error refreshing session:', error);
-    }
-  };
+    // Cleanup
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      clearInterval(interval);
+    };
+  }, [checkUser]);
 
   const signIn = async (email: string, password: string) => {
     const res = await fetch(AUTH_API_URL, {
