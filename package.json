@@ -24,7 +24,6 @@
     "@supabase/ssr": "^0.7.0",
     "@supabase/supabase-js": "2.49.4",
     "eslint-config-next": "14.2.25",
-    "faunadb": "4.8.0",
     "isomorphic-unfetch": "4.0.2",
     "next": "14.2.32",
     "notistack": "2.0.8",

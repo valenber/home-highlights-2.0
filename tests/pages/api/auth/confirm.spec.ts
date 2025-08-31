@@ -1,5 +1,5 @@
 import { createMocks } from 'node-mocks-http';
-import handler from './confirm';
+import handler from '../../../../pages/api/auth/confirm';
 import { EmailOtpType } from '@supabase/supabase-js';
 
 // Mock environment variables

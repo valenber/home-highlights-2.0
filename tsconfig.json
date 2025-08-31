@@ -32,17 +32,15 @@
     "incremental": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
   ],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
-  "rules": {
-    "no-unused-vars": false,
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true
-  }
+  ]
 }
