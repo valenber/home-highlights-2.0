@@ -1,16 +1,31 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { AuthProvider, useAuth } from './auth';
-import { act } from 'react-dom/test-utils';
 
+// Mock next/router
 jest.mock('next/router', () => ({
   useRouter: () => ({
     push: jest.fn(),
   }),
 }));
 
-// Mock global fetch
-const originalFetch = global.fetch;
+// Mock the Supabase client
+const mockAuth = {
+  getSession: jest.fn(),
+  onAuthStateChange: jest.fn(),
+  signInWithPassword: jest.fn(),
+  signOut: jest.fn(),
+};
+
+jest.mock('@/utils/supabase/client', () => ({
+  createClient: jest.fn(() => ({
+    auth: mockAuth,
+  })),
+}));
+
+// Mock environment variables for test
+process.env.NEXT_PUBLIC_SUPABASE_URL = 'https://test.supabase.co';
+process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = 'test-anon-key';
 
 const TestComponent = () => {
   const { user, loading } = useAuth();
@@ -30,23 +45,21 @@ const TestComponent = () => {
 
 describe('AuthProvider', () => {
   beforeEach(() => {
-    global.fetch = jest.fn();
-    jest.useFakeTimers();
+    jest.clearAllMocks();
+
+    // Setup default mocks
+    mockAuth.onAuthStateChange.mockReturnValue({
+      data: {
+        subscription: {
+          unsubscribe: jest.fn(),
+        },
+      },
+    });
   });
 
-  afterEach(() => {
-    global.fetch = originalFetch;
-    jest.useRealTimers();
-  });
-
-  it('should automatically check for user on mount', async () => {
-    // Mock successful auth check
-    (global.fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({
-        data: { id: 'user123', email: 'test@example.com' },
-        error: null,
-      }),
+  it('should show loading state initially', async () => {
+    mockAuth.getSession.mockResolvedValue({
+      data: { session: null },
     });
 
     render(
@@ -56,90 +69,53 @@ describe('AuthProvider', () => {
     );
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
+  });
+
+  it('should show not logged in when no session', async () => {
+    mockAuth.getSession.mockResolvedValue({
+      data: { session: null },
+    });
+
+    render(
+      <AuthProvider>
+        <TestComponent />
+      </AuthProvider>,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId('user-status')).toHaveTextContent(
+        'Not logged in',
+      );
+    });
+  });
+
+  it('should show user when session exists', async () => {
+    const mockUser = {
+      id: 'user123',
+      email: 'test@example.com',
+      user_metadata: {},
+      app_metadata: {},
+    };
+
+    mockAuth.getSession.mockResolvedValue({
+      data: {
+        session: {
+          user: mockUser,
+          access_token: 'token',
+        },
+      },
+    });
+
+    render(
+      <AuthProvider>
+        <TestComponent />
+      </AuthProvider>,
+    );
 
     await waitFor(() => {
       expect(screen.getByTestId('user-status')).toHaveTextContent(
         'Logged in as test@example.com',
       );
     });
-
-    expect(global.fetch).toHaveBeenCalledWith('/api/v1/auth');
-  });
-
-  it('should automatically refresh session when server indicates refresh is needed', async () => {
-    // Initial auth check response with needsRefresh flag
-    (global.fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({
-        data: {
-          id: 'user123',
-          email: 'test@example.com',
-          needsRefresh: true, // Server indicates refresh is needed
-        },
-        error: null,
-      }),
-    });
-
-    // Refresh session response
-    (global.fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({
-        data: {
-          id: 'user123',
-          email: 'test@example.com',
-        },
-        error: null,
-      }),
-    });
-
-    render(
-      <AuthProvider>
-        <TestComponent />
-      </AuthProvider>,
-    );
-
-    await waitFor(() => {
-      expect(screen.getByTestId('user-status')).toBeInTheDocument();
-    });
-
-    await waitFor(() => {
-      expect(global.fetch).toHaveBeenCalledTimes(2);
-    });
-
-    await waitFor(() => {
-      expect(global.fetch).toHaveBeenLastCalledWith('/api/v1/auth', {
-        method: 'PUT',
-      });
-    });
-  });
-
-  it('should not refresh session when server does not indicate refresh is needed', async () => {
-    (global.fetch as jest.Mock).mockResolvedValueOnce({
-      ok: true,
-      json: async () => ({
-        data: {
-          id: 'user123',
-          email: 'test@example.com',
-          // No needsRefresh flag
-        },
-        error: null,
-      }),
-    });
-
-    render(
-      <AuthProvider>
-        <TestComponent />
-      </AuthProvider>,
-    );
-
-    await waitFor(() => {
-      expect(screen.getByTestId('user-status')).toBeInTheDocument();
-    });
-
-    act(() => {
-      jest.advanceTimersByTime(1000);
-    });
-
-    expect(global.fetch).toHaveBeenCalledTimes(1); // Only the initial auth check
   });
 });

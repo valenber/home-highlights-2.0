@@ -1,8 +1,8 @@
 import { supabaseService } from './supabaseService';
 import { AgendaEvent } from './dbSchema';
 
-// Mock the entire module to control the createClient function
-jest.mock('@supabase/supabase-js', () => {
+// Mock the server client
+jest.mock('@/utils/supabase/server', () => {
   const mockSingle = jest.fn();
   const mockSelect = jest.fn(() => ({ single: mockSingle }));
   const mockInsert = jest.fn(() => ({ select: mockSelect }));
@@ -17,22 +17,8 @@ jest.mock('@supabase/supabase-js', () => {
     delete: mockDelete,
   }));
 
-  // Auth mocks
-  const mockSignInWithPassword = jest.fn();
-  const mockSignOut = jest.fn();
-  const mockGetUser = jest.fn();
-  const mockRefreshSession = jest.fn();
-
-  const mockAuth = {
-    signInWithPassword: mockSignInWithPassword,
-    signOut: mockSignOut,
-    getUser: mockGetUser,
-    refreshSession: mockRefreshSession,
-  };
-
   const mockClient = {
     from: mockFrom,
-    auth: mockAuth,
   };
 
   return {
@@ -41,7 +27,7 @@ jest.mock('@supabase/supabase-js', () => {
 });
 
 // Get direct access to the mocked module
-const mockedSupabase = jest.requireMock('@supabase/supabase-js');
+const mockedSupabase = jest.requireMock('@/utils/supabase/server');
 
 describe('supabaseService', () => {
   // Get references to mock functions
@@ -54,13 +40,6 @@ describe('supabaseService', () => {
   const mockSingle = mockFrom().select().single;
   const mockDelete = mockFrom().delete;
   const mockDeleteEq = mockFrom().delete().eq;
-
-  // Auth mock functions
-  const mockAuth = mockClient.auth;
-  const mockSignInWithPassword = mockAuth.signInWithPassword;
-  const mockSignOut = mockAuth.signOut;
-  const mockGetUser = mockAuth.getUser;
-  const mockRefreshSession = mockAuth.refreshSession;
 
   beforeEach(() => {
     jest.clearAllMocks();
@@ -378,196 +357,6 @@ describe('supabaseService', () => {
       expect(mockFrom).toHaveBeenCalledWith('agenda_events');
       expect(mockDelete).toHaveBeenCalled();
       expect(mockDeleteEq).toHaveBeenCalledWith('id', eventId);
-    });
-  });
-
-  // Auth method tests
-  describe('signInWithEmail', () => {
-    it('should successfully sign in a user with email and password', async () => {
-      // Mock user object
-      const mockUser = {
-        id: 'user123',
-        email: 'test@example.com',
-        app_metadata: {},
-        user_metadata: {},
-        aud: 'authenticated',
-        created_at: '2023-01-01T00:00:00.000Z',
-      };
-
-      // Mock successful sign in response
-      mockSignInWithPassword.mockResolvedValueOnce({
-        data: { user: mockUser, session: {} },
-        error: null,
-      });
-
-      // Call the service method
-      const result = await supabaseService.signInWithEmail(
-        'test@example.com',
-        'password123',
-      );
-
-      // Verify Supabase auth was called correctly
-      expect(mockSignInWithPassword).toHaveBeenCalledWith({
-        email: 'test@example.com',
-        password: 'password123',
-      });
-
-      // Assert the returned data
-      expect(result).toEqual({ user: mockUser, session: {} });
-    });
-
-    it('should throw an error when authentication fails', async () => {
-      // Mock error response
-      const errorMessage = 'Invalid login credentials';
-      mockSignInWithPassword.mockResolvedValueOnce({
-        data: null,
-        error: { message: errorMessage },
-      });
-
-      // Verify the promise rejects with expected error
-      await expect(
-        supabaseService.signInWithEmail('test@example.com', 'wrong-password'),
-      ).rejects.toThrow(`Authentication failed: ${errorMessage}`);
-
-      // Verify Supabase auth was called correctly
-      expect(mockSignInWithPassword).toHaveBeenCalledWith({
-        email: 'test@example.com',
-        password: 'wrong-password',
-      });
-    });
-  });
-
-  describe('signOut', () => {
-    it('should successfully sign out a user', async () => {
-      // Mock successful sign out response
-      mockSignOut.mockResolvedValueOnce({ error: null });
-
-      // Call the service method
-      await supabaseService.signOut();
-
-      // Verify Supabase auth was called
-      expect(mockSignOut).toHaveBeenCalled();
-    });
-
-    it('should throw an error when sign out fails', async () => {
-      // Mock error response
-      const errorMessage = 'Session expired';
-      mockSignOut.mockResolvedValueOnce({
-        error: { message: errorMessage },
-      });
-
-      // Verify the promise rejects with expected error
-      await expect(supabaseService.signOut()).rejects.toThrow(
-        `Sign out failed: ${errorMessage}`,
-      );
-
-      // Verify Supabase auth was called
-      expect(mockSignOut).toHaveBeenCalled();
-    });
-  });
-
-  describe('getCurrentUser', () => {
-    it('should successfully get the current user', async () => {
-      // Mock user object
-      const mockUser = {
-        id: 'user123',
-        email: 'test@example.com',
-        app_metadata: {},
-        user_metadata: {},
-        aud: 'authenticated',
-        created_at: '2023-01-01T00:00:00.000Z',
-      };
-
-      // Mock successful get user response
-      mockGetUser.mockResolvedValueOnce({
-        data: { user: mockUser },
-        error: null,
-      });
-
-      // Call the service method
-      const result = await supabaseService.getCurrentUser();
-
-      // Verify Supabase auth was called
-      expect(mockGetUser).toHaveBeenCalled();
-
-      // Assert the returned user
-      expect(result).toEqual(mockUser);
-    });
-
-    it('should throw an error when getting user fails', async () => {
-      // Mock error response
-      const errorMessage = 'Session invalid';
-      mockGetUser.mockResolvedValueOnce({
-        data: { user: null },
-        error: { message: errorMessage },
-      });
-
-      // Verify the promise rejects with expected error
-      await expect(supabaseService.getCurrentUser()).rejects.toThrow(
-        `Failed to get user: ${errorMessage}`,
-      );
-
-      // Verify Supabase auth was called
-      expect(mockGetUser).toHaveBeenCalled();
-    });
-  });
-
-  describe('refreshSession', () => {
-    it('should successfully refresh the session', async () => {
-      // Mock user object
-      const mockUser = {
-        id: 'user123',
-        email: 'test@example.com',
-        app_metadata: {},
-        user_metadata: {},
-        aud: 'authenticated',
-        created_at: '2023-01-01T00:00:00.000Z',
-      };
-
-      // Mock session object
-      const mockSession = {
-        access_token: 'new-token',
-        refresh_token: 'new-refresh-token',
-        expires_at: Date.now() + 3600,
-      };
-
-      // Mock successful refresh response
-      mockRefreshSession.mockResolvedValueOnce({
-        data: {
-          user: mockUser,
-          session: mockSession,
-        },
-        error: null,
-      });
-
-      // Call the service method
-      const result = await supabaseService.refreshSession();
-
-      // Verify Supabase auth was called
-      expect(mockRefreshSession).toHaveBeenCalled();
-
-      // Assert the returned data
-      expect(result).toEqual({
-        user: mockUser,
-        session: mockSession,
-      });
-    });
-
-    it('should throw an error when session refresh fails', async () => {
-      // Mock error response
-      const errorMessage = 'Session expired or invalid';
-      mockRefreshSession.mockResolvedValueOnce({
-        data: null,
-        error: { message: errorMessage },
-      });
-
-      // Verify the promise rejects with expected error
-      await expect(supabaseService.refreshSession()).rejects.toThrow(
-        `Failed to refresh session: ${errorMessage}`,
-      );
-
-      // Verify Supabase auth was called
-      expect(mockRefreshSession).toHaveBeenCalled();
     });
   });
 });
