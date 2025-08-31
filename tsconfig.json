@@ -19,6 +19,9 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@/*": [
+        "./*"
+      ],
       "test-utils": [
         "./tests/utils"
       ],
