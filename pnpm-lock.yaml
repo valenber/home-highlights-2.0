@@ -28,7 +28,7 @@ importers:
         version: 1.9.7(react-redux@9.1.0(@types/react@18.2.52)(react@18.2.0)(redux@5.0.1))(react@18.2.0)
       '@rollbar/react':
         specifier: 0.11.2
-        version: 0.11.2(prop-types@15.8.1)(react@18.2.0)(rollbar@2.26.2)
+        version: 0.11.2(prop-types@15.8.1)(react@18.2.0)(rollbar@2.26.5)
       '@supabase/supabase-js':
         specifier: 2.49.4
         version: 2.49.4
@@ -66,8 +66,8 @@ importers:
         specifier: 5.0.1
         version: 5.0.1
       rollbar:
-        specifier: 2.26.2
-        version: 2.26.2
+        specifier: 2.26.5
+        version: 2.26.5
     devDependencies:
       '@testing-library/jest-dom':
         specifier: 6.6.3
@@ -1592,9 +1592,6 @@ packages:
       supports-color:
         optional: true
 
-  decache@3.1.0:
-    resolution: {integrity: sha512-p7D6wJ5EJFFq1CcF2lu1XeqKFLBob8jRQGNAvFLTsV3CbSKBl3VtliAVlUIGz2i9H6kEFnI2Amaft5ZopIG2Fw==}
-
   decimal.js@10.5.0:
     resolution: {integrity: sha512-8vDa8Qxvr/+d94hSh5P3IJwI5t8/c0KsMp+g8bNw9cY2icONa5aPfvKeieW1WlG0WQYwwhJ7mjui2xtiePQSXw==}
 
@@ -2012,9 +2009,6 @@ packages:
   find-up@5.0.0:
     resolution: {integrity: sha512-78/PXT1wlLLDgTzDs7sjq9hzz0vXD+zn+7wypEe4fXQxCmdmqfGsEPQxmiCSQI3ajFV91bVSsvNtrJRiW6nGng==}
     engines: {node: '>=10'}
-
-  find@0.2.9:
-    resolution: {integrity: sha512-7a4/LCiInB9xYMnAUEjLilL9FKclwbwK7VlXw+h5jMvT2TDFeYFCHM24O1XdnC/on/hx8mxVO3FTQkyHZnOghQ==}
 
   flat-cache@3.2.0:
     resolution: {integrity: sha512-CYcENa+FtcUKLmhhqyctpclsq7QF38pKjZHsGNiSQF5r4FtoKDWabFDl3hzaEQMvT1LHEysw5twgLvpYYb4vbw==}
@@ -3269,8 +3263,8 @@ packages:
     deprecated: Rimraf versions prior to v4 are no longer supported
     hasBin: true
 
-  rollbar@2.26.2:
-    resolution: {integrity: sha512-7ASvrlal87ek2vhTmpu2LPvkdlcnala1qeMT2Ra76s0KjWkQ8d1fTl6dk7AqHx1Qa/puahg3tYw7EPB7wYx9RQ==}
+  rollbar@2.26.5:
+    resolution: {integrity: sha512-4Of0ALl5+CU2glyDy5dWMRRy9Ty81DrY2r46ucbqjtCikbgHoWJNGXbQUWpDaLxsc8Q71LT/yj1bPb9NHbJIFQ==}
 
   run-parallel@1.2.0:
     resolution: {integrity: sha512-5l4VyZR86LZ/lDxZTR6jqL8AFE2S0IFLMP26AbjsLVADxHdhB/c0GUsH+y39UfCi3dzz8OlQuPmnaJOMoDHQBA==}
@@ -3556,9 +3550,6 @@ packages:
   tr46@3.0.0:
     resolution: {integrity: sha512-l7FvfAHlcmulp8kr+flpQZmVwtu7nfRV7NZujtN0OqES8EL4O4e0qqzL0DC5gAvx/ZC/9lk6rhcUwYvkBnBnYA==}
     engines: {node: '>=12'}
-
-  traverse-chain@0.1.0:
-    resolution: {integrity: sha512-up6Yvai4PYKhpNp5PkYtx50m3KbwQrqDwbuZP/ItyL64YEWHAvH6Md83LFLV/GRSk/BoUVwwgUzX6SOQSbsfAg==}
 
   ts-api-utils@1.4.3:
     resolution: {integrity: sha512-i3eMG77UTMD0hZhgRS562pv83RC6ukSAC2GMNWc+9dieh/+jDM5u5YG+NHX6VNDRHQcHwmsTHctP9LhbC3WxVw==}
@@ -4609,11 +4600,11 @@ snapshots:
       react: 18.2.0
       react-redux: 9.1.0(@types/react@18.2.52)(react@18.2.0)(redux@5.0.1)
 
-  '@rollbar/react@0.11.2(prop-types@15.8.1)(react@18.2.0)(rollbar@2.26.2)':
+  '@rollbar/react@0.11.2(prop-types@15.8.1)(react@18.2.0)(rollbar@2.26.5)':
     dependencies:
       prop-types: 15.8.1
       react: 18.2.0
-      rollbar: 2.26.2
+      rollbar: 2.26.5
       tiny-invariant: 1.3.3
 
   '@rtsao/scc@1.1.0': {}
@@ -5511,11 +5502,6 @@ snapshots:
     dependencies:
       ms: 2.1.3
 
-  decache@3.1.0:
-    dependencies:
-      find: 0.2.9
-    optional: true
-
   decimal.js@10.5.0: {}
 
   dedent@1.5.3(babel-plugin-macros@3.1.0):
@@ -6145,11 +6131,6 @@ snapshots:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
-
-  find@0.2.9:
-    dependencies:
-      traverse-chain: 0.1.0
-    optional: true
 
   flat-cache@3.2.0:
     dependencies:
@@ -7592,7 +7573,7 @@ snapshots:
     dependencies:
       glob: 7.2.3
 
-  rollbar@2.26.2:
+  rollbar@2.26.5:
     dependencies:
       async: 3.2.6
       console-polyfill: 0.3.0
@@ -7601,8 +7582,6 @@ snapshots:
       lru-cache: 2.2.4
       request-ip: 3.3.0
       source-map: 0.5.7
-    optionalDependencies:
-      decache: 3.1.0
 
   run-parallel@1.2.0:
     dependencies:
@@ -7953,9 +7932,6 @@ snapshots:
   tr46@3.0.0:
     dependencies:
       punycode: 2.3.1
-
-  traverse-chain@0.1.0:
-    optional: true
 
   ts-api-utils@1.4.3(typescript@5.3.3):
     dependencies:
